@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updating goods</title>
+    <style>
+        .form_item {
+            width: 300px;
+            margin-bottom: 10px;
+        }
+    
+        .form_item input, .form_item select {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        </style>
+</head>
+<body>
+    <h2>Update Good  Here</h2>
+    <h3>ID: <%= item.id %> </h3>
+    <div id="popupForm" class="form_item">
+        <form action="/edit/<%=item.id%>" id="dataForm" method="POST">
+            <input type="text" name="item" value="<%= item.item_name %>"><br>
+            <input type="number" name="Qty" value="<%=item.item_qty %>"  min="1" max="500" step="1"><br>
+            <select name="category" placeholder="category" value="<%=item.item_category %>" required>
+                <option value="all">All Categories</option>
+                <option value="fruits">fruits</option>
+                <option value="sprays">Body spray</option>
+                <option value="soft drinks">soft drinks</option>
+                <option value="Vegetables">vegies</option>
+                <option value="alcohol">liquor</option>
+                <option value="baked goods">baked</option>
+                <option value="sweets">sweets</option>
+                <option value="butter">butter</option>
+            </select>
+            <br>
+            <input type="number" name="cost" value="<%=item.item_price %>" required><br>
+            <input type="date" name="exp"  value="<%=item.exp_date %>" required pattern="\d{4}-\d{2}-\d{2}" />
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

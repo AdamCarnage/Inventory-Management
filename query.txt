@@ -1,0 +1,47 @@
+--------------Creating a Table:
+CREATE TABLE table_name (
+    column1 datatype1 constraints,
+    column2 datatype2 constraints,
+    ...
+);
+
+----------Inserting Data:
+INSERT INTO table_name (column1, column2, ...) VALUES (value1, value2, ...);
+
+-----------Updating Data:
+UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;
+
+---------Deleting Data:
+SELECT columns FROM table_name WHERE condition;
+
+---------Joining Tables:
+SELECT columns FROM table1 JOIN table2 ON table1.column = table2.column;
+
+---------Selecting Data:
+SELECT column1, column2, ... FROM table_name WHERE condition;
+
+---------Grouping Data:
+CREATE INDEX index_name ON table_name (column);
+
+---------Grouping Data:
+SELECT column, aggregate_function(column) FROM table_name GROUP BY column;
+
+----------Ordering Data:
+SELECT columns FROM table_name ORDER BY column ASC/DESC;
+
+----------Aggregating Data:
+SELECT aggregate_function(column) FROM table_name;
+
+----------Deleting a Table:
+DROP TABLE table_name;
+
+-----------Updating Table (e.g., Adding a Column):
+ALTER TABLE table_name ADD column datatype constraints;
+
+---------Adding Constraints (e.g., Primary Key):
+ALTER TABLE table_name ADD CONSTRAINT pk_constraint_name PRIMARY KEY (column);
+
+------------Limiting Results:
+SELECT columns FROM table_name LIMIT n;
+
+
