@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory System</title>
+</head>
+<body>
+  <h2>Inventory System</h2>
+  <button onclick="scanItem('123456', 1.5)">Scan Product A</button>
+  <button onclick="scanItem('789012', 0.8)">Scan Product B</button>
+  <button onclick="getReceipt()">Get Receipt</button>
+
+  <script>
+    async function scanItem(barcode, weight) {
+      const response = await fetch('/scan', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ barcode, weight }),
+      });
+
+      const result = await response.json();
+      console.log(result.message);
+    }
+
+    async function getReceipt() {
+      const response = await fetch('/receipt');
+      const receipt = await response.json();
+      console.log('Receipt:', receipt);
+    }
+  </script>
+</body>
+</html>

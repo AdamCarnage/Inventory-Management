@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode create</title>
+</head>
+
+<body>
+
+    <input type="text" id="barcodeText" placeholder="Enter Text for Barcode">
+    <button id="generateBarcode">Generate Barcode</button>
+    <svg id="barcode"></svg>
+    <br>
+
+    <script src="https://unpkg.com/jsbarcode@3.11.3/dist/JsBarcode.all.min.js"></script>
+
+  <script>
+    document.getElementById('generateBarcode').addEventListener('click', function() {
+        const text = document.getElementById('barcodeText').value;
+        JsBarcode("#barcode",text,{
+      format: "code39",
+      lineColor: "#ADD8E6",
+      width: 4,
+      height: 40,
+      displayValue: false
+    });
+});
+</script>
+
+</body>
+</html>

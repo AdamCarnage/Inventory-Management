@@ -1,0 +1,96 @@
+<%- include('additionals/header'); -%>
+
+
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+
+    <%- include('additionals/navbar'); -%>
+
+    <% var itemDetails = itemDetails || {} %>
+
+
+    <h1 class="cont">Register your sales here</h1>
+
+
+    <!-- adding my sales -->
+    <div id="popupForm" class="form_item">
+        <form action="/sale" id="salesForm" method="POST">
+            <input type="text" name="item_id" placeholder="id" id="item_id" value="" required><br>
+            <input type="text" name="item_name" placeholder="item name" id="item_name" value="" required><br>
+            <input type="number" name="Qty" placeholder="Quantity" id="Qty" name="quantity" min="1" max="500" step="1" value=""
+                required><br>
+            <select name="category" placeholder="category" value="" required>
+                <option value="all">All Categories</option>
+                <option value="fruits">fruits</option>
+                <option value="sprays">Body spray</option>
+                <option value="soft drinks">soft drinks</option>
+                <option value="Vegetables">vegies</option>
+                <option value="alcohol">liquor</option>
+                <option value="baked goods">baked</option>
+                <option value="sweets">sweets</option>
+                <option value="butter">butter</option>
+            </select>
+            <br>
+            <input type="number" name="cost" placeholder="Price in tsh" id="cost" value="" required><br>
+            <input type="submit" value="Register sale">
+        </form>
+    </div>
+
+    <!-- salesDetails.ejs -->
+    <% Object.keys(groupedSales).forEach(date => { %>
+      <h2><%= date %></h2>
+      <table border="1" class="table">
+        <thead>
+          <tr class="table-dark">
+            <th>ID</th>
+            <th>Item Name</th>
+            <th>Item Quantity</th>
+            <th>Item Category</th>
+            <th>Item Price</th>
+            <th>Total cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% groupedSales[date].forEach(sale => { %>
+            <tr>
+              <td><%= sale.id %></td>
+              <td><%= sale.item_name %></td>
+              <td><%= sale.item_qty %></td>
+              <td><%= sale.item_category %></td>
+              <td><%= sale.item_price %></td>
+              <td><%= sale.total_price %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    <% }); %>
+
+    
+    <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    const itemDetails = JSON.parse('<%= JSON.stringify(itemDetails) %>');
+
+    if (itemDetails && Object.keys(itemDetails).length > 0) {
+        document.getElementById('item_id').value = itemDetails.id;
+        document.getElementById('item_name').value = itemDetails.item_name;
+        document.getElementById('Qty').value = itemDetails.item_qty;
+        document.querySelector('select[name="category"]').value = itemDetails.item_category;
+        document.getElementById('cost').value = itemDetails.item_price;
+    }
+});
+
+
+document.getElementById('submitButton').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('getItemForm').submit();
+});
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+<%- include('additionals/footer'); -%>
