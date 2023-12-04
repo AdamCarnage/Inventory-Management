@@ -7,9 +7,11 @@
     <title>Registration</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-    <h1>Business Inventory Admin Registration</h1>
-    <div class="login-form">
+<body class="valid">
+    <div class="header-container">
+        <h1 class="title">Business Inventory Register</h1>
+    </div>
+    <div class="form-container">
     <form action="/register" method="POST" id="loginForm" class="regin">
         <label for="name">First name</label>
         <input type="text" id="username" placeholder="Enter your Name" name="f_name" required><br>
@@ -21,9 +23,8 @@
         <input type="email" id="e-mail" placeholder="Enter your email" name="email" required><br>
         <label for="pass">password</label>
         <input type="password" id="pass" placeholder="Enter your password" name="pass" required><br>
-        <button type="submit">Register</button>
+        <button type="submit" class="register-button">REGISTER</button>
         <br>
-        <a href="/customerservice">Forgot Password Consult Admin</a>
         <a href="/">Return to Home</a>
     </form>
 </div>

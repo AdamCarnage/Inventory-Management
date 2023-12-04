@@ -106,10 +106,11 @@ app.post("/register", (req, res) => {
       );
     }
   });
+
 });
 
 
-app.post("/home",requireLogin, (req, res) => {
+app.post("/home", (req, res) => {
   const { item, Qty, category, cost, exp, id } = req.body;
 
   const expirationDate = new Date(exp);
@@ -135,25 +136,29 @@ app.post("/home",requireLogin, (req, res) => {
       res.redirect("/home");
     }
   });
+  req.session.userId = user.id;
+  res.redirect("/home");
 });
 
 
 app.get("/home", async (req, res) => {
-  try{
-   const itemdata = await pool.query("SELECT * FROM new_items");
-   const data = itemdata.rows;
-   res.render("home.ejs", { data });
-  }
-  catch (error){
+  try {
+    const itemdata = await pool.query("SELECT * FROM new_items");
+    const data = itemdata.rows;
+    res.render("home.ejs", { data });
+  } catch (error) {
     console.error("Error executing query", error);
     if (process.env.NODE_ENV === 'development') {
-        res.status(500).send(`Error occurred while fetching data: ${error.message}`);
+      res.status(500).send(`Error occurred while fetching data: ${error.message}`);
     } else {
-        res.status(500).send("Error occurred while fetching data.");
+      res.status(500).send("Error occurred while fetching data.");
     }
   }
-  });
+});
 
+app.get("/newproduct", (req,res) =>{
+  res.render("newproduct.ejs")
+})
 
 app.delete("/delete/:id", (req, res) => {
   const itemId = req.params.id;
