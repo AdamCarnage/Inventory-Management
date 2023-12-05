@@ -10,8 +10,9 @@
 }
 
 .header-container {
-  text-align: center;
+  text-align: left;
   margin-bottom: 20px;
+  margin-top: 220px;
 }
 
 .title {
@@ -95,6 +96,7 @@ a {
   padding: 8px;
   margin-bottom: 10px;
 }
+
 .sort {
   width: 300px;
   margin-bottom: 10px;

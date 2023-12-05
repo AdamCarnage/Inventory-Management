@@ -136,7 +136,7 @@ app.post("/home", (req, res) => {
       res.redirect("/home");
     }
   });
-  req.session.userId = user.id;
+  // req.session.userId = user.id;
   res.redirect("/home");
 });
 
@@ -230,6 +230,7 @@ app.post("/edit/:id", (req, res) => {
 app.post('/sale', (req, res) => {
   const { item_id, item_name, Qty, category, cost } = req.body;
 
+  // Step 1: Get item price from the database
   const getCostQuery = 'SELECT item_price FROM new_items WHERE id = $1';
   const getCostValues = [item_id];
 
@@ -242,13 +243,16 @@ app.post('/sale', (req, res) => {
         res.send('<script>alert("No item with such ID!!!"); window.location.href = "/sale"; </script>');
         return;
       }
+
       const itemCost = result.rows[0].item_price;
 
+      // Step 2: Check if the provided cost matches the item's price
       if (itemCost !== cost) {
         res.send('<script>alert("The provided price does not match the item\'s price."); window.location.href = "/sale"; </script>');
         return;
       }
 
+      // Step 3: Get current quantity of the item
       const getQtyQuery = 'SELECT item_qty FROM new_items WHERE id = $1';
       const getQtyValues = [item_id];
 
@@ -261,15 +265,18 @@ app.post('/sale', (req, res) => {
             res.send('<script>alert("No item with such ID!!!"); window.location.href = "/sale"; </script>');
             return;
           }
+
           const currentQty = result.rows[0].item_qty;
-          
+
+          // Step 4: Check if the quantity is sufficient for the sale
           if (currentQty >= Qty) {
-            // Calculate total cost
+            // Step 5: Calculate total cost
             const total_price = Qty * cost;
 
-            // Set the current date and time
+            // Step 6: Set the current date and time
             const currentDate = new Date().toISOString();
 
+            // Step 7: Insert sale record into the database
             const insertSalesQuery = 'INSERT INTO sales (id, item_name, item_qty, item_category, item_price, total_price, sale_date) VALUES ($1, $2, $3, $4, $5, $6, $7)';
             const salesValues = [item_id, item_name, Qty, category, cost, total_price, currentDate];
 
@@ -278,6 +285,7 @@ app.post('/sale', (req, res) => {
                 console.error('Error executing query', error);
                 res.status(500).send('Error occurred while registering sale.');
               } else {
+                // Step 8: Update item quantity in the database
                 const updateQtyQuery = 'UPDATE new_items SET item_qty = item_qty - $1 WHERE id = $2';
                 const updateValues = [Qty, item_id];
 
@@ -288,6 +296,7 @@ app.post('/sale', (req, res) => {
                   } else {
                     console.log(currentQty);
 
+                    // Step 9: Check if the quantity is zero and remove the item from the database
                     if (currentQty - Qty <= 0) {
                       const removeItemQuery = 'DELETE FROM new_items WHERE id = $1';
                       const removeItemValues = [item_id];
@@ -317,11 +326,12 @@ app.post('/sale', (req, res) => {
 });
 
 
+
 app.get('/sale', (req, res) => {
 
   const sessionData = req.session;
 
-  const getSalesQuery = 'SELECT * FROM sales ORDER BY sale_date DESC'; // Assuming you have a sale_date column in your sales table
+  const getSalesQuery = 'SELECT * FROM sales ORDER BY sale_date DESC';
   pool.query(getSalesQuery, (error, result) => {
     if (error) {
       console.error('Error executing query', error);

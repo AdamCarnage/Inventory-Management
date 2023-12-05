@@ -138,7 +138,7 @@
                     <td><%= item.item_qty %></td>
                     <td><%= item.item_category %></td>
                     <td><%= item.item_price %></td>
-                    <td><%= item.exp_date %></td>
+                    <td><%= item.exp_date.toLocaleDateString('en-GB') %></td>
                     <td>
                         <button class="edit-btn" data-id="<%= item.id %>">Edit</button>
                         <button class="delete-btn" data-id="<%= item.id %>">Delete</button>
@@ -177,20 +177,13 @@
                 <td><%= item.item_qty %></td>
                 <td><%= item.item_category %></td>
                 <td><%= item.item_price %></td>
-                <td><%= item.exp_date %></td>
+                <td><%= item.exp_date.toLocaleDateString('en-GB') %></td>
                 <td>
                     <button class="edit-btn" data-id="<%= item.id %>">Edit</button>
                     <button class="delete-btn" data-id="<%= item.id %>">Delete</button>
                 </td>
             </tr>
         <% }); %>
-    </tbody>
-    <tbody>
-        <tr>
-            <td colspan="2">Total:</td>
-            <td id="total-qty"></td>
-            <td colspan="2" id="total-price"></td>
-        </tr>
     </tbody>
     </table>
     <br>
