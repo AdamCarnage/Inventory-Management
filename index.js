@@ -59,6 +59,15 @@ app.get("/customerservice", (req, res) => {
   res.render("customer.ejs");
 });
 
+app.get("/logedout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error destroying session:', err);
+    }
+    res.redirect('/');
+  });
+})
+
 app.post("/", (req, res) => {
   const { email, name, pass } = req.body;
 
@@ -133,10 +142,9 @@ app.post("/home", (req, res) => {
         '<script>alert("There was an error in submitting"); window.location.href = "/home"; </script>'
       );
     } else {
-      res.redirect("/home");
+      
     }
   });
-  // req.session.userId = user.id;
   res.redirect("/home");
 });
 

@@ -4,15 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Inventory Home page</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
 
+<body>
     <div class="topnav">
         <div class="avatar">
           <img src="avatar.jpg" alt="Avatar">
         </div>
+        <form action="/logedout" method="GET">
+        <div class="icons" style="margin-right: 1050px " >
+            <button type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" width="24" height="24" viewBox="0 0 24 24" width="512" height="512">
+            <path d="M23.117,9.879l-4.95-4.95L16.046,7.05,19.5,10.5H6.617v3H19.5l-3.45,3.45,2.121,2.121,4.95-4.95A3,3,0,0,0,23.117,9.879Z"/><path d="M9.994,20.5a.5.5,0,0,1-.5.5H3.506a.5.5,0,0,1-.5-.5V3.531a.5.5,0,0,1,.5-.5H9.494a.5.5,0,0,1,.5.5V8.345h3V3.531a3.505,3.505,0,0,0-3.5-3.5H3.506a3.505,3.505,0,0,0-3.5,3.5V20.5a3.5,3.5,0,0,0,3.5,3.5H9.494a3.5,3.5,0,0,0,3.5-3.5V15.683h-3Z"/></svg>
+              LOGOUT
+            </button>
+        </div>
+        </form>
         <div class="icons">
           <button onclick="window.location.href='/home'">
             <svg xmlns="http://www.w3.org/2000/svg" 
@@ -68,15 +78,17 @@
             </svg>
             Sales
           </button>
+
+          <button onclick="window.location.href='/sale'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 384 512">
+            <path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM64 80c0-8.8 7.2-16 16-16h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16zm128 72c8.8 0 16 7.2 16 16v17.3c8.5 1.2 16.7 3.1 24.1 5.1c8.5 2.3 13.6 11 11.3 19.6s-11 13.6-19.6 11.3c-11.1-3-22-5.2-32.1-5.3c-8.4-.1-17.4 1.8-23.6 5.5c-5.7 3.4-8.1 7.3-8.1 12.8c0 3.7 1.3 6.5 7.3 10.1c6.9 4.1 16.6 7.1 29.2 10.9l.5 .1 0 0 0 0c11.3 3.4 25.3 7.6 36.3 14.6c12.1 7.6 22.4 19.7 22.7 38.2c.3 19.3-9.6 33.3-22.9 41.6c-7.7 4.8-16.4 7.6-25.1 9.1V440c0 8.8-7.2 16-16 16s-16-7.2-16-16V422.2c-11.2-2.1-21.7-5.7-30.9-8.9l0 0c-2.1-.7-4.2-1.4-6.2-2.1c-8.4-2.8-12.9-11.9-10.1-20.2s11.9-12.9 20.2-10.1c2.5 .8 4.8 1.6 7.1 2.4l0 0 0 0 0 0c13.6 4.6 24.6 8.4 36.3 8.7c9.1 .3 17.9-1.7 23.7-5.3c5.1-3.2 7.9-7.3 7.8-14c-.1-4.6-1.8-7.8-7.7-11.6c-6.8-4.3-16.5-7.4-29-11.2l-1.6-.5 0 0c-11-3.3-24.3-7.3-34.8-13.7c-12-7.2-22.6-18.9-22.7-37.3c-.1-19.4 10.8-32.8 23.8-40.5c7.5-4.4 15.8-7.2 24.1-8.7V232c0-8.8 7.2-16 16-16z"/></svg>
+            Invoices
+          </button>
         </div>
       </div>
 
     <div class="content">
     <h1>Welcome user </h1>
-    <br>
-    <form action="/home" method="GET">
-    <button type="submit">Log out</button>
-    </form>
     <p>
         Inventory management apps are invaluable tools for businesses of all sizes. These applications provide a streamlined and efficient way to track, 
         manage, and optimize stock levels and assets. With features like real-time updates, barcode scanning, and reporting analytics, 
@@ -87,36 +99,11 @@
         Whether for small retailers or large-scale enterprises, a well-designed inventory management app can be a cornerstone
         in ensuring smoother operations and a healthier bottom line.
     </p>
-    <br>
 
-
-    <!-- adding my goods -->
-    <h2>Add new goods Here</h2>
-    <div id="popupForm" class="form_item">
-        <form action="/home" id="dataForm" method="POST">
-            <input type="text" name="item" placeholder="item name" required><br>
-            <input type="number" name="Qty" placeholder="Quantity" name="quantity" min="1" max="500" step="1" required><br>
-            <select name="category" placeholder="category" required>
-                <option value="all">All Categories</option>
-                <option value="fruits">fruits</option>
-                <option value="sprays">Body spray</option>
-                <option value="soft drinks">soft drinks</option>
-                <option value="Vegetables">vegies</option>
-                <option value="alcohol">liquor</option>
-                <option value="baked goods">baked</option>
-                <option value="sweets">sweets</option>
-                <option value="butter">butter</option>
-            </select>
-            <br>
-            <input type="number" name="cost" placeholder="Price in tsh" required><br>
-            <input type="date" name="exp" required pattern="\d{4}-\d{2}-\d{2}" />
-            <input type="submit" value="Submit">
-        </form>
-    </div>
 
     <!-- table displaying expiring goods -->
     <h2>Near expiring Goods Details</h2>
-    <table>
+    <table class="table table-striped">
         <thead>
         <tr>
             <th>id</th>
@@ -140,8 +127,8 @@
                     <td><%= item.item_price %></td>
                     <td><%= item.exp_date.toLocaleDateString('en-GB') %></td>
                     <td>
-                        <button class="edit-btn" data-id="<%= item.id %>">Edit</button>
-                        <button class="delete-btn" data-id="<%= item.id %>">Delete</button>
+                        <button type="button" class="btn btn-primary" data-id="<%= item.id %>">Edit</button>
+                        <button type="button" class="btn btn-danger" data-id="<%= item.id %>">Delete</button>
                     </td>
                 </tr>
             <% }); %>
@@ -157,7 +144,7 @@
 
     <!-- table displaying new goods -->
     <h2>New Goods detais</h2>
-    <table>
+    <table class="table table-striped">
     <thead>
         <tr>
             <th>id</th>
@@ -179,8 +166,8 @@
                 <td><%= item.item_price %></td>
                 <td><%= item.exp_date.toLocaleDateString('en-GB') %></td>
                 <td>
-                    <button class="edit-btn" data-id="<%= item.id %>">Edit</button>
-                    <button class="delete-btn" data-id="<%= item.id %>">Delete</button>
+                    <button type="button" class="btn btn-primary" data-id="<%= item.id %>">Edit</button>
+                    <button type="button" class="btn btn-danger" data-id="<%= item.id %>">Delete</button>
                 </td>
             </tr>
         <% }); %>
@@ -196,44 +183,22 @@
         </div>
       </div>
     </div>
-    <script>
-
-/*------------------create new Id for produts------------------------*/
-document.getElementById('dataForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const randomId = generateRandomId();
-
-    const idInput = document.createElement('input');
-    idInput.type = 'hidden';
-    idInput.name = 'id';
-    idInput.value = randomId;
-    this.appendChild(idInput);
-
-    this.submit();
-});
-
-
-function generateRandomId() {
-    const max = 9223372036854775807;  
-    const randomNum = Math.floor(Math.random() * (max + 1));
-    return randomNum;
-}
-
+    
+<script>
 
 /*------------------add delete btn in all table rows------------------------*/
-document.querySelectorAll('.delete-btn').forEach(button => {
+document.querySelectorAll('.btn.btn-danger').forEach(button => {
     button.addEventListener('click', function() {
         const row = this.closest('tr');
         const rowIndex = row.rowIndex;
-        console.log(`Button in row ${rowIndex} was clicked`);
+        // console.log(`Button in row ${rowIndex} was clicked`);
     });
 });
 
 
 /*------------------delete produts using id------------------------*/
 document.addEventListener('DOMContentLoaded', () => {
-    const deleteButtons = document.querySelectorAll('.delete-btn');
+    const deleteButtons = document.querySelectorAll('.btn.btn-danger');
 
     deleteButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -263,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /*------------------Edit produts details using id------------------------*/
 document.addEventListener('DOMContentLoaded', () => {
-    const editButtons = document.querySelectorAll('.edit-btn');
+    const editButtons = document.querySelectorAll('.btn.btn-primary');
 
     editButtons.forEach(button => {
         button.addEventListener('click', () => {
