@@ -123,10 +123,14 @@
             </div>
             </form>
         </div>
+        </div>
 
         
         <div class="content">
-            <h1 class="cont">Register your sales here</h1>
+
+          <% var itemDetails = itemDetails || {} %>
+
+        <h2>Register your sales here</h2>
         <div id="popupForm" class="form_item">
             <form action="/sale" id="salesForm" method="POST">
                 <input type="text" name="item_id" placeholder="id" id="item_id" value="" required><br>
@@ -150,5 +154,27 @@
             </form>
         </div>
     </div>
+
+    <script>
+
+      document.addEventListener('DOMContentLoaded', () => {
+          const itemDetails = JSON.parse('<%= JSON.stringify(itemDetails) %>');
+      
+          if(itemDetails && Object.keys(itemDetails).length > 0) {
+              document.getElementById('item_id').value = itemDetails.id;
+              document.getElementById('item_name').value = itemDetails.item_name;
+              document.getElementById('Qty').value = itemDetails.item_qty;
+              document.querySelector('select[name="category"]').value = itemDetails.item_category;
+              document.getElementById('cost').value = itemDetails.item_price;
+          }
+      });
+      
+      
+      document.getElementById('submitButton').addEventListener('click', function(event) {
+          event.preventDefault();
+          document.getElementById('getItemForm').submit();
+      });
+      
+      </script>
 
     <%- include('additionals/footer'); -%>

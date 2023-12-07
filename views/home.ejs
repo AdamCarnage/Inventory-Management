@@ -154,7 +154,7 @@
     </thead>
 
     <tbody id="data-table-body">
-        <% if (data && data.length > 0) { %>
+        <% if(data && data.length > 0) { %>
             <% data.forEach(item => { %>
                 <tr id="goods">
                     <td><%= item.id %></td>
@@ -243,12 +243,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const confirmation = confirm('Are you sure you want to delete this item?');
 
-            if (confirmation) {
+            if(confirmation) {
                 fetch(`/delete/${itemId}`, {
                     method: 'DELETE'
                 })
                 .then(response => {
-                    if (!response.ok) {
+                    if(!response.ok) {
                         throw new Error('Network response was not ok');
                     }
                     return response.json();
