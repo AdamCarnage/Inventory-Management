@@ -43,7 +43,18 @@ Make sure you have the following installed on your machine:
 
 cd inventory-management-system
 
-##Install project directory
+## Configure the db
+DB_HOST=localhost
+DB_USER=your_postgres_username
+DB_PASSWORD=your_postgres_password
+DB_DATABASE=your_database_name
+DB_PORT=5432
+
+## Start the application best way use:
+
+nodemon index.js or node index.js
+
+##Install project directory:
 
    ```bash
    npm install express path fs express-session cookie-parser method-override pg
