@@ -174,9 +174,11 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgb(163, 189, 209);
+  background-color: #76a3bd;
   padding-top: 20px;
   text-align: center;
+  box-shadow: 0 4px 6px #375f77;
+  border-right: 2px solid #668bb1; 
 }
 
 .sidebar h2 {
@@ -201,13 +203,60 @@ body {
   background-color: #355681;
 }
 
+.statistics-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.statistic-box {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 250px;
+  height: 100px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.box-blue {
+    background-color: #3498db;
+}
+
+.box-green {
+    background-color: #2ecc71;
+}
+
+.box-orange {
+    background-color: #e67e22;
+}
+
+.box-purple {
+    background-color: #9b59b6;
+}
+
+.statistic-box h3 {
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.statistic-box p {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
 .content {
   margin-left: 250px;
   padding: 20px;
 }
 
 .topnav {
-  background-color: #0d405e;
+  background-color: #76a3bd;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const fs = require('fs');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const methodOverride = require("method-override");
@@ -166,6 +167,26 @@ app.get("/home", async (req, res) => {
 
 app.get("/newproduct", (req,res) =>{
   res.render("newproduct.ejs")
+})
+
+app.get("/newsale", (req,res) => {
+  res.render("addsale.ejs")
+})
+
+app.get("/error", (req, res) => {
+  res.render("error.ejs")
+})
+
+app.get("/invoice", (req, res) => {
+  const invoiceexist = 'views/invoice.ejs' ;
+
+  fs.access (invoiceexist, fs.constants.F_OK, (err) =>{
+    if (err){
+      res.redirect('/error');
+    } else{
+      res.redirect ('/invoice');
+    }
+  })
 })
 
 app.delete("/delete/:id", (req, res) => {

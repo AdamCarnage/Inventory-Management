@@ -2,9 +2,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add new Item</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Record sale</title>
     <link rel="stylesheet" href="/css/style.css">
+
 </head>
+
 <body>
 
     <div class="topnav">
@@ -33,6 +36,40 @@
             <path d="M470.39,300l-.47-.38-31.56-24.75a16.11,16.11,0,0,1-6.1-13.33l0-11.56a16,16,0,0,1,6.11-13.22L469.92,212l.47-.38a26.68,26.68,0,0,0,5.9-34.06l-42.71-73.9a1.59,1.59,0,0,1-.13-.22A26.86,26.86,0,0,0,401,92.14l-.35.13L363.55,107.2a15.94,15.94,0,0,1-14.47-1.29q-4.92-3.1-10-5.86a15.94,15.94,0,0,1-8.19-11.82L325.3,48.64l-.12-.72A27.22,27.22,0,0,0,298.76,26H213.24a26.92,26.92,0,0,0-26.45,22.39l-.09.56-5.57,39.67A16,16,0,0,1,173,100.44c-3.42,1.84-6.76,3.79-10,5.82a15.92,15.92,0,0,1-14.43,1.27l-37.13-15-.35-.14a26.87,26.87,0,0,0-32.48,11.34l-.13.22L35.71,177.9A26.71,26.71,0,0,0,41.61,212l.47.38,31.56,24.75a16.11,16.11,0,0,1,6.1,13.33l0,11.56a16,16,0,0,1-6.11,13.22L42.08,300l-.47.38a26.68,26.68,0,0,0-5.9,34.06l42.71,73.9a1.59,1.59,0,0,1,.13.22A26.86,26.86,0,0,0,111,419.86l.35-.13,37.07-14.93a15.94,15.94,0,0,1,14.47,1.29q4.92,3.11,10,5.86a15.94,15.94,0,0,1,8.19,11.82l5.56,39.59.12.72A27.22,27.22,0,0,0,213.24,486h85.52a26.92,26.92,0,0,0,26.45-22.39l.09-.56,5.57-39.67a16,16,0,0,1,8.18-11.82c3.42-1.84,6.76-3.79,10-5.82a15.92,15.92,0,0,1,14.43-1.27l37.13,14.95.35.14a26.85,26.85,0,0,0,32.48-11.34,2.53,2.53,0,0,1,.13-.22l42.71-73.89A26.7,26.7,0,0,0,470.39,300ZM335.91,259.76a80,80,0,1,1-83.66-83.67A80.21,80.21,0,0,1,335.91,259.76Z"/></svg>
           </button>
         </div>
+      </div>
+
+      <div class="content">
+      <div class="statistics-section">
+        <div class="statistic-box box-blue">
+            <h3>Total Customers</h3>
+            <p>100</p>
+        </div>
+
+        <div class="statistic-box box-green">
+            <h3>Total Suppliers</h3>
+            <p>50</p>
+        </div>
+
+        <div class="statistic-box box-orange">
+            <h3>Total Sales</h3>
+            <p>$10,000</p>
+        </div>
+
+        <div class="statistic-box box-purple">
+            <h3>Total Purchases</h3>
+            <p>$5,000</p>
+        </div>
+
+        <div class="statistic-box box-blue">
+            <h3>Sales Invoices</h3>
+            <p>20</p>
+        </div>
+
+        <div class="statistic-box box-green">
+            <h3>Purchase Invoices</h3>
+            <p>15</p>
+        </div>
+      </div>
       </div>
     
       <div class="sidebar">
@@ -86,8 +123,32 @@
             </div>
             </form>
         </div>
-      </div>
 
-</body>
+        
+        <div class="content">
+            <h1 class="cont">Register your sales here</h1>
+        <div id="popupForm" class="form_item">
+            <form action="/sale" id="salesForm" method="POST">
+                <input type="text" name="item_id" placeholder="id" id="item_id" value="" required><br>
+                <input type="text" name="item_name" placeholder="item name" id="item_name" value="" required><br>
+                <input type="number" name="Qty" placeholder="Quantity" id="Qty" name="quantity" min="1" max="500" step="1" value=""
+                    required><br>
+                <select name="category" placeholder="category" value="" required>
+                    <option value="all">All Categories</option>
+                    <option value="fruits">fruits</option>
+                    <option value="sprays">Body spray</option>
+                    <option value="soft drinks">soft drinks</option>
+                    <option value="Vegetables">vegies</option>
+                    <option value="alcohol">liquor</option>
+                    <option value="baked goods">baked</option>
+                    <option value="sweets">sweets</option>
+                    <option value="butter">butter</option>
+                </select>
+                <br>
+                <input type="number" name="cost" placeholder="Price in tsh" id="cost" value="" required><br>
+                <input type="submit" value="Register sale">
+            </form>
+        </div>
+    </div>
 
-<%- include('additionals/footer'); -%>
+    <%- include('additionals/footer'); -%>
