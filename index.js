@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const methodOverride = require("method-override");
 const { Pool } = require("pg");
 const { log } = require("console");
+const bcrypt = require('bcrypt');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
@@ -31,9 +32,9 @@ app.set("views", path.join(__dirname, "/views"));
 const pool = new Pool({
   user: "postgres",
   host: "localhost",
-  database: "inventory",
-  password: "victorjr",
-  port: 8080,
+  database: "Inventory",
+  password: "victor",
+  port: 5432,
 });
 
 const requireLogin = (req, res, next) => {
@@ -73,54 +74,71 @@ app.get("/logedout", (req, res) => {
   });
 })
 
-app.post("/", (req, res) => {
-  const { email, name, pass } = req.body;
 
-  const checkUserQuery =
-    'SELECT * FROM "user" WHERE email = $1 AND password = $2 AND username = $3';
-  const values = [email, pass, name];
+// Assuming you have defined saltRounds somewhere in your code
+const saltRounds = 10;
 
-  pool.query(checkUserQuery, values, (error, result) => {
-    if(error) {
-      console.error("Error executing query", error);
-      res.send("Error occurred during login.");
-    } else {
-      if(result.rows.length > 0) {
-        req.session.user = { name, email };
-        res.send(` <script>
-                alert('Welcome, ${name}!');
-                window.location.href = '/home'; 
-                </script>`);
-      } else {
-        res.send(`<script>
-                alert('Invalid credentials. Please try again.');
-                window.location.href = '/'; 
-                </script>`);
-      }
+app.post("/", async (req, res) => {
+  const { email, pass } = req.body;
+
+  try {
+    // Check if email is registered
+    const checkEmailQuery = 'SELECT * FROM "user" WHERE email = $1';
+    const emailResult = await pool.query(checkEmailQuery, [email]);
+
+    if (emailResult.rows.length === 0) {
+      return res.send('<script>alert("Email not registered"); window.location.href = "/"; </script>');
     }
-  });
+
+    const user = emailResult.rows[0];
+
+    // Compare the provided password with the stored hash
+    bcrypt.compare(pass, user.pass, (err, passwordMatch) => {
+      if (err || !passwordMatch) {
+        console.error('Invalid password:', err);
+        return res.send('<script>alert("Invalid email or password"); window.location.href = "/"; </script>');
+      }
+
+      // Set user information in session
+      req.session.user = { name: user.username, email: user.email };
+
+      res.send('<script>alert("Welcome, ' + user.u_name + '!"); window.location.href = "/home"; </script>');
+    });
+  } catch (error) {
+    console.error('Error during login:', error);
+    res.send('<script>alert("Internal Server Error"); window.location.href = "/"; </script>');
+  }
 });
 
-app.post("/register", (req, res) => {
+
+
+app.post("/register", async (req, res) => {
   const { name, f_name, l_name, email, pass } = req.body;
 
-  const insertQuery =
-    'INSERT INTO "user" (username, email, password, f_name, l_name) VALUES ($1, $2, $3, $4, $5)';
-  const values = [name, email, pass, f_name, l_name];
+  try {
+    // Check if email is already registered
+    const checkEmailQuery = 'SELECT * FROM "user" WHERE email = $1';
+    const emailResult = await pool.query(checkEmailQuery, [email]);
 
-  pool.query(insertQuery, values, (error, result) => {
-    if(error) {
-      console.error("Error executing query", error);
-      res.send(
-        '<script>alert("There was an error in submitting"); window.location.href = "/register"; </script>'
-      );
-    } else {
-      res.send(
-        '<script>alert("Your successful registered as new Admin"); window.location.href = "/"; </script>'
-      );
+    if (emailResult.rows.length > 0) {
+      return res.send('<script>alert("Email already registered"); window.location.href = "/register"; </script>');
     }
-  });
 
+    // Hash the password
+    const hash = await bcrypt.hash(pass, saltRounds);
+
+    // Insert the user into the database
+    const insertQuery =
+      'INSERT INTO "user" (username, email, password, f_name, l_name) VALUES ($1, $2, $3, $4, $5)';
+    const values = [name, email, hash, f_name, l_name];
+
+    await pool.query(insertQuery, values);
+
+    res.send('<script>alert("You are successfully registered as a new Admin"); window.location.href = "/"; </script>');
+  } catch (error) {
+    console.error('Error during registration:', error);
+    res.send('<script>alert("Internal Server Error"); window.location.href = "/register"; </script>');
+  }
 });
 
 
@@ -260,227 +278,103 @@ app.post("/edit/:id", (req, res) => {
 });
 
 
-// app.post('/sale', (req, res) => {
-//   const { item_id, item_name, Qty, category, cost } = req.body;
-
-//   // Step 1: Get item price from the database
-//   const getCostQuery = 'SELECT item_price FROM new_items WHERE id = $1';
-//   const getCostValues = [item_id];
-
-//   pool.query(getCostQuery, getCostValues, (error, result) => {
-//     if(error) {
-//       console.error('Error executing query', error);
-//       res.status(500).send('Error occurred while fetching item cost.');
-//     } else {
-//       if(result.rows.length === 0) {
-//         res.send('<script>alert("No item with such ID!!!"); window.location.href = "/sale"; </script>');
-//         return;
-//       }
-
-//       const itemCost = result.rows[0].item_price;
-
-//       // Step 2: Check if the provided cost matches the item's price
-//       if(itemCost !== cost) {
-//         res.send('<script>alert("The provided price does not match the item\'s price."); window.location.href = "/sale"; </script>');
-//         return;
-//       }
-
-//       // Step 3: Get current quantity of the item
-//       const getQtyQuery = 'SELECT item_qty FROM new_items WHERE id = $1';
-//       const getQtyValues = [item_id];
-
-//       pool.query(getQtyQuery, getQtyValues, (error, result) => {
-//         if(error) {
-//           console.error('Error executing query', error);
-//           res.status(500).send('Error occurred while fetching item quantity.');
-//         } else {
-//           if(result.rows.length === 0) {
-//             res.send('<script>alert("No item with such ID!!!"); window.location.href = "/sale"; </script>');
-//             return;
-//           }
-
-//           const currentQty = result.rows[0].item_qty;
-
-//           // Step 4: Check if the quantity is sufficient for the sale
-//           if(currentQty >= Qty) {
-//             // Step 5: Calculate total cost
-//             const total_price = Qty * cost;
-
-//             // Step 6: Set the current date and time
-//             const currentDate = new Date().toISOString();
-
-//             // Step 7: Insert sale record into the database
-//             const insertSalesQuery = 'INSERT INTO sales (id, item_name, item_qty, item_category, item_price, total_price, sale_date) VALUES ($1, $2, $3, $4, $5, $6, $7)';
-//             const salesValues = [item_id, item_name, Qty, category, cost, total_price, currentDate];
-
-//             pool.query(insertSalesQuery, salesValues, (error, result) => {
-//               if(error) {
-//                 console.error('Error executing query', error);
-//                 res.status(500).send('Error occurred while registering sale.');
-//               } else {
-//                 // Step 8: Update item quantity in the database
-//                 const updateQtyQuery = 'UPDATE new_items SET item_qty = item_qty - $1 WHERE id = $2';
-//                 const updateValues = [Qty, item_id];
-
-//                 pool.query(updateQtyQuery, updateValues, (error, result) => {
-//                   if(error) {
-//                     console.error('Error executing query', error);
-//                     res.status(500).send('Error occurred while updating quantity.');
-//                   } else {
-//                     console.log(currentQty);
-
-//                     // Step 9: Check if the quantity is zero and remove the item from the database
-//                     if(currentQty - Qty <= 0) {
-//                       const removeItemQuery = 'DELETE FROM new_items WHERE id = $1';
-//                       const removeItemValues = [item_id];
-
-//                       pool.query(removeItemQuery, removeItemValues, (error, result) => {
-//                         if(error) {
-//                           console.error('Error executing query', error);
-//                           res.status(500).send('Error occurred while removing item.');
-//                         } else {
-//                           res.send('<script>alert("The product sales were successful recorded!!!"); window.location.href = "/sale"; </script>');
-//                         }
-//                       });
-//                     } else {
-//                       res.send('<script>alert("The product sales were successful recorded!!!"); window.location.href = "/sale"; </script>');
-//                     }
-//                   }
-//                 });
-//               }
-//             });
-//           } else {
-//             res.status(400).send('<script>alert("The product sales were not recorded!!!"); window.location.href = "/sale"; </script>');
-//           }
-//         }
-//       });
-//     }
-//   });
-// });
-
-app.post('/sale1', (req, res) => {
-  const { item_id, item_name, Qty, category, cost } = req.body;
-
-  console.log('------------');
-  console.log(Qty);
-  return '01';
-
-})
-
-
-function checkGreater(value1, value2) {
-
-  if (value2 > value1) {
-    return value1;
-  }
-}
-
-
 app.post('/sale', (req, res) => {
   const { item_id, item_name, Qty, category, cost } = req.body;
 
-
-  var quantity = Qty;
-
-
-
-  // Step 1: Get item price and quantity from the database
-  const getCostQuery = 'SELECT item_price, item_qty FROM new_items WHERE id = $1';
+  // Step 1: Get item price from the database
+  const getCostQuery = 'SELECT item_price FROM new_items WHERE id = $1';
   const getCostValues = [item_id];
 
   pool.query(getCostQuery, getCostValues, (error, result) => {
-    if (error) {
+    if(error) {
       console.error('Error executing query', error);
-      res.status(500).json({ error: 'Error occurred while fetching item details.' });
+      res.status(500).send('Error occurred while fetching item cost.');
     } else {
-      if (result.rows.length === 0) {
-        res.status(404).json({ error: 'No item with such ID.' });
+      if(result.rows.length === 0) {
+        res.send('<script>alert("No item with such ID!!!"); window.location.href = "/sale"; </script>');
         return;
       }
 
-      const itemDetails = result.rows[0];
-      const itemCost = itemDetails.item_price;
-      const currentQty = itemDetails.item_qty;
+      const itemCost = result.rows[0].item_price;
 
-      // Check if the provided cost matches the item's price
-      if (itemCost !== cost) {
-        res.status(400).json({ error: 'The provided price does not match the item\'s price.' });
+      // Step 2: Check if the provided cost matches the item's price
+      if(itemCost !== cost) {
+        res.send('<script>alert("The provided price does not match the item\'s price."); window.location.href = "/sale"; </script>');
         return;
       }
 
-      //separate this to separate function:::
-       const isGreater = checkGreater(currentQty,Qty);
-       if (isGreater) {
-        console.log('proceed');
-        return 'ok';
-       }else{
-        console.log('quantity is large');
-        return 'ok';
-       }
+      // Step 3: Get current quantity of the item
+      const getQtyQuery = 'SELECT item_qty FROM new_items WHERE id = $1';
+      const getQtyValues = [item_id];
 
-      // Check if the quantity is sufficient for the sale
-      if (currentQty >= quantity) {
-        // Proceed with the sale
+      pool.query(getQtyQuery, getQtyValues, (error, result) => {
+        if(error) {
+          console.error('Error executing query', error);
+          res.status(500).send('Error occurred while fetching item quantity.');
+        } else {
+          if(result.rows.length === 0) {
+            res.send('<script>alert("No item with such ID!!!"); window.location.href = "/sale"; </script>');
+            return;
+          }
 
-        // Calculate total cost
-        const total_price = Qty * cost;
+          const currentQty = result.rows[0].item_qty;
 
-        // Set the current date and time
-        const currentDate = new Date().toISOString();
+          // Step 4: Check if the quantity is sufficient for the sale
+          if(currentQty >= Qty) {
+            // Step 5: Calculate total cost
+            const total_price = Qty * cost;
 
-        // Insert sale record into the database
-        const insertSalesQuery = 'INSERT INTO sales (id, item_name, item_qty, item_category, item_price, total_price, sale_date) VALUES ($1, $2, $3, $4, $5, $6, $7)';
-        const salesValues = [item_id, item_name, Qty, category, cost, total_price, currentDate];
+            // Step 6: Set the current date and time
+            const currentDate = new Date().toISOString();
 
-        pool.query(insertSalesQuery, salesValues, (error, result) => {
-          if (error) {
-            console.error('Error executing query', error);
-            res.status(500).json({ error: 'Error occurred while registering sale.' });
-          } else {
-            // Update item quantity in the database
-            const updateQtyQuery = 'UPDATE new_items SET item_qty = item_qty - $1 WHERE id = $2';
-            const updateValues = [Qty, item_id];
+            // Step 7: Insert sale record into the database
+            const insertSalesQuery = 'INSERT INTO sales (id, item_name, item_qty, item_category, item_price, total_price, sale_date) VALUES ($1, $2, $3, $4, $5, $6, $7)';
+            const salesValues = [item_id, item_name, Qty, category, cost, total_price, currentDate];
 
-            pool.query(updateQtyQuery, updateValues, (error, result) => {
-              if (error) {
+            pool.query(insertSalesQuery, salesValues, (error, result) => {
+              if(error) {
                 console.error('Error executing query', error);
-                res.status(500).json({ error: 'Error occurred while updating quantity.' });
+                res.status(500).send('Error occurred while registering sale.');
               } else {
-                // Check if the quantity is zero and remove the item from the database
-                if (currentQty - Qty <= 0) {
-                  const removeItemQuery = 'DELETE FROM new_items WHERE id = $1';
-                  const removeItemValues = [item_id];
+                // Step 8: Update item quantity in the database
+                const updateQtyQuery = 'UPDATE new_items SET item_qty = item_qty - $1 WHERE id = $2';
+                const updateValues = [Qty, item_id];
 
-                  pool.query(removeItemQuery, removeItemValues, (error, result) => {
-                    if (error) {
-                      console.error('Error executing query', error);
-                      res.status(500).json({ error: 'Error occurred while removing item.' });
+                pool.query(updateQtyQuery, updateValues, (error, result) => {
+                  if(error) {
+                    console.error('Error executing query', error);
+                    res.status(500).send('Error occurred while updating quantity.');
+                  } else {
+                    console.log(currentQty);
+
+                    // Step 9: Check if the quantity is zero and remove the item from the database
+                    if(currentQty - Qty <= 0) {
+                      const removeItemQuery = 'DELETE FROM new_items WHERE id = $1';
+                      const removeItemValues = [item_id];
+
+                      pool.query(removeItemQuery, removeItemValues, (error, result) => {
+                        if(error) {
+                          console.error('Error executing query', error);
+                          res.status(500).send('Error occurred while removing item.');
+                        } else {
+                          res.send('<script>alert("The product sales were successful recorded!!!"); window.location.href = "/sale"; </script>');
+                        }
+                      });
                     } else {
-                      res.send('<script>alert("The product sales were successfully recorded!!!"); window.location.href = "/sale"; </script>');
+                      res.send('<script>alert("The product sales were successful recorded!!!"); window.location.href = "/sale"; </script>');
                     }
-                  });
-                } else {
-                  res.send('<script>alert("The product sales were successfully recorded!!!"); window.location.href = "/sale"; </script>');
-                }
+                  }
+                });
               }
             });
+          } else {
+            res.status(400).send('<script>alert("The product sales were not recorded!!!"); window.location.href = "/sale"; </script>');
           }
-        });
-      } else {
-        // Handle case where the quantity is not sufficient
-        const itemObject = {
-          item_price: Qty,
-          item_qty: currentQty
-        };
-        console.log(itemObject);
-
-        res.status(400).send('<script>alert("The product sales were not recorded!!!"); window.location.href = "/sale"; </script>');
-      }
+        }
+      });
     }
   });
 });
-
-
 
 
 app.get('/sale', (req, res) => {
