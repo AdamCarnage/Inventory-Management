@@ -439,47 +439,6 @@ app.get('/sale', (req, res) => {
 //   res.json(salesDatabase);
 // });
 
-//------------------------------------code for pass encryption---------------------------------//
-// const bcrypt = require('bcrypt');
-// const saltRounds = 10;
-
-// app.post('/api/register', async (req, res) => {
-//   const { firstName, lastName, email, password } = req.body;
-
-//   try {
-//     // Generate a random 5-digit customer ID
-//     const customerId = Math.floor(10000 + Math.random() * 90000);
-
-//     // Check if the email is already registered
-//     const checkEmailQuery = 'SELECT * FROM customer WHERE customer_email = $1';
-//     const checkEmailValues = [email];
-//     const emailResult = await pool.query(checkEmailQuery, checkEmailValues);
-
-//     if(emailResult.rows.length > 0) {
-//       return res.status(400).json({ error: 'Email already registered' });
-//     }
-
-//     // Hash the password
-//     bcrypt.hash(password, saltRounds, async (err, hash) => {
-//       if(err) {
-//         console.error('Error hashing password:', err);
-//         return res.status(500).json({ error: 'Internal Server Error' });
-//       }
-
-//       // If email is not registered, insert the new customer with the generated ID and hashed password
-//       const insertCustomerQuery =
-//         'INSERT INTO customer (id, first_name, second_name, customer_email, customer_password) VALUES ($1, $2, $3, $4, $5)';
-//       const insertCustomerValues = [customerId, firstName, lastName, email, hash];
-//       await pool.query(insertCustomerQuery, insertCustomerValues);
-
-//       res.status(201).json({ message: 'Registration successful!', customerId });
-//     });
-//   } catch (error) {
-//     console.error('Error registering customer:', error);
-//     res.status(500).json({ error: 'Internal Server Error' });
-//   }
-// });
-
 
 
 app.listen(3000, (req, res) => {
