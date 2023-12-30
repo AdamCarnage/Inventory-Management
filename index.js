@@ -45,7 +45,11 @@ const requireLogin = (req, res, next) => {
   }
 };
 
-app.get("/", (req, res) => {
+app.get("/", (req,res) => {
+  res.render("load.ejs")
+})
+
+app.get("/login", (req, res) => {
   res.render("login.ejs");
 });
 
@@ -78,7 +82,7 @@ app.get("/logedout", (req, res) => {
 // Assuming you have defined saltRounds somewhere in your code
 const saltRounds = 10;
 
-app.post("/", async (req, res) => {
+app.post("/login", async (req, res) => {
   const { email, pass } = req.body;
 
   try {
