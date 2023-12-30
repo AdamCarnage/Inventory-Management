@@ -38,7 +38,7 @@ const pool = new Pool({
 });
 
 const requireLogin = (req, res, next) => {
-  if(req.session && req.session.userId) {
+  if (req.session && req.session.userId) {
     return next();
   } else {
     return res.redirect('/');
@@ -67,7 +67,7 @@ app.get("/customerservice", (req, res) => {
 
 app.get("/logedout", (req, res) => {
   req.session.destroy((err) => {
-    if(err) {
+    if (err) {
       console.error('Error destroying session:', err);
     }
     res.redirect('/');
@@ -147,7 +147,7 @@ app.post("/home", (req, res) => {
 
   const expirationDate = new Date(exp);
 
-  if(expirationDate <= new Date()) {
+  if (expirationDate <= new Date()) {
     res.send(
       '<script>alert("Expiration date has already passed. Please enter a valid date."); window.location.href = "/home"; </script>'
     );
@@ -159,13 +159,13 @@ app.post("/home", (req, res) => {
   const values = [item, Qty, category, cost, exp, id];
 
   pool.query(insertQuery, values, (error, result) => {
-    if(error) {
+    if (error) {
       console.error("Error executing query", error);
       res.send(
         '<script>alert("There was an error in submitting"); window.location.href = "/home"; </script>'
       );
     } else {
-      
+
     }
   });
   res.redirect("/home");
@@ -179,7 +179,7 @@ app.get("/home", async (req, res) => {
     res.render("home.ejs", { data });
   } catch (error) {
     console.error("Error executing query", error);
-    if(process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === 'development') {
       res.status(500).send(`Error occurred while fetching data: ${error.message}`);
     } else {
       res.status(500).send("Error occurred while fetching data.");
@@ -187,11 +187,11 @@ app.get("/home", async (req, res) => {
   }
 });
 
-app.get("/newproduct", (req,res) =>{
+app.get("/newproduct", (req, res) => {
   res.render("newproduct.ejs")
 })
 
-app.get("/newsale", (req,res) => {
+app.get("/newsale", (req, res) => {
   res.render("addsale.ejs")
 })
 
@@ -200,13 +200,13 @@ app.get("/error", (req, res) => {
 })
 
 app.get("/invoice", (req, res) => {
-  const invoiceexist = 'views/invoice.ejs' ;
+  const invoiceexist = 'views/invoice.ejs';
 
-  fs.access (invoiceexist, fs.constants.F_OK, (err) =>{
-    if(err){
+  fs.access(invoiceexist, fs.constants.F_OK, (err) => {
+    if (err) {
       res.redirect('/error');
-    } else{
-      res.redirect ('/invoice');
+    } else {
+      res.redirect('/invoice');
     }
   })
 })
@@ -218,7 +218,7 @@ app.delete("/delete/:id", (req, res) => {
     "DELETE FROM new_items WHERE id = $1",
     [itemId],
     (error, result) => {
-      if(error) {
+      if (error) {
         console.error("Error executing query", error);
         res.status(500).json({ error: "Error occurred while deleting data." });
       } else {
@@ -236,7 +236,7 @@ app.get("/edit/:id", (req, res) => {
     "SELECT * FROM new_items WHERE id = $1",
     [itemId],
     (error, result) => {
-      if(error) {
+      if (error) {
         console.error("Error executing query", error);
         res.status(500).send("Error occurred while fetching data.");
       } else {
@@ -264,7 +264,7 @@ app.post("/edit/:id", (req, res) => {
   ];
 
   pool.query(updateQuery, values, (error, result) => {
-    if(error) {
+    if (error) {
       console.error("Error executing query", error);
       res.send(
         '<script>alert("There was an error in updating"); window.location.href = "/home"; </script>'
@@ -286,11 +286,11 @@ app.post('/sale', (req, res) => {
   const getCostValues = [item_id];
 
   pool.query(getCostQuery, getCostValues, (error, result) => {
-    if(error) {
+    if (error) {
       console.error('Error executing query', error);
       res.status(500).send('Error occurred while fetching item cost.');
     } else {
-      if(result.rows.length === 0) {
+      if (result.rows.length === 0) {
         res.send('<script>alert("No item with such ID!!!"); window.location.href = "/sale"; </script>');
         return;
       }
@@ -298,7 +298,7 @@ app.post('/sale', (req, res) => {
       const itemCost = result.rows[0].item_price;
 
       // Step 2: Check if the provided cost matches the item's price
-      if(itemCost !== cost) {
+      if (itemCost !== cost) {
         res.send('<script>alert("The provided price does not match the item\'s price."); window.location.href = "/sale"; </script>');
         return;
       }
@@ -308,11 +308,11 @@ app.post('/sale', (req, res) => {
       const getQtyValues = [item_id];
 
       pool.query(getQtyQuery, getQtyValues, (error, result) => {
-        if(error) {
+        if (error) {
           console.error('Error executing query', error);
           res.status(500).send('Error occurred while fetching item quantity.');
         } else {
-          if(result.rows.length === 0) {
+          if (result.rows.length === 0) {
             res.send('<script>alert("No item with such ID!!!"); window.location.href = "/sale"; </script>');
             return;
           }
@@ -320,7 +320,7 @@ app.post('/sale', (req, res) => {
           const currentQty = result.rows[0].item_qty;
 
           // Step 4: Check if the quantity is sufficient for the sale
-          if(currentQty >= Qty) {
+          if (currentQty >= Qty) {
             // Step 5: Calculate total cost
             const total_price = Qty * cost;
 
@@ -332,7 +332,7 @@ app.post('/sale', (req, res) => {
             const salesValues = [item_id, item_name, Qty, category, cost, total_price, currentDate];
 
             pool.query(insertSalesQuery, salesValues, (error, result) => {
-              if(error) {
+              if (error) {
                 console.error('Error executing query', error);
                 res.status(500).send('Error occurred while registering sale.');
               } else {
@@ -341,19 +341,19 @@ app.post('/sale', (req, res) => {
                 const updateValues = [Qty, item_id];
 
                 pool.query(updateQtyQuery, updateValues, (error, result) => {
-                  if(error) {
+                  if (error) {
                     console.error('Error executing query', error);
                     res.status(500).send('Error occurred while updating quantity.');
                   } else {
                     console.log(currentQty);
 
                     // Step 9: Check if the quantity is zero and remove the item from the database
-                    if(currentQty - Qty <= 0) {
+                    if (currentQty - Qty <= 0) {
                       const removeItemQuery = 'DELETE FROM new_items WHERE id = $1';
                       const removeItemValues = [item_id];
 
                       pool.query(removeItemQuery, removeItemValues, (error, result) => {
-                        if(error) {
+                        if (error) {
                           console.error('Error executing query', error);
                           res.status(500).send('Error occurred while removing item.');
                         } else {
@@ -383,7 +383,7 @@ app.get('/sale', (req, res) => {
 
   const getSalesQuery = 'SELECT * FROM sales ORDER BY sale_date DESC';
   pool.query(getSalesQuery, (error, result) => {
-    if(error) {
+    if (error) {
       console.error('Error executing query', error);
       res.status(500).send('Error occurred while fetching sales details.');
     } else {
@@ -392,7 +392,7 @@ app.get('/sale', (req, res) => {
 
       salesDetails.forEach(sale => {
         const saleDate = sale.sale_date ? sale.sale_date.toISOString().split('T')[0] : 'N/A';
-        if(!groupedSales[saleDate]) {
+        if (!groupedSales[saleDate]) {
           groupedSales[saleDate] = [];
         }
         groupedSales[saleDate].push(sale);
@@ -428,7 +428,7 @@ app.get('/sale', (req, res) => {
 //     salesDatabase.push(saleDetails);
 
 //     // Update inventory (in a real system, you might decrement the quantity)
-    
+
 //     res.json({ success: true, message: 'Sale registered successfully', saleDetails });
 //   } else {
 //     res.json({ success: false, message: 'Product not found' });
