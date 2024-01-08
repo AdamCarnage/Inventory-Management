@@ -79,7 +79,7 @@ app.get("/logedout", (req, res) => {
 })
 
 
-// Assuming you have defined saltRounds somewhere in your code
+// I have defined saltRounds below in my code
 const saltRounds = 10;
 
 app.post("/login", async (req, res) => {
