@@ -65,6 +65,10 @@ app.get("/barcode", (req, res) => {
   res.render("barcode.ejs");
 });
 
+app.get("/invoice", (req, res) => {
+  res.render("receipt.ejs");
+});
+
 app.get("/customerservice", (req, res) => {
   res.render("customer.ejs");
 });
@@ -290,19 +294,19 @@ app.post('/sale', async (req, res) => {
     const itemResult = await pool.query(getItemInfoQuery, [item_id]);
 
     if (itemResult.rows.length === 0) {
-      return res.status(400).json({ error: 'No item with such ID.' });
+      return res.status(400).send('<script>alert("No item with such ID"); window.location.href = "/sale"; </script>');
     }
 
     const { item_price, item_qty } = itemResult.rows[0];
 
     // Step 2: Check if there is enough quantity for the sale
     if (item_qty < Qty) {
-      return res.status(400).json({ error: 'Insufficient quantity in stock.' });
+      return res.status(400).send('<script>alert("Insufficient quantity in stock.!"); window.location.href = "/newsale"; </script>');
     }
 
     // Step 3: Check if the provided cost matches the item's price
     if (item_price !== cost) {
-      return res.status(400).json({ error: 'The provided price does not match the item\'s price.' });
+      return res.status(400).send('<script>alert("The provided price does not match the item\'s price."); window.location.href = "/newsale"; </script>');
     }
 
     // Step 4: Calculate total cost
@@ -323,11 +327,10 @@ app.post('/sale', async (req, res) => {
       const removeItemQuery = 'DELETE FROM new_items WHERE id = $1';
       await pool.query(removeItemQuery, [item_id]);
     }
-
-    return res.status(200).json({ message: 'Sale recorded successfully.' });
+    res.send('<script>alert("The product sales were successful recorded!!!"); window.location.href = "/newsale"; </script>');
   } catch (error) {
     console.error('Error recording sale:', error);
-    return res.status(500).json({ error: 'Internal Server Error.' });
+    return res.status(500).send('<script>alert("Internal Server Error!"); window.location.href = "/sale"; </script>');
   }
 });
 
@@ -358,6 +361,41 @@ app.get('/sale', (req, res) => {
     }
   });
 });
+
+
+//-------------------------------invoice code-----------------------------------//
+// app.get('/generate-invoice', (req, res) => {
+//   // Sample invoice data (replace with your actual data)
+//   const invoiceData = {
+//     invoiceNumber: 'INV123',
+//     currentDate: new Date().toLocaleDateString(),
+//     items: [
+//       { name: 'Product 1', quantity: 2, price: 50 },
+//       { name: 'Product 2', quantity: 1, price: 30 },
+//       // Add more items as needed
+//     ],
+//     totalAmount: 2 * 50 + 1 * 30, // Example total calculation
+//   };
+
+//   // Render the EJS template with the invoice data
+//   ejs.renderFile('views/invoice.ejs', invoiceData, (err, html) => {
+//     if (err) {
+//       console.error('Error rendering invoice:', err);
+//       res.status(500).send('Error generating invoice.');
+//     } else {
+//       // Save the rendered HTML to a file (optional)
+//       fs.writeFileSync('invoice.html', html);
+
+//       // Send the rendered HTML as the response
+//       res.send(html);
+//     }
+//   });
+// });
+
+// const port = 3000;
+// app.listen(port, () => {
+//   console.log(`Server is running on http://localhost:${port}`);
+// });
 
 
 //----------------------------------------code for barcode----------------------------------//
