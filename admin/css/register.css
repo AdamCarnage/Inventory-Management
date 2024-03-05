@@ -168,6 +168,16 @@ h3 {
     border-bottom: 1px solid #accffe;
 }
 
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    margin-bottom: 30px;
+    opacity: 0.5;
+}
+
 button {
     border: none;
     width: 100%;
