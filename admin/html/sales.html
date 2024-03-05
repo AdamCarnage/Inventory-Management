@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Newproduct</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/jquery.slimscroll.min.js"></script>
+    <script src="../js/index.js"></script>
+<style>
+.payment-option-label {
+    position: relative;
+    cursor: pointer;
+}
+
+.payment-option-label:last-child {
+    margin-right: 0; /* Remove margin from the last label */
+}
+
+.payment-option-label img {
+    max-height: 50px;
+    border: 3px solid transparent; /* Transparent border initially */
+}
+
+.payment-option-input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.payment-option-input:checked + .payment-option-img {
+    border-color: #3388e2; /* Light blue border color */
+}
+
+</style>
+</head>
+
+<body>
+
+
+    <!------header -------->
+    <div class="header">
+
+        <!-- Logo -->
+        <div class="header-left active">
+            <a href="index.html" class="logo logo-normal">
+                <img src="../img/focus.png" alt="" width="120" height="40">
+            </a>
+        </div>
+        <!-- /Logo -->
+
+        <a id="mobile_btn" class="mobile_btn" href="#sidebar">
+            <span class="bar-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+        </a>
+
+        <!-- Header Menu -->
+        <ul class="nav user-menu">
+
+            <!-- Search -->
+            <li class="nav-item nav-searchinputs">
+                <div class="top-nav-search">
+                    <a href="javascript:void(0);" class="responsive-search">
+                        <i class="fa fa-search"></i>
+                    </a>
+                    <form action="#">
+                        <div class="searchinputs">
+                            <input type="text" placeholder="Search">
+                            <div class="search-addon">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-search feather-14">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+            <!-- /Search -->
+
+            <!-----make full screen------>
+            <li class="nav-item nav-item-box">
+                <a href="javascript:void(0);" id="btnFullscreen">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-maximize">
+                        <path
+                            d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
+                        </path>
+                    </svg>
+                </a>
+            </li>
+            <!-----------/make full screen------->
+
+            <!----------email--------------->
+            <li class="nav-item nav-item-box">
+                <a href="email.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-mail">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <!-- <span class="badge rounded-pill">1</span> -->
+                </a>
+            </li>
+            <!----------/email--------------->
+
+            <!-- Notifications -->
+            <li class="nav-item nav-item-box">
+                <a href="notification.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-bell">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg><!-- <span class="badge rounded-pill">1</span> -->
+                </a>
+            </li>
+            <!-- /Notifications -->
+
+            <li class="nav-item nav-item-box">
+                <a href="generalsettings.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-settings">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path
+                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                        </path>
+                    </svg>
+                </a>
+            </li>
+            <li class="nav-item dropdown has-arrow main-drop">
+                <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
+                    <span class="user-info">
+                        <span class="user-letter" height="50px" width="50px">
+                            <?xml version="1.0" encoding="utf-8"?>
+                            <svg width="30px" height="30px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                fill="#000000">
+                                <path
+                                    d="M16 7.992C16 3.58 12.416 0 8 0S0 3.58 0 7.992c0 2.43 1.104 4.62 2.832 6.09.016.016.032.016.032.032.144.112.288.224.448.336.08.048.144.111.224.175A7.98 7.98 0 0 0 8.016 16a7.98 7.98 0 0 0 4.48-1.375c.08-.048.144-.111.224-.16.144-.111.304-.223.448-.335.016-.016.032-.016.032-.032 1.696-1.487 2.8-3.676 2.8-6.106zm-8 7.001c-1.504 0-2.88-.48-4.016-1.279.016-.128.048-.255.08-.383a4.17 4.17 0 0 1 .416-.991c.176-.304.384-.576.64-.816.24-.24.528-.463.816-.639.304-.176.624-.304.976-.4A4.15 4.15 0 0 1 8 10.342a4.185 4.185 0 0 1 2.928 1.166c.368.368.656.8.864 1.295.112.288.192.592.24.911A7.03 7.03 0 0 1 8 14.993zm-2.448-7.4a2.49 2.49 0 0 1-.208-1.024c0-.351.064-.703.208-1.023.144-.32.336-.607.576-.847.24-.24.528-.431.848-.575.32-.144.672-.208 1.024-.208.368 0 .704.064 1.024.208.32.144.608.336.848.575.24.24.432.528.576.847.144.32.208.672.208 1.023 0 .368-.064.704-.208 1.023a2.84 2.84 0 0 1-.576.848 2.84 2.84 0 0 1-.848.575 2.715 2.715 0 0 1-2.064 0 2.84 2.84 0 0 1-.848-.575 2.526 2.526 0 0 1-.56-.848zm7.424 5.306c0-.032-.016-.048-.016-.08a5.22 5.22 0 0 0-.688-1.406 4.883 4.883 0 0 0-1.088-1.135 5.207 5.207 0 0 0-1.04-.608 2.82 2.82 0 0 0 .464-.383 4.2 4.2 0 0 0 .624-.784 3.624 3.624 0 0 0 .528-1.934 3.71 3.71 0 0 0-.288-1.47 3.799 3.799 0 0 0-.816-1.199 3.845 3.845 0 0 0-1.2-.8 3.72 3.72 0 0 0-1.472-.287 3.72 3.72 0 0 0-1.472.288 3.631 3.631 0 0 0-1.2.815 3.84 3.84 0 0 0-.8 1.199 3.71 3.71 0 0 0-.288 1.47c0 .352.048.688.144 1.007.096.336.224.64.4.927.16.288.384.544.624.784.144.144.304.271.48.383a5.12 5.12 0 0 0-1.04.624c-.416.32-.784.703-1.088 1.119a4.999 4.999 0 0 0-.688 1.406c-.016.032-.016.064-.016.08C1.776 11.636.992 9.91.992 7.992.992 4.14 4.144.991 8 .991s7.008 3.149 7.008 7.001a6.96 6.96 0 0 1-2.032 4.907z" />
+                            </svg>
+                        </span>
+                        <span class="user-detail">
+                            <span class="user-name">John Smilga</span>
+                            <span class="user-role">Super Admin</span>
+                        </span>
+                    </span>
+                </a>
+                <div class="dropdown-menu menu-drop-user">
+                    <div class="profilename">
+                        <div class="profileset">
+                            <div class="profilesets">
+                                <h6>John Smilga</h6>
+                                <h5>Super Admin</h5>
+                            </div>
+                        </div>
+                        <hr class="m-0">
+                        <a class="dropdown-item" href="profile.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-user me-2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg> My Profile
+                        </a>
+
+                        <a class="dropdown-item" href="generalsettings.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-settings me-2">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path
+                                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                                </path>
+                            </svg> Settings
+                        </a>
+
+                        <a class="dropdown-item logout pb-0" href="signin.html">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.5 12L17 12" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M14.5 9L17 12" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M14.5 15L17 12" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M17 17C17 19.2091 15.2091 20 13 20H10C7.79086 20 6 18.2091 6 16V8C6 5.79086 7.79086 4 10 4H13C15.2091 4 17 4.79086 17 7"
+                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> Logout
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!------/header -------->
+
+    <!-------sidebar content------------>
+    <div class="sidebar" id="sidebar">
+        <div class="slimScrollDiv">
+            <div class="sidebar-inner slimscroll"
+                style="overflow: hidden; width: 100%; height: 100%px; margin-left: 35px;">
+                <div class="sidebar-menu" id="sidebar-menu">
+                    <ul>
+                        <li class="submenu-open">
+                            <h6 class="submenu-hdr">Main</h6>
+                            <ul>
+                                <li>
+                                    <a href="dashboard.html"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-grid">
+                                            <rect x="3" y="3" width="7" height="7"></rect>
+                                            <rect x="14" y="3" width="7" height="7"></rect>
+                                            <rect x="14" y="14" width="7" height="7"></rect>
+                                            <rect x="3" y="14" width="7" height="7"></rect>
+                                        </svg><span>Dashboard</span></a>
+                                </li>
+                            </ul>
+                            <hr class="submenu-line">
+                        </li>
+                        <li class="submenu-open">
+                            <h6 class="submenu-hdr">Products</h6>
+                            <ul>
+                                <li><a href="product.html"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-box">
+                                            <path
+                                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                            </path>
+                                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                                        </svg><span>Products</span></a></li>
+                                <li><a href="newproduct.html"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-plus-square">
+                                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                                        </svg><span>Create Product</span></a></li>
+                                <li><a href="damaged.html"><svg width="24px" height="24px" viewBox="0 0 24 24"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M12.4615 4V9C12.4615 9.55228 12.9093 10 13.4615 10H18M12.4615 4L18 10M12.4615 4H8.5M18 10V15M15 20H7C6.44772 20 6 19.5523 6 19V10"
+                                                stroke="#333333" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <line x1="3.4137" y1="3.03821" x2="20.0382" y2="20.5863" stroke="#333333"
+                                                stroke-width="2" stroke-linecap="round" />
+                                        </svg><span>Damaged Product</span></a></li>
+                                <li class="active"><a aria-current="page" href="expired.html"
+                                        class="active router-link-exact-active">
+                                        <i data-name="message-square" data-tags="comment,chat"
+                                            data-type="message-square" class="vue-feather vue-feather--message-square">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-message-square vue-feather__content">
+                                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z">
+
+                                                </path>
+                                            </svg></i><span>Expired Products</span></a></li>
+                            </ul>
+                            <hr class="submenu-line">
+                        </li>
+                        <li class="submenu-open">
+                            <h6 class="submenu-hdr">Sales</h6>
+                            <ul>
+                                <li><a href="saleslist.html"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-shopping-cart">
+                                            <circle cx="9" cy="21" r="1"></circle>
+                                            <circle cx="20" cy="21" r="1"></circle>
+                                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
+                                            </path>
+                                        </svg><span>Sales</span></a></li>
+                                <li><a href="invoicelist.html"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-file-text">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                            <polyline points="14 2 14 8 20 8"></polyline>
+                                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                                            <polyline points="10 9 9 9 8 9"></polyline>
+                                        </svg><span>Invoices</span></a></li>
+                                <li><a href="salesreturnlist.html"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-copy">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                        </svg><span>Sales Return</span></a></li>
+                            </ul>
+                            <hr class="submenu-line">
+                        </li>
+                        <li class="submenu-open">
+                            <h6 class="submenu-hdr">Purchases</h6>
+                            <ul>
+                                <li><a href="purchase.html"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-shopping-bag">
+                                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg><span>Purchases</span></a></li>
+                                <li><a href="importpurchase.html"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-minimize-2">
+                                            <polyline points="4 14 10 14 10 20"></polyline>
+                                            <polyline points="20 10 14 10 14 4"></polyline>
+                                            <line x1="14" y1="10" x2="21" y2="3"></line>
+                                            <line x1="3" y1="21" x2="10" y2="14"></line>
+                                        </svg><span>Import Purchases</span></a></li>
+                                <li><a href="purchaseorderreport.html"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-file-minus">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                            <polyline points="14 2 14 8 20 8"></polyline>
+                                            <line x1="9" y1="15" x2="15" y2="15"></line>
+                                        </svg><span>Purchase Order</span></a></li>
+                                <li><a href="purchasereturnlist.html"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-refresh-cw">
+                                            <polyline points="23 4 23 10 17 10"></polyline>
+                                            <polyline points="1 20 1 14 7 14"></polyline>
+                                            <path
+                                                d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15">
+                                            </path>
+                                        </svg><span>Purchase Return</span></a></li>
+                            </ul>
+                            <hr class="submenu-line">
+                        </li>
+                        <li class="submenu-open">
+                            <h6 class="submenu-hdr">Finance &amp; Accounts</h6>
+                            <ul>
+                                <li class="submenu">
+                                    <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-file-text">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                            <polyline points="14 2 14 8 20 8"></polyline>
+                                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                                            <polyline points="10 9 9 9 8 9"></polyline>
+                                        </svg><span>Expense</span><span class="menu-arrow"></span></a>
+                                </li>
+                                <li class="submenu">
+                                    <a href="transactions.html"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.0020048,13 C17.5542895,13 18.0020048,13.4477153 18.0020048,14 C18.0020048,14.5128358 17.6159646,14.9355072 17.1186259,14.9932723 L17.0020048,15 L5.41700475,15 L8.70911154,18.2928932 C9.0695955,18.6533772 9.09732503,19.2206082 8.79230014,19.6128994 L8.70911154,19.7071068 C8.34862757,20.0675907 7.78139652,20.0953203 7.38910531,19.7902954 L7.29489797,19.7071068 L2.29489797,14.7071068 C1.69232289,14.1045317 2.07433707,13.0928192 2.88837381,13.0059833 L3.00200475,13 L17.0020048,13 Z M16.6128994,4.20970461 L16.7071068,4.29289322 L21.7071068,9.29289322 C22.3096819,9.8954683 21.9276677,10.9071808 21.1136309,10.9940167 L21,11 L7,11 C6.44771525,11 6,10.5522847 6,10 C6,9.48716416 6.38604019,9.06449284 6.88337887,9.00672773 L7,9 L18.585,9 L15.2928932,5.70710678 C14.9324093,5.34662282 14.9046797,4.77939176 15.2097046,4.38710056 L15.2928932,4.29289322 C15.6533772,3.93240926 16.2206082,3.90467972 16.6128994,4.20970461 Z"/>
+                                      </svg><span>Transactions</span><span class="menu-arrow"></span></a>
+                                </li>
+                            </ul>
+                            <hr class="submenu-line">
+                        </li>
+                        <li class="submenu-open">
+                            <h6 class="submenu-hdr">Peoples</h6>
+                            <ul>
+                                <li><a href="customerlist.html"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-user">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="12" cy="7" r="4"></circle>
+                                        </svg><span>Customers</span></a></li>
+                                <li><a href="supplierlist.html"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-users">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                        </svg><span>Suppliers</span></a></li>
+                                <li><a href="userlist.html"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-user-check">
+                                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="8.5" cy="7" r="4"></circle>
+                                            <polyline points="17 11 19 13 23 9"></polyline>
+                                        </svg><span>Users</span></a></li>
+                                <li><a href="storelist.html"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-home">
+                                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                        </svg><span>Stores</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="slimScrollBar"
+                style="background: rgb(204, 204, 204); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 168.173px;">
+            </div>
+            <div class="slimScrollRail"
+                style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;">
+            </div>
+        </div>
+    </div>
+    <!----------/sidebar content--------->
+
+    <!------------Main Body----------->
+    <div class="page-wrapper">
+        <div class="content">
+            <div class="page-header1">
+                <div class="add-item d-flex">
+                    <div class="page-title">
+                        <h4>Register New Sale</h4>
+                        <h6>Create new sale Today!</h6>
+                    </div>
+                </div>
+
+                <div class="page-btn-container">
+                    <div class="page-btn import">
+                        <a href="saleslist.html" class="btn btn-added color">
+                            <i class="vue-feather vue-feather--download me-2" data-name="download" data-tags=""
+                                data-type="download">
+                                <svg width="25px" height="25px" viewBox="0 0 512 512" id="Layer_1"
+                                    style="enable-background:new 0 0 512 512;" version="1.1" xml:space="preserve"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path fill="#FFFFFF"
+                                        d="M50.2,169.6C97.9,56.3,228.5,3.1,341.8,50.9s166.4,178.3,118.7,291.6S282.2,508.9,168.9,461.1  C86.4,426.4,32.7,345.5,32.7,256C32.7,226.3,38.6,196.9,50.2,169.6z M254.7,448c106,0,192-86,192-192s-86-192-192-192  s-192,86-192,192S148.7,448,254.7,448z M226.7,140.7L111.4,256l115.3,115.3l21.2-21.2L168.7,271h208.2v-30H168.7l79.1-79.1  L226.7,140.7z" />
+                                </svg>
+
+                            </i>Back To Sales Table
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <form data-select-id="254" style="margin: 5px;">
+                <div class="card" data-select2-id="253">
+                    <div class="card-body add-product pb-0" data-select2-id="252">
+                        <div class="accordion-card-one accordion" id="accordionExample"
+                            data-select2-id="accordionExample">
+                            <div class="accordion-item" data-select2-id="251">
+                                <div class="accordion-header" id="headingOne">
+                                    <div class="accordion-button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-controls="collapseOne"
+                                        style="background-color: transparent;">
+                                        <div class="addproduct-icon">
+                                            <h5>
+                                                <i class="vue-feather vue-feather--info add-info" data-name="info"
+                                                    data-tags="" data-type="info">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="feather feather-info vue-feather__content">
+                                                        <circle cx="12" cy="12" r="10"></circle>
+                                                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                                                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                                    </svg>
+                                                </i>
+                                                <span style="color: rgb(9, 44, 76);">Sale Information</span>
+                                            </h5>
+                                            <a href="javascript:void(0);">
+                                                <i class="vue-feather vue-feather--chevron-down chevron-down-add"
+                                                    data-name="chevron-down" data-tags="expand"
+                                                    data-type="chevron-down">
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample"
+                                    data-select2-id="collapseOne">
+                                    <div class="accordion-body" data-select2-id="250">
+
+
+                                        <div class="row mb-3">
+                                            <div class="col-lg-2">
+                                                <div class="mb-3 add-product">
+                                                    <label class="form-label" style="color: rgb(9, 44, 76);">Customer
+                                                        Name</label>
+                                                    <input type="text" class="form-control full-width-input"
+                                                        style="border-color: rgb(9, 44, 76); width: 100%;" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <div class="mb-3 add-product">
+                                                    <label class="form-label" style="color: rgb(9, 44, 76);">Payment
+                                                        Method</label>
+                                                    <select class="form-control select2-hidden-accessible"
+                                                        id="chooseadd" name=""
+                                                        style="border-color: rgb(9, 44, 76); width: 100%;">
+                                                        <option value="Choose">Choose</option>
+                                                        <option value="Cash">Cash</option>
+                                                        <option value="Bank">Bank</option>
+                                                        <option value="Mobile">Mobile</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- Add Product Button -->
+                                        <div class="row" style="margin-left: 0px;">
+                                            <div class="col-lg-6">
+                                                <div style="display: flex; align-items: flex-start;">
+                                                    <a href="product.html" class="btn btn-primary"
+                                                        id="addProductBtn">Add Product</a>
+                                                    <div
+                                                        style="border: 1px solid grey; border-radius: 5px; padding: 6px; display: flex; align-items: center; margin-left: 10px;">
+                                                        <a href="#" id="qrLink"
+                                                            style="text-decoration: none; color: inherit;"
+                                                            data-bs-toggle="modal" data-bs-target="#add-units-category">
+                                                            <span style="margin-right: 8px;">Scan with QR code</span>
+                                                            <svg width="20px" height="20px" viewBox="0 0 24 24"
+                                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <rect x="3" y="3" width="7" height="7" rx="1"
+                                                                    stroke="#000000" stroke-width="2" />
+                                                                <rect x="3" y="14" width="7" height="7" rx="1"
+                                                                    stroke="#000000" stroke-width="2" />
+                                                                <rect x="14" y="3" width="7" height="7" rx="1"
+                                                                    stroke="#000000" stroke-width="2" />
+                                                                <rect x="13" y="13" width="3" height="3" rx="0.5"
+                                                                    fill="#000000" />
+                                                                <rect x="16" y="16" width="3" height="3" rx="0.5"
+                                                                    fill="#000000" />
+                                                                <rect x="19" y="13" width="3" height="3" rx="0.5"
+                                                                    fill="#000000" />
+                                                                <rect x="19" y="19" width="3" height="3" rx="0.5"
+                                                                    fill="#000000" />
+                                                                <rect x="13" y="19" width="3" height="3" rx="0.5"
+                                                                    fill="#000000" />
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <table class="table mt-3">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product ID</th>
+                                                    <th>Product Name</th>
+                                                    <th>Product Category</th>
+                                                    <th>Product Brand</th>
+                                                    <th>Product Qty</th>
+                                                    <th>Price</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="productTableBody">
+                                                <!-- Product rows will be added dynamically here -->
+                                            </tbody>
+                                        </table>
+
+                                        <div class="row mt-3">
+                                            <div class="col-lg-6 ms-auto">
+                                                <div class="total-order w-100 max-widthauto m-auto mb-4">
+                                                    <ul style="list-style: none; padding: 0;">
+                                                        <li
+                                                            style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                                            <h4
+                                                                style="margin: 0; color: #333;  font-size: 14px; font-weight: bold;">
+                                                                Order Tax</h4>
+                                                            <h5 id="orderTaxValue"
+                                                                style="margin: 0; color: #333; font-size: 14px; font-weight: bold;">
+                                                                Tsh 0.00</h5>
+                                                        </li>
+                                                        <li
+                                                            style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                                            <h4
+                                                                style="margin: 0; color: #333; font-size: 14px; font-weight: bold;">
+                                                                Discount</h4>
+                                                            <h5 id="discountValue"
+                                                                style="margin: 0; color: #333; font-size: 14px; font-weight: bold;">
+                                                                Tsh 0.00</h5>
+                                                        </li>
+                                                        <li
+                                                            style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                                            <h4
+                                                                style="margin: 0; color: #333; font-size: 14px; font-weight: bold;">
+                                                                Transport</h4>
+                                                            <h5 id="transportValue"
+                                                                style="margin: 0; color: #333; font-size: 14px; font-weight: bold;">
+                                                                Tsh 0.00</h5>
+                                                        </li>
+                                                        <li style="display: flex; justify-content: space-between;">
+                                                            <h4
+                                                                style="margin: 0; color: #333; font-size: 14px; font-weight: bold;">
+                                                                Grand Total</h4>
+                                                            <h5 id="grandTotalValue"
+                                                                style="margin: 0; color: #333; font-size: 14px; font-weight: bold;">
+                                                                Tsh 0.00</h5>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="page-btn-container d-flex justify-content-end mb-3" style="margin-top: 3px; margin-right: 10px;">
+                        <button type="button" class="btn btn-success custom-save-btn mx-1" id="saveButton" style="width: 100px;">Save</button>
+                        <button type="button" class="btn btn-danger mx-1" id="cancelButton" style="width: 100px;">Cancel</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Modal -->
+            <div class="modal fade" id="add-units-category" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static"
+                data-bs-keyboard="false">
+                <div class="modal-dialog modal-dialog-centered custom-modal-two" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header border-0 custom-modal-header">
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="cameraView" style="max-width: 100%; max-height: 100%; overflow: hidden;">
+                                <!-- This is where the camera view or QR code scanning output will be displayed -->
+                            </div>
+                        </div>
+                        <div class="modal-footer-btn">
+                            <button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-submit" onclick="enableCamera()">Enable Camera</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Modal -->
+
+            <!-- Payment Method Modal -->
+            <div class="modal fade" id="paymentMethodModal" tabindex="-1" role="dialog" aria-labelledby="paymentMethodModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="paymentMethodModalLabel">Select Payment Method</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <label class="payment-option-label">
+                                    <input type="radio" name="paymentMethod" value="Option 1" class="payment-option-input">
+                                    <img src="../img/air.png" alt="Mobile Money Option 1" class="img-fluid payment-option-img">
+                                </label>
+                                <label class="payment-option-label">
+                                    <input type="radio" name="paymentMethod" value="Option 2" class="payment-option-input">
+                                    <img src="../img/mpesa.jpeg" alt="Mobile Money Option 2" class="img-fluid payment-option-img">
+                                </label>
+                                <label class="payment-option-label">
+                                    <input type="radio" name="paymentMethod" value="Option 3" class="payment-option-input">
+                                    <img src="../img/tigopesa.png" alt="Mobile Money Option 3" class="img-fluid payment-option-img">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="continueButton">Continue</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!---------QRcode modal---------->
+            <div class="modal fade" id="qrCodeModal" tabindex="-1" role="dialog" aria-labelledby="qrCodeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="qrCodeModalLabel">QR Code</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="text-center">
+                                <svg width="200px" height="200px" viewBox="-10 -5 1034 1034" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                                    <path fill="#000000" d="M100 226v54v320h373v-374h-373zM527 226v54v320h373v-374h-373zM153 280h54h213v266h-267v-266zM580 280h53h214v266h-267v-266zM207 333v53v107h160v-160h-160zM633 333v53v107h160v-160h-160zM100 653v53v320h373v-373h-373zM687 653v53v54h106v-54h-53v-53h-53z M687 760h-54h-106v106h53v54h-53v53h53v53h107v-160h-54v-53h54v-53zM153 706h54h213v267h-267v-267zM207 760v53v107h160v-160h-160zM847 760v53h-54v160h-53v53h107v-53h53v-213h-53z" />
+                                </svg>
+                            </div>
+                            <div class="mt-3">
+                                <p><strong>Code number:</strong> 124578</p>
+                                <p><strong>Agent name:</strong> Malagalo Hussein</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    // Get the save button
+    var saveButton = document.getElementById('saveButton');
+
+    // Add click event listener to the save button
+    saveButton.addEventListener('click', function (event) {
+        // Prevent the default action of the button
+        event.preventDefault();
+        
+        // Show the payment method modal
+        $('#paymentMethodModal').modal('show');
+    });
+
+    // Handle Continue button click
+    var continueButton = document.getElementById('continueButton');
+    if (continueButton) {
+        continueButton.addEventListener('click', function() {
+            // Hide payment method modal
+            $('#paymentMethodModal').modal('hide');
+
+            // Show QR code modal
+            $('#qrCodeModal').modal('show');
+
+            // Get the selected payment method
+            var selectedPaymentMethod = $('input[name="paymentMethod"]:checked').val();
+
+            // Update QR code modal content based on the selected payment method
+            if (selectedPaymentMethod === 'Option 1') {
+                // Example: Update QR code image, code number, and agent name for Option 1
+                $('#qrCodeImage').attr('src', '../img/qr_code_option1.png');
+                $('#qrCodeNumber').text('Code number: 124578');
+                $('#agentName').text('Agent name: Malagalo Hussein');
+            } else if (selectedPaymentMethod === 'Option 2') {
+                // Example: Update QR code image, code number, and agent name for Option 2
+                $('#qrCodeImage').attr('src', '../img/qr_code_option2.png');
+                $('#qrCodeNumber').text('Code number: 987654');
+                $('#agentName').text('Agent name: John Doe');
+            } else if (selectedPaymentMethod === 'Option 3') {
+                // Example: Update QR code image, code number, and agent name for Option 3
+                $('#qrCodeImage').attr('src', '../img/qr_code_option3.png');
+                $('#qrCodeNumber').text('Code number: 456789');
+                $('#agentName').text('Agent name: Jane Smith');
+            }
+        });
+    }
+});
+
+    </script>
+    
+
+    <script>
+        var stream; // Variable to store the media stream
+        var cameraEnabled = false; // Variable to track if the camera is enabled
+
+        function toggleCamera() {
+            if (cameraEnabled) {
+                disableCamera();
+            } else {
+                enableCamera();
+            }
+        }
+
+        function enableCamera() {
+            if (!cameraEnabled) {
+                // Get access to the camera
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(function (s) {
+                        stream = s; // Store the media stream
+                        // Display the camera stream in the cameraView div
+                        var video = document.createElement('video');
+                        video.srcObject = stream;
+                        video.autoplay = true;
+                        document.getElementById('cameraView').appendChild(video);
+                        cameraEnabled = true;
+                    })
+                    .catch(function (err) {
+                        console.log('Error accessing camera: ', err);
+                    });
+            }
+        }
+
+        function disableCamera() {
+            if (cameraEnabled) {
+                // Stop the media stream if it exists
+                if (stream) {
+                    var tracks = stream.getTracks();
+                    tracks.forEach(function (track) {
+                        track.stop();
+                    });
+                    // Clear the cameraView div
+                    document.getElementById('cameraView').innerHTML = '';
+                    cameraEnabled = false;
+                }
+            }
+        }
+
+        // Use modal events to trigger the disableCamera function when the modal is closed
+        var myModal = document.getElementById('add-units-category');
+        myModal.addEventListener('hidden.bs.modal', function () {
+            disableCamera();
+        });
+    </script>
+
+
+
+
+    <script>
+        // Step 1: Add two random product items to the table
+        function addRandomProduct() {
+            // Generate random product data (replace this with your actual data)
+            var productId1 = "PROD001";
+            var productName1 = "Product 1";
+            var productCategory1 = "Category 1";
+            var productBrand1 = "Brand 1";
+            var productQty1 = 1;
+            var price1 = 50;
+
+            var productId2 = "PROD002";
+            var productName2 = "Product 2";
+            var productCategory2 = "Category 2";
+            var productBrand2 = "Brand 2";
+            var productQty2 = 1;
+            var price2 = 75;
+
+            // Add product rows to the table
+            var productTableBody = document.getElementById("productTableBody");
+
+            // Product 1
+            var productRow1 = "<tr>" +
+                "<td>" + productId1 + "</td>" +
+                "<td>" + productName1 + "</td>" +
+                "<td>" + productCategory1 + "</td>" +
+                "<td>" + productBrand1 + "</td>" +
+                "<td>" + productQty1 + "</td>" +
+                "<td>" + price1 + "</td>" +
+                "<td><a class='confirm-text p-2' href='/delete'>" +
+                "<i class='vue-feather vue-feather--trash-2 feather-trash-2' " +
+                "data-name='trash-2' data-tags='garbage,delete,remove,bin' data-type='trash-2'>" +
+                "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'" +
+                "stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'" +
+                "class='feather feather-trash-2 vue-feather__content'>" +
+                "<polyline points='3 6 5 6 21 6'></polyline>" +
+                "<path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path>" +
+                "<line x1='10' y1='11' x2='10' y2='17'></line>" +
+                "<line x1='14' y1='11' x2='14' y2='17'></line>" +
+                "</svg>" +
+                "</i>" +
+                "</a></td>" +
+                "</tr>";
+            productTableBody.innerHTML += productRow1;
+
+            // Product 2
+            var productRow2 = "<tr>" +
+                "<td>" + productId2 + "</td>" +
+                "<td>" + productName2 + "</td>" +
+                "<td>" + productCategory2 + "</td>" +
+                "<td>" + productBrand2 + "</td>" +
+                "<td>" + productQty2 + "</td>" +
+                "<td>" + price2 + "</td>" +
+                "<td><a class='confirm-text p-2' href='/delete'>" +
+                "<i class='vue-feather vue-feather--trash-2 feather-trash-2' " +
+                "data-name='trash-2' data-tags='garbage,delete,remove,bin' data-type='trash-2'>" +
+                "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'" +
+                "stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'" +
+                "class='feather feather-trash-2 vue-feather__content'>" +
+                "<polyline points='3 6 5 6 21 6'></polyline>" +
+                "<path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path>" +
+                "<line x1='10' y1='11' x2='10' y2='17'></line>" +
+                "<line x1='14' y1='11' x2='14' y2='17'></line>" +
+                "</svg>" +
+                "</i>" +
+                "</a></td>" +
+                "</tr>";
+            productTableBody.innerHTML += productRow2;
+
+            // Step 2: Calculate the total price of the products
+            var totalPrice = price1 + price2;
+
+            // Step 3: Perform calculations based on order tax, transport, and total
+            var orderTax = 0.1 * totalPrice; // Assuming order tax is 10%
+            var transport = 25; // Assuming transport cost is fixed at 25 Tsh
+            var grandTotal = totalPrice + orderTax + transport;
+
+            // Update the displayed values
+            document.getElementById("orderTaxValue").innerText = "Tsh " + orderTax.toFixed(2);
+            document.getElementById("transportValue").innerText = "Tsh " + transport.toFixed(2);
+            document.getElementById("grandTotalValue").innerText = "Tsh " + grandTotal.toFixed(2);
+
+            // Set discount value ID
+            document.getElementById("discountValue").innerText = "Tsh 0.00";
+        }
+
+        // Call the function to add random product items
+        addRandomProduct();
+
+    </script>
+
+</body>
+
+</html>

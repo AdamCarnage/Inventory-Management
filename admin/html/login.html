@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log-in</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="inner">
+            <form action="/login" method="POST" id="loginForm" class="login-form">
+                <h3>ADMIN LOGIN</h3>
+
+                <div class="form-holder">
+                    <span class="lnr lnr-user"></span>
+                    <input type="text" class="form-control" id="username" placeholder="Enter your Username" name="name"
+                        required><br>
+                </div>
+
+                <div class="form-holder">
+                    <span class="lnr lnr-envelope"></span>
+                    <input type="email" class="form-control" id="e-mail" placeholder="Enter your email" name="email"
+                        required><br>
+                </div>
+
+                <div class="form-holder">
+                    <span class="lnr lnr-envelope"></span>
+                    <input type="password" class="form-control" id="pass" placeholder="Enter your password" name="pass"
+                        required><br>
+                </div>
+
+                <button type="submit">
+                    <span>LOG IN</span>
+                </button><br>
+
+                <a href="/register" class="register-link">Register here</a></p><br>
+                <a href="/customerservice" class="forgot-password">Forgot Password? Consult Admin</a>
+            </form>
+        </div>
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
