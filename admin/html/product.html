@@ -484,20 +484,16 @@ C321.28,339.632,268.064,351.008,272.032,314.672z" />
                     </div>
 
                     <div class="page-btn import">
-                        <a href="javascript:void(0);" class="btn btn-added color" data-bs-toggle="modal"
-                            data-bs-target="#view-notes">
-                            <i class="vue-feather vue-feather--download me-2" data-name="download" data-tags=""
-                                data-type="download">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-download vue-feather__content">
+                        <a href="javascript:void(0);" class="btn btn-added color" data-bs-toggle="modal" data-bs-target="#import-product">
+                            <i class="vue-feather vue-feather--download me-2" data-name="download" data-tags="" data-type="download">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download vue-feather__content">
                                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                                     <polyline points="7 10 12 15 17 10"></polyline>
                                     <line x1="12" y1="15" x2="12" y2="3"></line>
                                 </svg>
                             </i>Import Product
                         </a>
-                    </div>
+                    </div>                    
                 </div>
             </div>
 
@@ -1052,7 +1048,7 @@ C321.28,339.632,268.064,351.008,272.032,314.672z" />
                         </table>
                     </div>
 
-                    <!-- Modal for adding product -->
+                    <!-- Modal for view product -->
                     <div class="modal fade" id="add-units-category" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
@@ -1110,7 +1106,59 @@ C321.28,339.632,268.064,351.008,272.032,314.672z" />
                             </div>
                         </div>
                     </div>
+                <!--/ Modal for view product -->
 
+                <!-- Modal for importing product -->
+                <div class="modal fade" id="import-product" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered custom-modal-two " role="document">
+                        <div class="modal-content">
+                            <div class="modal-header border-0 custom-modal-header">
+                                <div class="page-title">
+                                    <h4>Import Product</h4>
+                                </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                </button>
+                            </div>
+                            <div class="modal-body custom-modal-body">
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <label class="form-label">From</label>
+                                        <select class="form-select">
+                                            <option value="store1">Store 1</option>
+                                            <option value="store2">Store 2</option>
+                                            <!-- Add more options as needed -->
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <label class="form-label">To</label>
+                                        <select class="form-select">
+                                            <option value="store1">Store 1</option>
+                                            <option value="store2">Store 2</option>
+                                            <!-- Add more options as needed -->
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <label class="form-label">ID</label>
+                                        <input type="text" class="form-control" id="product-id">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-lg-12">
+                                        <label class="form-label">Product Data</label>
+                                        <span id="product-data-span"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer-btn">
+                                <button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-submit" id="confirm-import">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal for importing product -->
 
 
                 </div>
