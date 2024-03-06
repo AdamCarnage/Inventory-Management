@@ -25,119 +25,121 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="inner">
-            <form>
-                <div id="forgotPasswordForm">
-                    <div class="form-holder">
-                        <h2 class="text-center">Forgot Password?</h2>
-                        <input type="email" id="emailInput" class="form-control mt-3 mb-3"
-                            placeholder="Enter your email">
-                        <div id="emailError" style="color: red; display: none;">Email is required</div>
-                        <button id="confirmButton">Confirm</button>
+    <div class="background-image">
+        <div class="wrapper">
+            <div class="inner">
+                <form style="border-radius: 10px;">
+                    <div id="forgotPasswordForm">
+                        <div class="form-holder">
+                            <h2 class="text-center">Forgot Password?</h2>
+                            <input type="email" id="emailInput" class="form-control mt-3 mb-3"
+                                placeholder="Enter your email">
+                            <div id="emailError" style="color: red; display: none;">Email is required</div>
+                            <button id="confirmButton">Confirm</button>
+                        </div>
                     </div>
-                </div>
-                <div id="otpForm" style="display:none;">
-                    <div class="form-holder">
-                        <h2 class="text-center">Enter OTP</h2>
-                        <p class="otp-message text-center mt-2">We sent OTP to your number ********74</p>
-                        <input type="text" class="form-control mt-3 mb-3" id="otpInput" placeholder="Enter OTP">
-                        <button id="verifyButton">Verify</button>
+                    <div id="otpForm" style="display:none;">
+                        <div class="form-holder">
+                            <h2 class="text-center">Enter OTP</h2>
+                            <p class="otp-message text-center mt-2">We sent OTP to your number ********74</p>
+                            <input type="text" class="form-control mt-3 mb-3" id="otpInput" placeholder="Enter OTP">
+                            <button id="verifyButton">Verify</button>
+                        </div>
                     </div>
-                </div>
-                <div id="setPasswordForm" style="display:none;">
-                    <div class="form-holder">
-                        <h2 class="text-center">Set New Password</h2>
-                        <input type="password" id="passwordInput" class="form-control mt-3 mb-3"
-                            placeholder="Enter new password" required>
-                        <input type="password" id="confirmPasswordInput" class="form-control mt-3 mb-3"
-                            placeholder="Confirm new password" required>
-                        <button id="setPasswordButton">Set Password</button>
+                    <div id="setPasswordForm" style="display:none;">
+                        <div class="form-holder">
+                            <h2 class="text-center">Set New Password</h2>
+                            <input type="password" id="passwordInput" class="form-control mt-3 mb-3"
+                                placeholder="Enter new password" required>
+                            <input type="password" id="confirmPasswordInput" class="form-control mt-3 mb-3"
+                                placeholder="Confirm new password" required>
+                            <button id="setPasswordButton">Set Password</button>
+                        </div>
                     </div>
+                </form>
+                <div id="message" style="display:none;">
+                    <p>OTP sent successfully!</p>
                 </div>
-            </form>            
-            <div id="message" style="display:none;">
-                <p>OTP sent successfully!</p>
             </div>
         </div>
     </div>
 </body>
 
-   <script>
-   document.addEventListener("DOMContentLoaded", function () {
-    const forgotPasswordForm = document.getElementById("forgotPasswordForm");
-    const otpForm = document.getElementById("otpForm");
-    const setPasswordForm = document.getElementById("setPasswordForm");
-    const message = document.getElementById("message");
-    const emailInput = document.getElementById("emailInput");
-    const emailError = document.getElementById("emailError");
-    const confirmButton = document.getElementById("confirmButton");
-    const verifyButton = document.getElementById("verifyButton");
-    const setPasswordButton = document.getElementById("setPasswordButton");
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const forgotPasswordForm = document.getElementById("forgotPasswordForm");
+        const otpForm = document.getElementById("otpForm");
+        const setPasswordForm = document.getElementById("setPasswordForm");
+        const message = document.getElementById("message");
+        const emailInput = document.getElementById("emailInput");
+        const emailError = document.getElementById("emailError");
+        const confirmButton = document.getElementById("confirmButton");
+        const verifyButton = document.getElementById("verifyButton");
+        const setPasswordButton = document.getElementById("setPasswordButton");
 
-    confirmButton.addEventListener("click", function (event) {
-        event.preventDefault();
-        const email = emailInput.value.trim();
-        if (!email) {
-            emailError.style.display = "block";
-            return;
+        confirmButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            const email = emailInput.value.trim();
+            if (!email) {
+                emailError.style.display = "block";
+                return;
+            }
+            // Assuming you have a function to send OTP to email
+            sendOTP(email);
+            // Display OTP form
+            forgotPasswordForm.style.display = "none";
+            otpForm.style.display = "block";
+            // Display phone number (example)
+            document.querySelector("#otpForm .otp-message span").textContent = "********74";
+        });
+
+        verifyButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            const otp = document.getElementById("otpInput").value;
+            if (verifyOTP(otp)) {
+                // Show set password form
+                otpForm.style.display = "none";
+                setPasswordForm.style.display = "block";
+            } else {
+                // Show error message or retry prompt
+                alert("Invalid OTP. Please try again.");
+            }
+        });
+
+        setPasswordButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            const password = document.getElementById("passwordInput").value;
+            const confirmPassword = document.getElementById("confirmPasswordInput").value;
+            if (!password || !confirmPassword) {
+                alert("Please fill out both password fields.");
+                return;
+            }
+            if (password !== confirmPassword) {
+                alert("Passwords do not match. Please try again.");
+                return;
+            }
+            // Assuming you have a function to set the password
+            setPassword(password);
+            // Redirect to dashboard.html
+            window.location.href = "dashboard.html";
+        });
+
+        // Function to send OTP (replace with your actual implementation)
+        function sendOTP(email) {
+            // Code to send OTP
+            console.log("Sending OTP to: " + email);
         }
-        // Assuming you have a function to send OTP to email
-        sendOTP(email);
-        // Display OTP form
-        forgotPasswordForm.style.display = "none";
-        otpForm.style.display = "block";
-        // Display phone number (example)
-        document.querySelector("#otpForm .otp-message span").textContent = "********74";
+
+        // Function to verify OTP (replace with your actual implementation)
+        function verifyOTP(otp) {
+            return otp === "123456"; // Change "123456" to your actual OTP
+        }
+
+        // Function to set password (replace with your actual implementation)
+        function setPassword(password) {
+            console.log("Setting new password: " + password);
+        }
     });
-
-    verifyButton.addEventListener("click", function (event) {
-        event.preventDefault();
-        const otp = document.getElementById("otpInput").value;
-        if (verifyOTP(otp)) {
-            // Show set password form
-            otpForm.style.display = "none";
-            setPasswordForm.style.display = "block";
-        } else {
-            // Show error message or retry prompt
-            alert("Invalid OTP. Please try again.");
-        }
-    });
-
-    setPasswordButton.addEventListener("click", function (event) {
-        event.preventDefault();
-        const password = document.getElementById("passwordInput").value;
-        const confirmPassword = document.getElementById("confirmPasswordInput").value;
-        if (!password || !confirmPassword) {
-            alert("Please fill out both password fields.");
-            return;
-        }
-        if (password !== confirmPassword) {
-            alert("Passwords do not match. Please try again.");
-            return;
-        }
-        // Assuming you have a function to set the password
-        setPassword(password);
-        // Redirect to dashboard.html
-        window.location.href = "dashboard.html";
-    });
-
-    // Function to send OTP (replace with your actual implementation)
-    function sendOTP(email) {
-        // Code to send OTP
-        console.log("Sending OTP to: " + email);
-    }
-
-    // Function to verify OTP (replace with your actual implementation)
-    function verifyOTP(otp) {
-        return otp === "123456"; // Change "123456" to your actual OTP
-    }
-
-    // Function to set password (replace with your actual implementation)
-    function setPassword(password) {
-        console.log("Setting new password: " + password);
-    }
-});
 </script>
 
 </html>

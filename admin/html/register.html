@@ -10,69 +10,69 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="inner">
-            <form action="/register" method="POST" id="loginForm" class="regin">
-                <h3>SUPER ADMIN REGISTRATION</h3>
+    <div class="background-image">
+        <div class="wrapper">
+            <div class="inner">
+                <form action="/register" method="POST" id="loginForm" class="regin" style="border-radius: 10px;">
+                    <h3>SUPER ADMIN REGISTRATION</h3>
 
-                <div class="form-holder">
-                    <span class="lnr lnr-user"></span>
-                    <input type="text" id="username" class="form-control" placeholder="Enter your UserName" name="name"
-                        required><br>
-                </div>
+                    <div class="form-holder">
+                        <span class="lnr lnr-user"></span>
+                        <input type="text" id="username" class="form-control" placeholder="Enter your UserName"
+                            name="name" required><br>
+                    </div>
 
-                <div class="form-holder">
-                    <span class="lnr lnr-user"></span>
-                    <input type="email" id="e-mail" class="form-control" placeholder="Enter your email" name="email"
-                        required><br>
-                </div>
+                    <div class="form-holder">
+                        <span class="lnr lnr-user"></span>
+                        <input type="email" id="e-mail" class="form-control" placeholder="Enter your email" name="email"
+                            required><br>
+                    </div>
 
-                <div class="form-holder">
-                    <span class="lnr lnr-user"></span>
-                    <input type="text" id="store" class="form-control" placeholder="Enter your Store name" name="pass"
-                        required><br>
-                </div>
+                    <div class="form-holder">
+                        <span class="lnr lnr-user"></span>
+                        <input type="text" id="store" class="form-control" placeholder="Enter your Store name"
+                            name="pass" required><br>
+                    </div>
 
-                <div class="form-holder">
-                    <select id="districtDropdown" class="form-control" required>
-                        <option value="">Select District</option>
-                        <option value="district1">Ubungo</option>
-                        <option value="district2">Sinza</option>
-                        <option value="district3">Kinondoni</option>
-                        <option value="district3">Mbezi ya kimara</option>
-                        <!-- Add more options as needed -->
-                    </select>
+                    <div class="form-holder">
+                        <select id="districtDropdown" class="form-control" required>
+                            <option value="">Select District</option>
+                            <option value="district1">Ubungo</option>
+                            <option value="district2">Sinza</option>
+                            <option value="district3">Kinondoni</option>
+                            <option value="district3">Mbezi ya kimara</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                        <br>
+                    </div>
+
+                    <div class="form-holder">
+                        <svg id="showPassword" class="eye-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                            width="18" height="18" fill="#000000">
+                            <path d="M2 10C2 10 5.5 14 12 14C18.5 14 22 10 22 10" stroke="#000000" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M4 11.6445L2 14" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M22 14L20.0039 11.6484" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M8.91406 13.6797L8 16.5" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M15.0625 13.6875L16 16.5" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        <span class="lnr lnr-lock"></span>
+                        <input type="password" id="password" class="form-control" placeholder="Enter your password"
+                            name="password" required>
+                        <br>
+                    </div>
+
+                    <button type="submit" id="submitButton">
+                        REGISTER
+                    </button>
                     <br>
-                </div>
-
-                <div class="form-holder">
-                    <svg id="showPassword" class="eye-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="#000000">
-                        <path d="M2 10C2 10 5.5 14 12 14C18.5 14 22 10 22 10" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M4 11.6445L2 14" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M22 14L20.0039 11.6484" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M8.91406 13.6797L8 16.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M15.0625 13.6875L16 16.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="lnr lnr-lock"></span>
-                    <input type="password" id="password" class="form-control" placeholder="Enter your password" name="password" required>
-                    <br>
-                </div>
-                
-                <div class="form-holder">
-                    <svg id="showPassword" class="eye-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="#000000">
-                        <path d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z"/>
-                    </svg>
-                    <span class="lnr lnr-lock"></span>
-                    <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" name="confirmPassword" required>
-                    <br>
-                </div>
-
-                <button type="submit" id="submitButton">
-                    REGISTER
-                </button>
-                <br>
-                <a href="/" style="text-decoration: none;">Return to Home</a>
-            </form>
+                    <a href="login.html">Continue to Login</a>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -80,7 +80,7 @@
         const showPasswordButton = document.getElementById("showPassword");
         const passwordInput = document.getElementById("password");
 
-        showPasswordButton.addEventListener("click", function() {
+        showPasswordButton.addEventListener("click", function () {
             const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
             passwordInput.setAttribute("type", type);
             // Change the eye icon
