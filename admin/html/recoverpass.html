@@ -11,17 +11,6 @@
     <link rel="stylesheet" href="../css/login.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="assets/js/jquery.slimscroll.min.js"></script>
-    <style>
-        .otp-message {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .otp-message span {
-            display: inline;
-        }
-    </style>
 </head>
 
 <body>
@@ -31,7 +20,7 @@
                 <form style="border-radius: 10px;">
                     <div id="forgotPasswordForm">
                         <div class="form-holder">
-                            <h2 class="text-center">Forgot Password?</h2>
+                            <h3 class="text-center">Forgot Password?</h2>
                             <input type="email" id="emailInput" class="form-control mt-3 mb-3"
                                 placeholder="Enter your email">
                             <div id="emailError" style="color: red; display: none;">Email is required</div>
@@ -40,7 +29,7 @@
                     </div>
                     <div id="otpForm" style="display:none;">
                         <div class="form-holder">
-                            <h2 class="text-center">Enter OTP</h2>
+                            <h3 class="text-center">Enter OTP</h2>
                             <p class="otp-message text-center mt-2">We sent OTP to your number ********74</p>
                             <input type="text" class="form-control mt-3 mb-3" id="otpInput" placeholder="Enter OTP">
                             <button id="verifyButton">Verify</button>
@@ -48,7 +37,7 @@
                     </div>
                     <div id="setPasswordForm" style="display:none;">
                         <div class="form-holder">
-                            <h2 class="text-center">Set New Password</h2>
+                            <h3 class="text-center">Set New Password</h2>
                             <input type="password" id="passwordInput" class="form-control mt-3 mb-3"
                                 placeholder="Enter new password" required>
                             <input type="password" id="confirmPasswordInput" class="form-control mt-3 mb-3"

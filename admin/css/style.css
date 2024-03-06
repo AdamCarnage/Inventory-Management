@@ -12,7 +12,7 @@
   padding: 5px;
 }
 
-.page-header1 {
+.page-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -359,18 +359,13 @@ td {
 
 .custom-save-btn {
   background-color: #87CEEB;
-  /* Light blue color */
   border-color: #87CEEB;
-  /* Border color */
   color: #fff;
-  /* Text color */
 }
 
 .custom-save-btn:hover {
   background-color: #6495ED;
-  /* Light blue color on hover */
   border-color: #6495ED;
-  /* Border color on hover */
 }
 
 .required-message {
@@ -445,53 +440,45 @@ th.no-sort:hover {
   padding: 5px;
 }
 
-.page-header {
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  height: 250px;
-}
-
 .dash-widget {
     display: flex;
-  background-color: #fff; /* Set background color */
-  border-radius: 5px; /* Add border radius */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
-  margin-bottom: 20px; /* Add margin */
-  padding: 20px; /* Add padding */
+  background-color: #fff; 
+  border-radius: 5px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px; 
 }
 
 .dash-widgeting {
-  margin-right: 40px; /* Add margin to create space between icon and content */
+  margin-right: 40px; 
 }
 
 .dash-widgetcontent {
-  flex-grow: 1; /* Allow content to grow and take up remaining space */
+  flex-grow: 1;
 }
 
 .dash-widgeting span {
-  display: block; /* Make span block-level */
-  margin-bottom: 5px; /* Add margin */
+  display: block;
+  margin-bottom: 5px;
 }
 
 .dash-widgetcontent h5 {
-  margin-bottom: 5px; /* Add margin */
+  margin-bottom: 5px;
 }
 
 .dash-widgetcontent h6 {
-  color: #888; /* Set text color */
-  font-size: 14px; /* Set font size */
-  margin-top: 5px; /* Add margin */
+  color: #888;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
 .dash-count {
-  background-color: #ff9f43; /* Set background color */
-  border-radius: 10px; /* Add border radius */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
-  display: flex; /* Make flex container */
-  margin-bottom: 20px; /* Add margin */
-  padding: 20px; /* Add padding */
+  background-color: #ff9f43;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  margin-bottom: 20px;
+  padding: 20px;
   min-height: 98px;
   width: 100%;
   margin: 0 0 25px;
@@ -500,18 +487,18 @@ th.no-sort:hover {
 }
 
 .dash-counts h4 {
-  font-size: 24px; /* Set font size */
-  margin-bottom: 5px; /* Add margin */
+  font-size: 24px;
+  margin-bottom: 5px;
 }
 
 .dash-counts h5 {
-  color: #888; /* Set text color */
-  font-size: 16px; /* Set font size */
-  margin-top: 5px; /* Add margin */
+  color: #888;
+  font-size: 16px;
+  margin-top: 5px;
 }
 
 .dash-imgs {
-  margin-left: auto; /* Align to the right */
+  margin-left: auto;
 }
 
 .dash-count.das1 {
@@ -550,8 +537,6 @@ h4 {
   font-weight: 400;
   font-size: 21px;
 }
-
-
 
 .header {
   background: #fff;
@@ -690,9 +675,29 @@ span {
   overflow: hidden;
 }
 
+ul li a:hover svg path {
+  stroke: #12BA86;
+}
+
+ul li:hover span + svg path {
+  stroke: #12BA86;
+}
+
+.feather {
+  color: #000;
+}
+
+.feather:hover {
+  color: #12BA86;
+}
+
 .feather-14 {
   width: 14px;
   height: 14px;
+}
+
+.feather:hover path {
+  stroke: #12BA86;
 }
 
 .input {
@@ -968,7 +973,7 @@ p {
 }
 
 .sidebar {
-  background-color: #e8ebed;
+  background-color: #0D1459;
   margin-top: 0;
   z-index: 1001;
   position: fixed;
@@ -1085,14 +1090,14 @@ expired.htmlapper {
   width: 200px;
 }
 
-.submenu-open ul li:hover {
-  background-color: #c1c2c4;
-  width: 170px;
-  height: 30px;
-  border-radius: 3px;
-  padding-left: 5px;
-  padding-top: 3px;
+.submenu-open ul li:hover span {
+  color: #12BA86;
 }
+
+.submenu-open ul li:hover svg path {
+  stroke: #12BA86;
+}
+
 .submenu-line {
   border: 0.5px solid rgba(0, 0, 0, 0.2);
   margin-top: 10px;
