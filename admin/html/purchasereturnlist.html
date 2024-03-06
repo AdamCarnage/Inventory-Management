@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>purchaseform</title>
+    <title>purchasereturnlist</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -327,11 +327,9 @@
                                         </svg><span>Expense</span><span class="menu-arrow"></span></a>
                                 </li>
                                 <li class="submenu">
-                                    <a href="transactions.html"><svg fill="#000000" width="24px" height="24px"
-                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M17.0020048,13 C17.5542895,13 18.0020048,13.4477153 18.0020048,14 C18.0020048,14.5128358 17.6159646,14.9355072 17.1186259,14.9932723 L17.0020048,15 L5.41700475,15 L8.70911154,18.2928932 C9.0695955,18.6533772 9.09732503,19.2206082 8.79230014,19.6128994 L8.70911154,19.7071068 C8.34862757,20.0675907 7.78139652,20.0953203 7.38910531,19.7902954 L7.29489797,19.7071068 L2.29489797,14.7071068 C1.69232289,14.1045317 2.07433707,13.0928192 2.88837381,13.0059833 L3.00200475,13 L17.0020048,13 Z M16.6128994,4.20970461 L16.7071068,4.29289322 L21.7071068,9.29289322 C22.3096819,9.8954683 21.9276677,10.9071808 21.1136309,10.9940167 L21,11 L7,11 C6.44771525,11 6,10.5522847 6,10 C6,9.48716416 6.38604019,9.06449284 6.88337887,9.00672773 L7,9 L18.585,9 L15.2928932,5.70710678 C14.9324093,5.34662282 14.9046797,4.77939176 15.2097046,4.38710056 L15.2928932,4.29289322 C15.6533772,3.93240926 16.2206082,3.90467972 16.6128994,4.20970461 Z" />
-                                        </svg><span>Transactions</span><span class="menu-arrow"></span></a>
+                                    <a href="transactions.html"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.0020048,13 C17.5542895,13 18.0020048,13.4477153 18.0020048,14 C18.0020048,14.5128358 17.6159646,14.9355072 17.1186259,14.9932723 L17.0020048,15 L5.41700475,15 L8.70911154,18.2928932 C9.0695955,18.6533772 9.09732503,19.2206082 8.79230014,19.6128994 L8.70911154,19.7071068 C8.34862757,20.0675907 7.78139652,20.0953203 7.38910531,19.7902954 L7.29489797,19.7071068 L2.29489797,14.7071068 C1.69232289,14.1045317 2.07433707,13.0928192 2.88837381,13.0059833 L3.00200475,13 L17.0020048,13 Z M16.6128994,4.20970461 L16.7071068,4.29289322 L21.7071068,9.29289322 C22.3096819,9.8954683 21.9276677,10.9071808 21.1136309,10.9940167 L21,11 L7,11 C6.44771525,11 6,10.5522847 6,10 C6,9.48716416 6.38604019,9.06449284 6.88337887,9.00672773 L7,9 L18.585,9 L15.2928932,5.70710678 C14.9324093,5.34662282 14.9046797,4.77939176 15.2097046,4.38710056 L15.2928932,4.29289322 C15.6533772,3.93240926 16.2206082,3.90467972 16.6128994,4.20970461 Z"/>
+                                      </svg><span>Transactions</span><span class="menu-arrow"></span></a>
                                 </li>
                             </ul>
                             <hr class="submenu-line">
@@ -392,8 +390,8 @@
             <div class="page-header">
                 <div class="add-item d-flex">
                     <div class="page-title">
-                        <h4>Purchase Return Form</h4>
-                        <h6>Register Your purchases return</h6>
+                        <h4>Purchase return List</h4>
+                        <h6>Manage Your purchases returns</h6>
                     </div>
                 </div>
                 <ul class="table-top-head">
@@ -461,227 +459,468 @@ C321.28,339.632,268.064,351.008,272.032,314.672z" />
                         </a>
                     </li>
                 </ul>
+
+                <div class="page-btn-container">
+                    <div class="page-btn">
+                        <a href="purchasereturn.html" class="add-btn">
+                            <i class="vue-feather vue-feather--pluss-circle me-2" data-name="plus-circle"
+                                data-tags="add,new" data-type="plus-circle">
+                                <svg width="25px" height="25px" viewBox="0 0 24 24" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <title>/svg/ic-add</title>
+                                    <desc>Created with Sketch.</desc>
+                                    <defs></defs>
+                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="ic-add" fill-rule="nonzero" fill="white">
+                                            <path
+                                                d="M12,21 C16.9705627,21 21,16.9705627 21,12 C21,7.02943725 16.9705627,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 Z M12,23 C5.92486775,23 1,18.0751322 1,12 C1,5.92486775 5.92486775,1 12,1 C18.0751322,1 23,5.92486775 23,12 C23,18.0751322 18.0751322,23 12,23 Z M13,11 L13,8.99703014 C13,8.45303631 12.5522847,8 12,8 C11.4438648,8 11,8.4463856 11,8.99703014 L11,11 L8.99703014,11 C8.45303631,11 8,11.4477153 8,12 C8,12.5561352 8.4463856,13 8.99703014,13 L11,13 L11,15.0029699 C11,15.5469637 11.4477153,16 12,16 C12.5561352,16 13,15.5536144 13,15.0029699 L13,13 L15.0029699,13 C15.5469637,13 16,12.5522847 16,12 C16,11.4438648 15.5536144,11 15.0029699,11 L13,11 Z"
+                                                id="Combined-Shape">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </i>
+                            Add New Return
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <form data-select-id="254" style="margin: 5px;">
-                <div class="card" data-select2-id="253">
-                    <div class="card-body add-product pb-0" data-select2-id="252">
-                        <div class="accordion-card-one accordion" id="accordionExample"
-                            data-select2-id="accordionExample">
-                            <div class="accordion-item" data-select2-id="251">
-                                <div class="accordion-header" id="headingOne">
-                                    <div class="accordion-button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-controls="collapseOne"
-                                        style="background-color: transparent; display: flex; align-items: center;">
-                                        <div class="addproduct-icon">
-                                            <h5>
-                                                <i class="vue-feather vue-feather--info add-info" data-name="info"
-                                                    data-tags="" data-type="info">
+            <div class="card" style="margin: 5px;">
+                <div class="table-top">
+                    <div class="search-set">
+                        <div class="search-input">
+                            <input type="text" class="dark-input" placeholder="Search...">
+                            <div class="search-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#808080" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-search vue-feather__content">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-path">
+                        <a class="btn btn-filter" id="filter_search" href="javascript:void(0);">
+                            <i class="vue-feather vue-feather--filter filter-icon" data-name="filter"
+                                data-tags="funnel,hopper" data-type="filter">
+                            </i>
+                        </a>
+                    </div>
+                    <div class="form-sort"><i class="vue-feather vue-feather--sliders info-img" data-name="sliders"
+                            data-tags="settings,controls" data-type="sliders">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-sliders vue-feather__content">
+                                <line x1="4" y1="21" x2="4" y2="14"></line>
+                                <line x1="4" y1="10" x2="4" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12" y2="3"></line>
+                                <line x1="20" y1="21" x2="20" y2="16"></line>
+                                <line x1="20" y1="12" x2="20" y2="3"></line>
+                                <line x1="1" y1="14" x2="7" y2="14"></line>
+                                <line x1="9" y1="8" x2="15" y2="8"></line>
+                                <line x1="17" y1="16" x2="23" y2="16"></line>
+                            </svg></i>
+                        <div><select class="form-control select2-hidden-accessible" id="sortby" name=""
+                                data-select2-id="sortby" tabindex="-1" aria-hidden="true">
+                                <option value="Sort by Date" data-select2-id="2">Sort by Date</option>
+                                <option value="14 09 23" data-select2-id="3">14 09 23</option>
+                                <option value="11 09 23" data-select2-id="4">11 09 23</option>
+                            </select>
+                            <span class="select2 select2-container select2-container--default" dir="ltr"
+                                data-select2-id="1" style="width: 149px;"><span class="selection"><span
+                                        class="select2-selection select2-selection--single" role="combobox"
+                                        aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false"
+                                        aria-labelledby="select2-sortby-container">
+                                        <span class="select2-selection__rendered" id="select2-sortby-container"
+                                            role="textbox" aria-readonly="true"><span
+                                                class="select2-selection__placeholder">Sort by Date</span></span><span
+                                            class="select2-selection__arrow" role="presentation"><b
+                                                role="presentation"></b>
+                                        </span>
+                                    </span>
+                                </span>
+                                <span class="dropdown-wrapper" aria-hidden="true">
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive dataview">
+                        <table class="table dashboard-expired-products">
+                            <thead>
+                                <tr>
+                                    <th class="no-sort">
+                                        <label class="checkboxs">
+                                            <input type="checkbox" id="select-all">
+                                            <span class="checkmarks"></span>
+                                        </label>
+                                    </th>
+                                    <th>Supplier</th>
+                                    <th>Product Name</th>
+                                    <th>Category</th>
+                                    <th>Qty</th>
+                                    <th>Date of Return</th>
+                                    <th>Total (Tsh)</th>
+                                    <th>Status</th>
+                                    <th class="no-sort">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label class="checkboxs">
+                                            <input type="checkbox">
+                                            <span class="checkmarks"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        Abou Salim
+                                    </td>
+                                    <td>
+                                        <div class="productimgname">
+                                            <a href="javascript:void(0);">Dell Latitude</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0);">Laptop</a>
+                                    </td>
+                                    <td>12</td>
+                                    <td>2024-01-22</td>
+                                    <td>15,000,000</td>
+                                    <td class="status pending">Pending</td>
+                                    <td class="action-table-data">
+                                        <div class="edit-delete-action">
+                                            <a href="#" class="me-2 edit-icon p-2"><i data-feather="eye"
+                                                    class="feather-eye">
+                                                    <svg fill="#000000" width="30px" height="30px" stroke-width="2"
+                                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                            <a class="me-2 p-2" href="editproduct.html">
+                                                <i class="vue-feather vue-feather--edit feather-edit" data-name="edit"
+                                                    data-tags="pencil,change" data-type="edit">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-info vue-feather__content">
-                                                        <circle cx="12" cy="12" r="10"></circle>
-                                                        <line x1="12" y1="16" x2="12" y2="12"></line>
-                                                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                                        class="feather feather-edit vue-feather__content">
+                                                        <path
+                                                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
+                                                        </path>
+                                                        <path
+                                                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z">
+                                                        </path>
+                                                    </svg></i></a>
+                                            <a class="confirm-text p-2" href="/delete">
+                                                <i class="vue-feather vue-feather--trash-2 feather-trash-2"
+                                                    data-name="trash-2" data-tags="garbage,delete,remove,bin"
+                                                    data-type="trash-2"><svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        class="feather feather-trash-2 vue-feather__content">
+                                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                                        <path
+                                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                                        </path>
+                                                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                                                        <line x1="14" y1="11" x2="14" y2="17"></line>
                                                     </svg>
-                                                </i>
-                                                <span style="color: rgb(9, 44, 76);">Purchase Return Information</span>
-                                            </h5>
-                                            <a href="javascript:void(0);" style="margin-left: auto;">
-                                                <i class="vue-feather vue-feather--chevron-down chevron-down-add"
-                                                    data-name="chevron-down" data-tags="expand"
-                                                    data-type="chevron-down">
                                                 </i>
                                             </a>
                                         </div>
-                                    </div>
-                                </div>
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample"
-                                    data-select2-id="collapseOne">
-                                    <div class="accordion-body" data-select2-id="250">
-                                        <div class="add-product-row">
-                                            <div class="add-product-col">
-                                                <div class="mb-3 add-product">
-                                                    <label class="form-label" style="color: rgb(9, 44, 76);">Supplier
-                                                        </label>
-                                                    <input type="text" class="form-control full-width-input"
-                                                        style="border-color: rgb(9, 44, 76); width: 300px;" required>
-                                                </div>
-                                            </div>
-                                            <div class="add-product-col">
-                                                <div class="mb-3 add-product">
-                                                    <label class="form-label"
-                                                        style="color: rgb(9, 44, 76);">Product Name</label>
-                                                    <input type="text" class="form-control full-width-input"
-                                                        style="border-color: rgb(9, 44, 76); width: 300px;">
-                                                </div>
-                                            </div>
-                                            <div class="add-product-col">
-                                                <div class="mb-3 add-product">
-                                                    <label class="form-label"
-                                                        style="color: rgb(9, 44, 76);">Category</label>
-                                                    <input type="text" class="form-control full-width-input"
-                                                        style="border-color: rgb(9, 44, 76); width: 300px;">
-                                                </div>
-                                            </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label class="checkboxs">
+                                            <input type="checkbox">
+                                            <span class="checkmarks"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        Seraphic Store
+                                    </td>
+                                    <td>
+                                        <div class="productimgname">
+                                            <a href="javascript:void(0);">Hp monitor</a>
                                         </div>
-                                        <div class="add-product-row">
-                                            <div class="add-product-col">
-                                                <div class="mb-3 add-product">
-                                                    <label class="form-label"
-                                                        style="color: rgb(9, 44, 76);">Quantity</label>
-                                                    <input type="text" class="form-control full-width-input"
-                                                        style="border-color: rgb(9, 44, 76); width: 300px;">
-                                                </div>
-                                            </div>
-                                            <div class="add-product-col">
-                                                <div class="mb-3 add-product">
-                                                    <label class="form-label"
-                                                        style="color: rgb(9, 44, 76);">Total</label>
-                                                    <input type="text" class="form-control full-width-input"
-                                                        style="border-color: rgb(9, 44, 76); width: 300px;">
-                                                </div>
-                                            </div>
-                                            <div class="add-product-col">
-                                                <div class="mb-3 add-product">
-                                                    <label class="form-label" style="color: rgb(9, 44, 76);">
-                                                        Date of Purchase</label>
-                                                    <input type="date" class="form-control full-width-input"
-                                                        style="border-color: rgb(9, 44, 76); width: 300px;">
-                                                </div>
-                                            </div>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0);">Display</a>
+                                    </td>
+                                    <td>1</td>
+                                    <td>2024-11-20</td>
+                                    <td>1,000,000</td>
+                                    <td class="status paid">Paid</td>
+                                    <td class="action-table-data">
+                                        <div class="edit-delete-action">
+                                            <a href="#" class="me-2 edit-icon p-2"><i data-feather="eye"
+                                                    class="feather-eye">
+                                                    <svg fill="#000000" width="30px" height="30px" stroke-width="2"
+                                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                            <a class="me-2 p-2" href="editproduct.html">
+                                                <i class="vue-feather vue-feather--edit feather-edit" data-name="edit"
+                                                    data-tags="pencil,change" data-type="edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="feather feather-edit vue-feather__content">
+                                                        <path
+                                                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
+                                                        </path>
+                                                        <path
+                                                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z">
+                                                        </path>
+                                                    </svg></i></a>
+                                            <a class="confirm-text p-2" href="/delete">
+                                                <i class="vue-feather vue-feather--trash-2 feather-trash-2"
+                                                    data-name="trash-2" data-tags="garbage,delete,remove,bin"
+                                                    data-type="trash-2"><svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        class="feather feather-trash-2 vue-feather__content">
+                                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                                        <path
+                                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                                        </path>
+                                                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                                                        <line x1="14" y1="11" x2="14" y2="17"></line>
+                                                    </svg>
+                                                </i>
+                                            </a>
                                         </div>
+                                    </td>
+                                </tr>
 
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="input-blocks summer-description-box transfer mb-3">
-                                                    <label style="color: rgb(9, 44, 76);">Description</label>
-                                                    <textarea class="form-control h-100" rows="5" data-gramm="false"
-                                                        wt-ignore-input="true"
-                                                        style="border-color: rgb(9, 44, 76); width: calc(100% - 10px);"></textarea>
-                                                    <p class="mt-1" style="color: rgb(9, 44, 76);">Maximum 60
-                                                        Characters</p>
-                                                </div>
-                                            </div>
+                                <tr>
+                                    <td>
+                                        <label class="checkboxs">
+                                            <input type="checkbox">
+                                            <span class="checkmarks"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        Abou Salim
+                                    </td>
+                                    <td>
+                                        <div class="productimgname">
+                                            <a href="javascript:void(0);">Dell Latitude</a>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                    </div>
-                    <div class="page-btn-container d-flex justify-content-end mb-3"
-                        style="margin-top: 3px; margin-right: 10px;">
-                        <button type="button" class="btn btn-success custom-save-btn mx-1" id="saveButton"
-                            style="width: 100px;">Save</button>
-                        <button type="button" class="btn btn-danger mx-1" id="cancelButton"
-                            style="width: 100px;">Cancel</button>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0);">Laptop</a>
+                                    </td>
+                                    <td>12</td>
+                                    <td>2024-01-22</td>
+                                    <td>15,000,000</td>
+                                    <td class="status pending">Pending</td>
+                                    <td class="action-table-data">
+                                        <div class="edit-delete-action">
+                                            <a href="#" class="me-2 edit-icon p-2"><i data-feather="eye"
+                                                    class="feather-eye">
+                                                    <svg fill="#000000" width="30px" height="30px" stroke-width="2"
+                                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                            <a class="me-2 p-2" href="editproduct.html">
+                                                <i class="vue-feather vue-feather--edit feather-edit" data-name="edit"
+                                                    data-tags="pencil,change" data-type="edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="feather feather-edit vue-feather__content">
+                                                        <path
+                                                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
+                                                        </path>
+                                                        <path
+                                                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z">
+                                                        </path>
+                                                    </svg></i></a>
+                                            <a class="confirm-text p-2" href="/delete">
+                                                <i class="vue-feather vue-feather--trash-2 feather-trash-2"
+                                                    data-name="trash-2" data-tags="garbage,delete,remove,bin"
+                                                    data-type="trash-2"><svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        class="feather feather-trash-2 vue-feather__content">
+                                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                                        <path
+                                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                                        </path>
+                                                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                                                        <line x1="14" y1="11" x2="14" y2="17"></line>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label class="checkboxs">
+                                            <input type="checkbox">
+                                            <span class="checkmarks"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        Salim Mbunge
+                                    </td>
+                                    <td>
+                                        <div class="productimgname">
+                                            <a href="javascript:void(0);">Hp spectre</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0);">Laptop</a>
+                                    </td>
+                                    <td>2</td>
+                                    <td>2023-07-12</td>
+                                    <td>3,000,000</td>
+                                    <td class="status pending">Pending</td>
+                                    <td class="action-table-data">
+                                        <div class="edit-delete-action">
+                                            <a href="#" class="me-2 edit-icon p-2"><i data-feather="eye"
+                                                    class="feather-eye">
+                                                    <svg fill="#000000" width="30px" height="30px" stroke-width="2"
+                                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                            <a class="me-2 p-2" href="editproduct.html">
+                                                <i class="vue-feather vue-feather--edit feather-edit" data-name="edit"
+                                                    data-tags="pencil,change" data-type="edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="feather feather-edit vue-feather__content">
+                                                        <path
+                                                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
+                                                        </path>
+                                                        <path
+                                                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z">
+                                                        </path>
+                                                    </svg></i></a>
+                                            <a class="confirm-text p-2" href="/delete">
+                                                <i class="vue-feather vue-feather--trash-2 feather-trash-2"
+                                                    data-name="trash-2" data-tags="garbage,delete,remove,bin"
+                                                    data-type="trash-2"><svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        class="feather feather-trash-2 vue-feather__content">
+                                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                                        <path
+                                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                                        </path>
+                                                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                                                        <line x1="14" y1="11" x2="14" y2="17"></line>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label class="checkboxs">
+                                            <input type="checkbox">
+                                            <span class="checkmarks"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        Kkoo Tech
+                                    </td>
+                                    <td>
+                                        <div class="productimgname">
+                                            <a href="javascript:void(0);">Alien ware</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0);">Laptop</a>
+                                    </td>
+                                    <td>6</td>
+                                    <td>2024-07-02</td>
+                                    <td>12,000,000</td>
+                                    <td class="status paid">Paid</td>
+                                    <td class="action-table-data">
+                                        <div class="edit-delete-action">
+                                            <a href="#" class="me-2 edit-icon p-2"><i data-feather="eye"
+                                                    class="feather-eye">
+                                                    <svg fill="#000000" width="30px" height="30px" stroke-width="2"
+                                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                            <a class="me-2 p-2" href="editproduct.html">
+                                                <i class="vue-feather vue-feather--edit feather-edit" data-name="edit"
+                                                    data-tags="pencil,change" data-type="edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="feather feather-edit vue-feather__content">
+                                                        <path
+                                                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
+                                                        </path>
+                                                        <path
+                                                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z">
+                                                        </path>
+                                                    </svg></i></a>
+                                            <a class="confirm-text p-2" href="/delete">
+                                                <i class="vue-feather vue-feather--trash-2 feather-trash-2"
+                                                    data-name="trash-2" data-tags="garbage,delete,remove,bin"
+                                                    data-type="trash-2"><svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        class="feather feather-trash-2 vue-feather__content">
+                                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                                        <path
+                                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                                        </path>
+                                                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                                                        <line x1="14" y1="11" x2="14" y2="17"></line>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                              
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-
-
-                <!-- Modal -->
-                <div class="modal fade" id="add-units-category" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered custom-modal-two" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header border-0 custom-modal-header">
-                                <div class="page-title">
-                                    <h4>Add New Category</h4>
-                                </div>
-                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body custom-modal-body">
-                                <div class="mb-3">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="modal-footer-btn">
-                                <button type="button" class="btn btn-cancel me-2"
-                                    data-bs-dismiss="modal">Cancel</button>
-                                <a href="/vuejs/template/inventory/add-product"
-                                    class="active router-link-exact-active btn btn-submit">Submit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /Modal -->
-
-                <!-- Modal 2 -->
-
-                <div class="modal fade" id="add-units-category1" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered custom-modal-two" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header border-0 custom-modal-header">
-                                <div class="page-title">
-                                    <h4>Add New Brand</h4>
-                                </div>
-                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body custom-modal-body">
-                                <div class="mb-3">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="modal-footer-btn">
-                                <button type="button" class="btn btn-cancel me-2"
-                                    data-bs-dismiss="modal">Cancel</button>
-                                <a href="/vuejs/template/inventory/add-product"
-                                    class="active router-link-exact-active btn btn-submit">Submit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- /Modal 2 -->
-
-                <!-- Modal 3 -->
-
-                <div class="modal fade" id="add-units-category2" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered custom-modal-two" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header border-0 custom-modal-header">
-                                <div class="page-title">
-                                    <h4>Add New Unit</h4>
-                                </div>
-                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body custom-modal-body">
-                                <div class="mb-3">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="modal-footer-btn">
-                                <button type="button" class="btn btn-cancel me-2"
-                                    data-bs-dismiss="modal">Cancel</button>
-                                <a href="/vuejs/template/inventory/add-product"
-                                    class="active router-link-exact-active btn btn-submit">Submit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- /Modal 3 -->
-
-            </form>
+            </div>
         </div>
     </div>
 
-    <!----------/Main Body content--------->
+     <!----------/Main Body content--------->
 
 </body>
-
 </html>

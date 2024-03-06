@@ -5,17 +5,9 @@
 }
 
 body {
-    font-family: "Muli-Regular";
     font-size: 14px;
     margin: 0;
     color: #999;
-}
-
-input,
-textarea,
-select,
-button {
-    font-family: "Muli-Regular";
 }
 
 p,
@@ -87,7 +79,6 @@ form {
 h3 {
     text-transform: uppercase;
     font-size: 25px;
-    font-family: "Muli-SemiBold";
     color: #333;
     letter-spacing: 3px;
     text-align: center;
@@ -121,34 +112,29 @@ h3 {
     background: none;
     padding: 3px 42px 0px;
     color: #666;
-    font-family: "Muli-SemiBold";
     font-size: 16px;
 }
 
 .form-control::-webkit-input-placeholder {
     font-size: 14px;
-    font-family: "Muli-Regular";
     color: #999;
     transform: translateY(1px);
 }
 
 .form-control::-moz-placeholder {
     font-size: 14px;
-    font-family: "Muli-Regular";
     color: #999;
     transform: translateY(1px);
 }
 
 .form-control:-ms-input-placeholder {
     font-size: 14px;
-    font-family: "Muli-Regular";
     color: #999;
     transform: translateY(1px);
 }
 
 .form-control:-moz-placeholder {
     font-size: 14px;
-    font-family: "Muli-Regular";
     color: #999;
     transform: translateY(1px);
 }
@@ -180,7 +166,6 @@ button {
     background: #99ccff;
     color: #fff;
     text-transform: uppercase;
-    font-family: "Muli-SemiBold";
     font-size: 15px;
     letter-spacing: 2px;
     transition: all 0.5s;
