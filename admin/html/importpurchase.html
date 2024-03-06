@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Productlist</title>
+    <title>purchaseform</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -18,6 +18,8 @@
 </head>
 
 <body>
+
+
     <!------header -------->
     <div class="header">
 
@@ -296,6 +298,23 @@
                                             <line x1="3" y1="6" x2="21" y2="6"></line>
                                             <path d="M16 10a4 4 0 0 1-8 0"></path>
                                         </svg><span>Purchases</span></a></li>
+                                <li><a href="importpurchase.html"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-minimize-2">
+                                            <polyline points="4 14 10 14 10 20"></polyline>
+                                            <polyline points="20 10 14 10 14 4"></polyline>
+                                            <line x1="14" y1="10" x2="21" y2="3"></line>
+                                            <line x1="3" y1="21" x2="10" y2="14"></line>
+                                        </svg><span>Import Purchases</span></a></li>
+                                <li><a href="purchaseorderreport.html"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-file-minus">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                            <polyline points="14 2 14 8 20 8"></polyline>
+                                            <line x1="9" y1="15" x2="15" y2="15"></line>
+                                        </svg><span>Purchase Order</span></a></li>
                                 <li><a href="purchasereturnlist.html"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                             height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -381,381 +400,4 @@
     </div>
     <!----------/sidebar content--------->
 
-
-    <!---------Main Body----------->
-    <div class="page-wrapper">
-        <div class="content">
-            <div class="page-header">
-                <div class="add-item d-flex">
-                    <div class="page-title">
-                        <h4>Invoice List</h4>
-                        <h6>Manage Your Invoices</h6>
-                    </div>
-                </div>
-                <ul class="table-top-head">
-                    <li>
-                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Pdf">
-                            <svg width="25px" height="25px" viewBox="-4 0 40 40" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M25.6686 26.0962C25.1812 26.2401 24.4656 26.2563 23.6984 26.145C22.875 26.0256 22.0351 25.7739 21.2096 25.403C22.6817 25.1888 23.8237 25.2548 24.8005 25.6009C25.0319 25.6829 25.412 25.9021 25.6686 26.0962ZM17.4552 24.7459C17.3953 24.7622 17.3363 24.7776 17.2776 24.7939C16.8815 24.9017 16.4961 25.0069 16.1247 25.1005L15.6239 25.2275C14.6165 25.4824 13.5865 25.7428 12.5692 26.0529C12.9558 25.1206 13.315 24.178 13.6667 23.2564C13.9271 22.5742 14.193 21.8773 14.468 21.1894C14.6075 21.4198 14.7531 21.6503 14.9046 21.8814C15.5948 22.9326 16.4624 23.9045 17.4552 24.7459ZM14.8927 14.2326C14.958 15.383 14.7098 16.4897 14.3457 17.5514C13.8972 16.2386 13.6882 14.7889 14.2489 13.6185C14.3927 13.3185 14.5105 13.1581 14.5869 13.0744C14.7049 13.2566 14.8601 13.6642 14.8927 14.2326ZM9.63347 28.8054C9.38148 29.2562 9.12426 29.6782 8.86063 30.0767C8.22442 31.0355 7.18393 32.0621 6.64941 32.0621C6.59681 32.0621 6.53316 32.0536 6.44015 31.9554C6.38028 31.8926 6.37069 31.8476 6.37359 31.7862C6.39161 31.4337 6.85867 30.8059 7.53527 30.2238C8.14939 29.6957 8.84352 29.2262 9.63347 28.8054ZM27.3706 26.1461C27.2889 24.9719 25.3123 24.2186 25.2928 24.2116C24.5287 23.9407 23.6986 23.8091 22.7552 23.8091C21.7453 23.8091 20.6565 23.9552 19.2582 24.2819C18.014 23.3999 16.9392 22.2957 16.1362 21.0733C15.7816 20.5332 15.4628 19.9941 15.1849 19.4675C15.8633 17.8454 16.4742 16.1013 16.3632 14.1479C16.2737 12.5816 15.5674 11.5295 14.6069 11.5295C13.948 11.5295 13.3807 12.0175 12.9194 12.9813C12.0965 14.6987 12.3128 16.8962 13.562 19.5184C13.1121 20.5751 12.6941 21.6706 12.2895 22.7311C11.7861 24.0498 11.2674 25.4103 10.6828 26.7045C9.04334 27.3532 7.69648 28.1399 6.57402 29.1057C5.8387 29.7373 4.95223 30.7028 4.90163 31.7107C4.87693 32.1854 5.03969 32.6207 5.37044 32.9695C5.72183 33.3398 6.16329 33.5348 6.6487 33.5354C8.25189 33.5354 9.79489 31.3327 10.0876 30.8909C10.6767 30.0029 11.2281 29.0124 11.7684 27.8699C13.1292 27.3781 14.5794 27.011 15.985 26.6562L16.4884 26.5283C16.8668 26.4321 17.2601 26.3257 17.6635 26.2153C18.0904 26.0999 18.5296 25.9802 18.976 25.8665C20.4193 26.7844 21.9714 27.3831 23.4851 27.6028C24.7601 27.7883 25.8924 27.6807 26.6589 27.2811C27.3486 26.9219 27.3866 26.3676 27.3706 26.1461ZM30.4755 36.2428C30.4755 38.3932 28.5802 38.5258 28.1978 38.5301H3.74486C1.60224 38.5301 1.47322 36.6218 1.46913 36.2428L1.46884 3.75642C1.46884 1.6039 3.36763 1.4734 3.74457 1.46908H20.263L20.2718 1.4778V7.92396C20.2718 9.21763 21.0539 11.6669 24.0158 11.6669H30.4203L30.4753 11.7218L30.4755 36.2428ZM28.9572 10.1976H24.0169C21.8749 10.1976 21.7453 8.29969 21.7424 7.92417V2.95307L28.9572 10.1976ZM31.9447 36.2428V11.1157L21.7424 0.871022V0.823357H21.6936L20.8742 0H3.74491C2.44954 0 0 0.785336 0 3.75711V36.2435C0 37.5427 0.782956 40 3.74491 40H28.2001C29.4952 39.9997 31.9447 39.2143 31.9447 36.2428Z"
-                                    fill="#EB5757" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="xls">
-                            <svg width="25px" height="25px" version="1.1" id="Layer_1"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
-                                xml:space="preserve">
-                                <path style="fill:#E2E5E7;"
-                                    d="M128,0c-17.6,0-32,14.4-32,32v448c0,17.6,14.4,32,32,32h320c17.6,0,32-14.4,32-32V128L352,0H128z" />
-                                <path style="fill:#B0B7BD;" d="M384,128h96L352,0v96C352,113.6,366.4,128,384,128z" />
-                                <polygon style="fill:#CAD1D8;" points="480,224 384,128 480,128 " />
-                                <path style="fill:#84BD5A;" d="M416,416c0,8.8-7.2,16-16,16H48c-8.8,0-16-7.2-16-16V256c0-8.8,7.2-16,16-16h352c8.8,0,16,7.2,16,16
-V416z" />
-                                <g>
-                                    <path style="fill:#FFFFFF;" d="M144.336,326.192l22.256-27.888c6.656-8.704,19.584,2.416,12.288,10.736
-c-7.664,9.088-15.728,18.944-23.408,29.04l26.096,32.496c7.04,9.6-7.024,18.8-13.936,9.328l-23.552-30.192l-23.152,30.848
-c-6.528,9.328-20.992-1.152-13.696-9.856l25.712-32.624c-8.064-10.112-15.872-19.952-23.664-29.04
-c-8.048-9.6,6.912-19.44,12.8-10.464L144.336,326.192z" />
-                                    <path style="fill:#FFFFFF;" d="M197.36,303.152c0-4.224,3.584-7.808,8.064-7.808c4.096,0,7.552,3.6,7.552,7.808v64.096h34.8
-c12.528,0,12.8,16.752,0,16.752H205.44c-4.48,0-8.064-3.184-8.064-7.792v-73.056H197.36z" />
-                                    <path style="fill:#FFFFFF;" d="M272.032,314.672c2.944-24.832,40.416-29.296,58.08-15.728c8.704,7.024-0.512,18.16-8.192,12.528
-c-9.472-6-30.96-8.816-33.648,4.464c-3.456,20.992,52.192,8.976,51.296,43.008c-0.896,32.496-47.968,33.248-65.632,18.672
-c-4.24-3.456-4.096-9.072-1.792-12.544c3.328-3.312,7.024-4.464,11.392-0.88c10.48,7.152,37.488,12.528,39.392-5.648
-C321.28,339.632,268.064,351.008,272.032,314.672z" />
-                                </g>
-                                <path style="fill:#CAD1D8;"
-                                    d="M400,432H96v16h304c8.8,0,16-7.2,16-16v-16C416,424.8,408.8,432,400,432z" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="print">
-                            <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M18 16H21C21.5523 16 22 15.5523 22 15V9C22 8.44772 21.5523 8 21 8H3C2.44772 8 2 8.44772 2 9V15C2 15.5523 2.44772 16 3 16H6"
-                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M6 12H18V20C18 20.5523 17.5523 21 17 21H7C6.44772 21 6 20.5523 6 20V12Z"
-                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M6 4C6 3.44772 6.44772 3 7 3H17C17.5523 3 18 3.44772 18 4V8H6V4Z"
-                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Refresh">
-                            <svg fill="#000000" width="25px" height="25px" viewBox="-1.5 -2.5 24 24"
-                                xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin"
-                                class="jam jam-refresh">
-                                <path
-                                    d='M17.83 4.194l.42-1.377a1 1 0 1 1 1.913.585l-1.17 3.825a1 1 0 0 1-1.248.664l-3.825-1.17a1 1 0 1 1 .585-1.912l1.672.511A7.381 7.381 0 0 0 3.185 6.584l-.26.633a1 1 0 1 1-1.85-.758l.26-.633A9.381 9.381 0 0 1 17.83 4.194zM2.308 14.807l-.327 1.311a1 1 0 1 1-1.94-.484l.967-3.88a1 1 0 0 1 1.265-.716l3.828.954a1 1 0 0 1-.484 1.941l-1.786-.445a7.384 7.384 0 0 0 13.216-1.792 1 1 0 1 1 1.906.608 9.381 9.381 0 0 1-5.38 5.831 9.386 9.386 0 0 1-11.265-3.328z' />
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="card" style="margin: 5px;">
-                <div class="table-top">
-                    <div class="search-set">
-                        <div class="search-input">
-                            <input type="text" class="dark-input" placeholder="Search...">
-                            <div class="search-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="#808080" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-search vue-feather__content">
-                                    <circle cx="11" cy="11" r="8"></circle>
-                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="search-path">
-                        <a class="btn btn-filter" id="filter_search" href="javascript:void(0);">
-                            <i class="vue-feather vue-feather--filter filter-icon" data-name="filter"
-                                data-tags="funnel,hopper" data-type="filter">
-                            </i>
-                        </a>
-                    </div>
-                    <div class="form-sort"><i class="vue-feather vue-feather--sliders info-img" data-name="sliders"
-                            data-tags="settings,controls" data-type="sliders">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-sliders vue-feather__content">
-                                <line x1="4" y1="21" x2="4" y2="14"></line>
-                                <line x1="4" y1="10" x2="4" y2="3"></line>
-                                <line x1="12" y1="21" x2="12" y2="12"></line>
-                                <line x1="12" y1="8" x2="12" y2="3"></line>
-                                <line x1="20" y1="21" x2="20" y2="16"></line>
-                                <line x1="20" y1="12" x2="20" y2="3"></line>
-                                <line x1="1" y1="14" x2="7" y2="14"></line>
-                                <line x1="9" y1="8" x2="15" y2="8"></line>
-                                <line x1="17" y1="16" x2="23" y2="16"></line>
-                            </svg></i>
-                        <div><select class="form-control select2-hidden-accessible" id="sortby" name=""
-                                data-select2-id="sortby" tabindex="-1" aria-hidden="true">
-                                <option value="Sort by Date" data-select2-id="2">Sort by Date</option>
-                                <option value="14 09 23" data-select2-id="3">14 09 23</option>
-                                <option value="11 09 23" data-select2-id="4">11 09 23</option>
-                            </select>
-                            <span class="select2 select2-container select2-container--default" dir="ltr"
-                                data-select2-id="1" style="width: 149px;"><span class="selection"><span
-                                        class="select2-selection select2-selection--single" role="combobox"
-                                        aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false"
-                                        aria-labelledby="select2-sortby-container">
-                                        <span class="select2-selection__rendered" id="select2-sortby-container"
-                                            role="textbox" aria-readonly="true"><span
-                                                class="select2-selection__placeholder">Sort by Date</span></span><span
-                                            class="select2-selection__arrow" role="presentation"><b
-                                                role="presentation"></b>
-                                        </span>
-                                    </span>
-                                </span>
-                                <span class="dropdown-wrapper" aria-hidden="true">
-                                </span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive dataview">
-                        <table class="table dashboard-expired-products">
-                            <thead>
-                                <tr>
-                                    <th class="no-sort">
-                                        <label class="checkboxs">
-                                            <input type="checkbox" id="select-all">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </th>
-                                    <th>InvoiceID</th>
-                                    <th>Customer</th>
-                                    <th>Date</th>
-                                    <th>Total</th>
-                                    <th>Paid</th>
-                                    <th>Due</th>
-                                    <th>Status</th>
-                                    <th class="no-sort">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a href="javascript:void(0);">ID456</a>
-                                    </td>
-                                    <td>
-                                        <div class="productimgname">
-                                            <a href="javascript:void(0);">Fred Kasano</a>
-                                        </div>
-                                    </td>
-                                    <td>08/02/2022</td>
-                                    <td>125,000</td>
-                                    <td>100,000</td>
-                                    <td>25,000</td>
-                                    <td class="status pending">Pending</td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a href="invoice.html" class="me-2 edit-icon p-2"><i data-feather="eye"
-                                                    class="feather-eye">
-                                                    <svg fill="#000000" width="30px" height="30px" stroke-width="2"
-                                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
-                                                    </svg>
-                                                </i>
-                                            </a>
-
-                                            <a class="me-2 p-2" href="editproduct.html">
-                                                <i class="vue-feather vue-feather--edit feather-edit" data-name="edit"
-                                                    data-tags="pencil,change" data-type="edit">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-edit vue-feather__content">
-                                                        <path
-                                                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
-                                                        </path>
-                                                        <path
-                                                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z">
-                                                        </path>
-                                                    </svg></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a href="javascript:void(0);">ID706</a>
-                                    </td>
-                                    <td>
-                                        <div class="productimgname">
-                                            <a href="javascript:void(0);">Felix Mushi</a>
-                                        </div>
-                                    </td>
-
-                                    <td>01/10/2023</td>
-                                    <td>65,000</td>
-                                    <td>65,000</td>
-                                    <td>--</td>
-                                    <td class="status paid">Paid</td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a href="/viewproduct" class="me-2 edit-icon p-2"><i data-feather="eye"
-                                                    class="feather-eye">
-                                                    <svg fill="#000000" width="30px" height="30px" stroke-width="2"
-                                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
-                                                    </svg>
-                                                </i>
-                                            </a>
-
-                                            <a class="me-2 p-2" href="editproduct.html">
-                                                <i class="vue-feather vue-feather--edit feather-edit" data-name="edit"
-                                                    data-tags="pencil,change" data-type="edit">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-edit vue-feather__content">
-                                                        <path
-                                                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
-                                                        </path>
-                                                        <path
-                                                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z">
-                                                        </path>
-                                                    </svg></i></a>
-
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a href="javascript:void(0);">ID856</a>
-                                    </td>
-                                    <td>
-                                        <div class="productimgname">
-                                            <a href="javascript:void(0);">George Kimbanda</a>
-                                        </div>
-                                    </td>
-                                    <td>12/07/2022</td>
-                                    <td>125,000</td>
-                                    <td>100,000</td>
-                                    <td>25,000</td>
-                                    <td class="status pending">Pending</td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a href="/viewproduct" class="me-2 edit-icon p-2"><i data-feather="eye"
-                                                    class="feather-eye">
-                                                    <svg fill="#000000" width="30px" height="30px" stroke-width="2"
-                                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
-                                                    </svg>
-                                                </i>
-                                            </a>
-
-                                            <a class="me-2 p-2" href="editproduct.html">
-                                                <i class="vue-feather vue-feather--edit feather-edit" data-name="edit"
-                                                    data-tags="pencil,change" data-type="edit">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-edit vue-feather__content">
-                                                        <path
-                                                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
-                                                        </path>
-                                                        <path
-                                                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z">
-                                                        </path>
-                                                    </svg></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <label class="checkboxs">
-                                            <input type="checkbox">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <a href="javascript:void(0);">ID446</a>
-                                    </td>
-                                    <td>
-                                        <div class="productimgname">
-                                            <a href="javascript:void(0);">Agness Kimario</a>
-                                        </div>
-                                    </td>
-                                    <td>08/02/2022</td>
-                                    <td>125,000</td>
-                                    <td>100,000</td>
-                                    <td>25,000</td>
-                                    <td class="status pending">Pending</td>
-                                    <td class="action-table-data">
-                                        <div class="edit-delete-action">
-                                            <a href="/viewproduct" class="me-2 edit-icon p-2"><i data-feather="eye"
-                                                    class="feather-eye">
-                                                    <svg fill="#000000" width="30px" height="30px" stroke-width="2"
-                                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
-                                                    </svg>
-                                                </i>
-                                            </a>
-
-                                            <a class="me-2 p-2" href="editproduct.html">
-                                                <i class="vue-feather vue-feather--edit feather-edit" data-name="edit"
-                                                    data-tags="pencil,change" data-type="edit">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-edit vue-feather__content">
-                                                        <path
-                                                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
-                                                        </path>
-                                                        <path
-                                                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z">
-                                                        </path>
-                                                    </svg></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!---------/Main Body----------->
-
-
-
-</body>
-
-</html>
+    <!----------Main Body content--------->
