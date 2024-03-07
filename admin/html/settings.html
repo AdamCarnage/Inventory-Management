@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-layout-mode="light_mode" data-layout-style="default" data-nav-color="light">
+    
 
 <head>
     <meta charset="UTF-8">
@@ -7,18 +8,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Newproduct</title>
+    <title>settings</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="assets/js/jquery.slimscroll.min.js"></script>
     <script src="../js/index.js"></script>
 
+    <style>
+    .menu-drop-user {
+        display: none;
+        position: absolute;
+        background-color: #000000;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+        z-index: 1000;
+    }
+
+    .menu-drop-user.show {
+        display: block;
+    }
+
+    .profilename {
+        padding: 10px;
+    }
+
+    .profilename h6 {
+        margin: 0;
+        color: #333;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .profilename h5 {
+        margin: 5px 0 0;
+        color: #666;
+        font-size: 14px;
+    }
+
+    .dropdown-item {
+        color: #333;
+        text-decoration: none;
+        display: block;
+        padding: 8px 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .dropdown-item:hover {
+        background-color: #f0f0f0;
+    }
+
+    .logout {
+        border-top: 1px solid #ddd;
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+
+    .dropdown-item svg {
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+    </style>
 </head>
 
 <body>
-
 
     <!------header -------->
     <div class="header">
@@ -184,10 +238,11 @@
             </li>
         </ul>
     </div>
-    <!------/header -------->
+    <!-- Header -->
+
 
     <!-------sidebar content------------>
-    <div class="sidebar" id="sidebar">
+    <div class="sidebar" id="sidebar" style="background-color: #0D1459;">
         <div class="slimScrollDiv">
             <div class="sidebar-inner slimscroll"
                 style="overflow: hidden; width: 100%; height: 100%px; margin-left: 35px;">
@@ -240,7 +295,8 @@
                                             <line x1="3.4137" y1="3.03821" x2="20.0382" y2="20.5863" stroke="#333333"
                                                 stroke-width="2" stroke-linecap="round" />
                                         </svg><span>Damaged Product</span></a></li>
-                                <li class="active"><a aria-current="page" href="expired.html"
+                                <li class="active"><a aria-current="page"
+                                        href="expired.html"
                                         class="active router-link-exact-active">
                                         <i data-name="message-square" data-tags="comment,chat"
                                             data-type="message-square" class="vue-feather vue-feather--message-square">
@@ -369,6 +425,7 @@
                                             <polyline points="9 22 9 12 15 12 15 22"></polyline>
                                         </svg><span>Stores</span></a></li>
                             </ul>
+                            <hr class="submenu-line">
                         </li>
                         <li class="submenu-open">
                             <h6 class="submenu-hdr">Activity</h6>
@@ -393,440 +450,3 @@
         </div>
     </div>
     <!----------/sidebar content--------->
-
-
-    <div class="page-wrapper">
-        <div class="content">
-            <div class="page-header">
-                <div class="add-item d-flex">
-                    <div class="page-title">
-                        <h4>New Product</h4>
-                        <h6>Create new products</h6>
-                    </div>
-                </div>
-
-                <div class="page-btn-container">
-                    <div class="page-btn import">
-                        <a href="product.html" class="btn btn-added color">
-                            <i class="vue-feather vue-feather--download me-2" data-name="download" data-tags=""
-                                data-type="download">
-                                <svg width="25px" height="25px" viewBox="0 0 512 512" id="Layer_1"
-                                    style="enable-background:new 0 0 512 512;" version="1.1" xml:space="preserve"
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <path fill="#FFFFFF"
-                                        d="M50.2,169.6C97.9,56.3,228.5,3.1,341.8,50.9s166.4,178.3,118.7,291.6S282.2,508.9,168.9,461.1  C86.4,426.4,32.7,345.5,32.7,256C32.7,226.3,38.6,196.9,50.2,169.6z M254.7,448c106,0,192-86,192-192s-86-192-192-192  s-192,86-192,192S148.7,448,254.7,448z M226.7,140.7L111.4,256l115.3,115.3l21.2-21.2L168.7,271h208.2v-30H168.7l79.1-79.1  L226.7,140.7z" />
-                                </svg>
-                            </i>Back To Products
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <form data-select-id="254" style="margin: 5px;">
-                <div class="card" data-select2-id="253">
-                    <div class="card-body add-product pb-0" data-select2-id="252">
-                        <div class="accordion-card-one accordion" id="accordionExample"
-                            data-select2-id="accordionExample">
-                            <div class="accordion-item" data-select2-id="251">
-                                <div class="accordion-header" id="headingOne">
-                                    <div class="accordion-button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-controls="collapseOne"
-                                        style="background-color: transparent; display: flex; align-items: center;">
-                                        <div class="addproduct-icon">
-                                            <h5>
-                                                <i class="vue-feather vue-feather--info add-info" data-name="info"
-                                                    data-tags="" data-type="info">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-info vue-feather__content">
-                                                        <circle cx="12" cy="12" r="10"></circle>
-                                                        <line x1="12" y1="16" x2="12" y2="12"></line>
-                                                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                                                    </svg>
-                                                </i>
-                                                <span style="color: rgb(9, 44, 76);">Product Information</span>
-                                            </h5>
-                                            <a href="javascript:void(0);" style="margin-left: auto;">
-                                                <i class="vue-feather vue-feather--chevron-down chevron-down-add"
-                                                    data-name="chevron-down" data-tags="expand"
-                                                    data-type="chevron-down">
-                                                </i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample"
-                                    data-select2-id="collapseOne">
-                                    <div class="accordion-body" data-select2-id="250">
-                                        <div class="add-product-row">
-                                            <div class="add-product-col">
-                                                <div class="mb-3 add-product">
-                                                    <label class="form-label" style="color: rgb(9, 44, 76);">Product
-                                                        Name</label>
-                                                    <input type="text" class="form-control full-width-input"
-                                                        style="border-color: rgb(9, 44, 76); width: 300px;" required>
-                                                </div>
-                                            </div>
-                                            <div class="add-product-col">
-                                                <div class="mb-3 add-product">
-                                                    <label class="form-label"
-                                                        style="color: rgb(9, 44, 76);">Quantity</label>
-                                                    <input type="text" class="form-control full-width-input"
-                                                        style="border-color: rgb(9, 44, 76); width: 300px;">
-                                                </div>
-                                            </div>
-                                            <div class="add-product-col">
-                                                <div class="mb-3 add-product">
-                                                    <label class="form-label"
-                                                        style="color: rgb(9, 44, 76);">Price</label>
-                                                    <input type="text" class="form-control full-width-input"
-                                                        style="border-color: rgb(9, 44, 76); width: 300px;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="add-product-row">
-                                            <div class="add-product-col">
-                                                <div class="mb-3 add-product">
-                                                    <div class="add-newplus"
-                                                        style="display: flex; align-items: center; margin-left: auto;">
-                                                        <label class="form-label"
-                                                            style="color: rgb(9, 44, 76);">Category</label>
-                                                        <a href="#" id="addNewLink"
-                                                            data-bs-target="#add-units-category">
-                                                            <i class="vue-feather vue-feather--plus-circle plus-down-add"
-                                                                data-name="plus-circle" data-tags="add,new"
-                                                                data-type="plus-circle" style="margin-left: 145px;">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="18"
-                                                                    height="18" viewBox="0 0 24 24" fill="none"
-                                                                    stroke="currentColor" stroke-width="2"
-                                                                    stroke-linecap="round" stroke-linejoin="round"
-                                                                    class="feather feather-plus-circle vue-feather__content">
-                                                                    <circle cx="12" cy="12" r="10"></circle>
-                                                                    <line x1="12" y1="8" x2="12" y2="16"></line>
-                                                                    <line x1="8" y1="12" x2="16" y2="12"></line>
-                                                                </svg>
-                                                            </i>
-                                                            <span
-                                                                style="color: rgb(9, 44, 76); margin-left: 5px; margin-top: -2px;">Add
-                                                                New</span>
-                                                        </a>
-                                                    </div>
-                                                    <div>
-                                                        <select class="form-control select2-hidden-accessible"
-                                                            id="choosenew" name=""
-                                                            style="border-color: rgb(9, 44, 76); width: 300px;">
-                                                            <option value="Choose">Choose</option>
-                                                            <option value="Lenovo">Lenovo</option>
-                                                            <option value="Electronics">Electronics</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="add-product-col">
-                                                <div class="mb-3 add-product">
-                                                    <div class="add-newplus"
-                                                        style="display: flex; align-items: center; margin-left: auto;">
-                                                        <label class="form-label"
-                                                            style="color: rgb(9, 44, 76);">Brand</label>
-                                                        <a href="#" data-bs-toggle="modal"
-                                                            data-bs-target="#add-units-brand" id="addNewLink1">
-                                                            <i class="vue-feather vue-feather--plus-circle plus-down-add"
-                                                                data-name="plus-circle" data-tags="add,new"
-                                                                data-type="plus-circle" style="margin-left: 170px;">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="18"
-                                                                    height="18" viewBox="0 0 24 24" fill="none"
-                                                                    stroke="currentColor" stroke-width="2"
-                                                                    stroke-linecap="round" stroke-linejoin="round"
-                                                                    class="feather feather-plus-circle vue-feather__content">
-                                                                    <circle cx="12" cy="12" r="10"></circle>
-                                                                    <line x1="12" y1="8" x2="12" y2="16"></line>
-                                                                    <line x1="8" y1="12" x2="16" y2="12"></line>
-                                                                </svg>
-                                                            </i>
-                                                            <span
-                                                                style="color: rgb(9, 44, 76); margin-left: 5px; margin-top: -2px;">Add
-                                                                New</span>
-                                                        </a>
-                                                    </div>
-                                                    <div>
-                                                        <select class="form-control select2-hidden-accessible"
-                                                            id="chooseadd" name=""
-                                                            style="border-color: rgb(9, 44, 76); width: 300px;">
-                                                            <option value="Choose">Choose</option>
-                                                            <option value="Nike">Nike</option>
-                                                            <option value="Bolt">Bolt</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="add-product-col">
-                                                <div class="mb-3 add-product">
-                                                    <div class="add-newplus"
-                                                        style="display: flex; align-items: center; margin-left: auto;">
-                                                        <label class="form-label"
-                                                            style="color: rgb(9, 44, 76);">Unit</label>
-                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#add-unit"
-                                                            id="addNewLink2">
-                                                            <i class="vue-feather vue-feather--plus-circle plus-down-add"
-                                                                data-name="plus-circle" data-tags="add,new"
-                                                                data-type="plus-circle" style="margin-left: 180px;">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="18"
-                                                                    height="18" viewBox="0 0 24 24" fill="none"
-                                                                    stroke="currentColor" stroke-width="2"
-                                                                    stroke-linecap="round" stroke-linejoin="round"
-                                                                    class="feather feather-plus-circle vue-feather__content">
-                                                                    <circle cx="12" cy="12" r="10"></circle>
-                                                                    <line x1="12" y1="8" x2="12" y2="16"></line>
-                                                                    <line x1="8" y1="12" x2="16" y2="12"></line>
-                                                                </svg>
-                                                            </i>
-                                                            <span
-                                                                style="color: rgb(9, 44, 76); margin-left: 5px; margin-top: -2px;">Add
-                                                                New</span>
-                                                        </a>
-                                                    </div>
-                                                    <div>
-                                                        <select class="form-control select2-hidden-accessible"
-                                                            id="chooseaddnew" name=""
-                                                            style="border-color: rgb(9, 44, 76); width: 300px;">
-                                                            <option value="Choose">Choose</option>
-                                                            <option value="Kg">Kg</option>
-                                                            <option value="Pc">Pc</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="add-product-row">
-                                            <!-- Manufactured Date -->
-                                            <div class="add-product-col">
-                                                <div class="mb-3 add-product">
-                                                    <label class="form-label"
-                                                        style="color: rgb(9, 44, 76);">Manufactured Date</label>
-                                                    <input type="date" class="form-control full-width-input"
-                                                        style="border-color: rgb(9, 44, 76); width: 300px;">
-                                                </div>
-                                            </div>
-                                            <!-- Expired Date -->
-                                            <div class="add-product-col" style="margin-right: 530px;">
-                                                <div class="mb-3 add-product">
-                                                    <label class="form-label" style="color: rgb(9, 44, 76);">Expired
-                                                        Date</label>
-                                                    <input type="date" class="form-control full-width-input"
-                                                        style="border-color: rgb(9, 44, 76); width: 300px;">
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="input-blocks summer-description-box transfer mb-3">
-                                                    <label style="color: rgb(9, 44, 76);">Description</label>
-                                                    <textarea class="form-control h-100" rows="5" data-gramm="false"
-                                                        wt-ignore-input="true"
-                                                        style="border-color: rgb(9, 44, 76); width: calc(100% - 10px);"></textarea>
-                                                    <p class="mt-1" style="color: rgb(9, 44, 76);">Maximum 60
-                                                        Characters</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                    </div>
-                    <div class="page-btn-container d-flex justify-content-end mb-3" style="margin-top: 3px; margin-right: 10px;">
-                        <button type="button" class="btn btn-success custom-save-btn mx-1" id="saveButton"
-                            style="width: 100px;">Save</button>
-                        <button type="button" class="btn btn-danger mx-1" id="cancelButton"
-                            style="width: 100px;">Cancel</button>
-                    </div>
-                </div>
-                
-
-                <!-- Modal -->
-                <div class="modal fade" id="add-units-category" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered custom-modal-two" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header border-0 custom-modal-header">
-                                <div class="page-title">
-                                    <h4>Add New Category</h4>
-                                </div>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                </button>
-                            </div>
-                            <div class="modal-body custom-modal-body">
-                                <div class="mb-3">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="modal-footer-btn">
-                                <button type="button" class="btn btn-cancel me-2"
-                                    data-bs-dismiss="modal">Cancel</button>
-                                <a href="/vuejs/template/inventory/add-product"
-                                    class="active router-link-exact-active btn btn-submit">Submit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /Modal -->
-
-                <!-- Modal 2 -->
-
-                <div class="modal fade" id="add-units-category1" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered custom-modal-two" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header border-0 custom-modal-header">
-                                <div class="page-title">
-                                    <h4>Add New Brand</h4>
-                                </div>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                </button>
-                            </div>
-                            <div class="modal-body custom-modal-body">
-                                <div class="mb-3">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="modal-footer-btn">
-                                <button type="button" class="btn btn-cancel me-2"
-                                    data-bs-dismiss="modal">Cancel</button>
-                                <a href="/vuejs/template/inventory/add-product"
-                                    class="active router-link-exact-active btn btn-submit">Submit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- /Modal 2 -->
-
-                <!-- Modal 3 -->
-
-                <div class="modal fade" id="add-units-category2" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered custom-modal-two" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header border-0 custom-modal-header">
-                                <div class="page-title">
-                                    <h4>Add New Unit</h4>
-                                </div>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                </button>
-                            </div>
-                            <div class="modal-body custom-modal-body">
-                                <div class="mb-3">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="modal-footer-btn">
-                                <button type="button" class="btn btn-cancel me-2"
-                                    data-bs-dismiss="modal">Cancel</button>
-                                <a href="/vuejs/template/inventory/add-product"
-                                    class="active router-link-exact-active btn btn-submit">Submit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- /Modal 3 -->
-
-
-            </form>
-        </div>
-    </div>
-
-    <script>
-
-        // Function to clear all input fields
-        function clearInputFields() {
-            var inputs = document.querySelectorAll('input[type="text"], input[type="date"], textarea');
-            inputs.forEach(function (input) {
-                input.value = '';
-            });
-
-            var selects = document.querySelectorAll('select');
-            selects.forEach(function (select) {
-                select.selectedIndex = 0;
-            });
-        }
-
-        // Function to submit the form
-        function submitForm() {
-            var form = document.querySelector('form');
-            form.submit();
-        }
-
-        // Function to remove 'required' attribute and message
-        function addRequiredAndMessage() {
-            var inputs = document.querySelectorAll('input[type="text"], input[type="date"], textarea, select');
-            inputs.forEach(function (input) {
-                input.setAttribute('required', 'required');
-
-                var requiredMessage = document.createElement('span');
-                requiredMessage.textContent = 'Required';
-                requiredMessage.classList.add('required-message');
-                input.parentNode.appendChild(requiredMessage);
-            });
-        }
-
-        // Function to remove 'required' attribute and message
-        function removeRequiredAndMessage() {
-            var inputs = document.querySelectorAll('input[type="text"][data-required="true"], input[type="date"][data-required="true"], textarea[data-required="true"]');
-            inputs.forEach(function (input) {
-                input.removeAttribute('required');
-                var requiredMessage = input.parentNode.querySelector('.required-message');
-                if (requiredMessage) {
-                    input.parentNode.removeChild(requiredMessage);
-                }
-            });
-        }
-
-        // Function to display a popup message
-        function showPopupMessage(message) {
-            alert(message);
-        }
-
-        // Event listener for cancel button
-        document.getElementById('cancelButton').addEventListener('click', function () {
-            clearInputFields();
-        });
-
-        // Event listener for save button
-        document.getElementById('saveButton').addEventListener('click', function () {
-            removeRequiredAndMessage(); // Clear previous "required" attributes and messages
-            addRequiredAndMessage(); // Add "required" attributes and messages as needed
-            submitForm();
-            showPopupMessage('Form submitted successfully!');
-        });
-
-        document.getElementById("addNewLink").addEventListener("click", function () {
-            var addNewCategoryModal = new bootstrap.Modal(document.getElementById("add-units-category"));
-            addNewCategoryModal.show();
-        });
-
-        document.getElementById("addNewLink1").addEventListener("click", function () {
-            var addNewCategoryModal = new bootstrap.Modal(document.getElementById("add-units-category1"));
-            addNewCategoryModal.show();
-        });
-
-        document.getElementById("addNewLink2").addEventListener("click", function () {
-            var addNewCategoryModal = new bootstrap.Modal(document.getElementById("add-units-category2"));
-            addNewCategoryModal.show();
-        });
-
-
-    </script>
-</body>
-
-</html>

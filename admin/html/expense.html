@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-layout-mode="light_mode" data-layout-style="default" data-nav-color="light">
+    
 
 <head>
     <meta charset="UTF-8">
@@ -7,18 +8,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Productlist</title>
+    <title>expenses</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="assets/js/jquery.slimscroll.min.js"></script>
     <script src="../js/index.js"></script>
 
+    <style>
+    .menu-drop-user {
+        display: none;
+        position: absolute;
+        background-color: #000000;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+        z-index: 1000;
+    }
+
+    .menu-drop-user.show {
+        display: block;
+    }
+
+    .profilename {
+        padding: 10px;
+    }
+
+    .profilename h6 {
+        margin: 0;
+        color: #333;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .profilename h5 {
+        margin: 5px 0 0;
+        color: #666;
+        font-size: 14px;
+    }
+
+    .dropdown-item {
+        color: #333;
+        text-decoration: none;
+        display: block;
+        padding: 8px 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .dropdown-item:hover {
+        background-color: #f0f0f0;
+    }
+
+    .logout {
+        border-top: 1px solid #ddd;
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+
+    .dropdown-item svg {
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+    </style>
 </head>
 
 <body>
-
 
     <!------header -------->
     <div class="header">
@@ -184,10 +238,11 @@
             </li>
         </ul>
     </div>
-    <!------/header -------->
+    <!-- Header -->
+
 
     <!-------sidebar content------------>
-    <div class="sidebar" id="sidebar">
+    <div class="sidebar" id="sidebar" style="background-color: #0D1459;">
         <div class="slimScrollDiv">
             <div class="sidebar-inner slimscroll"
                 style="overflow: hidden; width: 100%; height: 100%px; margin-left: 35px;">
@@ -240,7 +295,8 @@
                                             <line x1="3.4137" y1="3.03821" x2="20.0382" y2="20.5863" stroke="#333333"
                                                 stroke-width="2" stroke-linecap="round" />
                                         </svg><span>Damaged Product</span></a></li>
-                                <li class="active"><a aria-current="page" href="expired.html"
+                                <li class="active"><a aria-current="page"
+                                        href="expired.html"
                                         class="active router-link-exact-active">
                                         <i data-name="message-square" data-tags="comment,chat"
                                             data-type="message-square" class="vue-feather vue-feather--message-square">
@@ -369,6 +425,7 @@
                                             <polyline points="9 22 9 12 15 12 15 22"></polyline>
                                         </svg><span>Stores</span></a></li>
                             </ul>
+                            <hr class="submenu-line">
                         </li>
                         <li class="submenu-open">
                             <h6 class="submenu-hdr">Activity</h6>
@@ -1178,31 +1235,5 @@ C321.28,339.632,268.064,351.008,272.032,314.672z" />
     </div>
     <!---------/Main Body----------->
 
-    <!-- Script to trigger modal -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const addUnitsCategoryModal = new bootstrap.Modal(document.getElementById('add-units-category'));
-
-            // Function to open the add units category modal
-            function openAddUnitsCategoryModal() {
-                addUnitsCategoryModal.show();
-            }
-
-            // Find the view product link
-            const viewProductLink = document.querySelector('.edit-icon');
-
-            // Add a click event listener to the view product link
-            viewProductLink.addEventListener('click', function (event) {
-                // Prevent the default behavior of the link
-                event.preventDefault();
-                // Open the add units category modal
-                openAddUnitsCategoryModal();
-            });
-        });
-
-    </script>
-
-
 </body>
-
 </html>
