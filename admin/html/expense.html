@@ -70,6 +70,7 @@
             margin-right: 8px;
             vertical-align: middle;
         }
+
     </style>
 </head>
 
@@ -679,14 +680,23 @@ C321.28,339.632,268.064,351.008,272.032,314.672z" />
                                             </a>
 
 
-                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal" data-bs-target="#edit-expense-modal" data-reference="YOUR_REFERENCE_ID">
-                                                <i class="vue-feather vue-feather--edit feather-edit" data-name="edit" data-tags="pencil,change" data-type="edit">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit vue-feather__content">
-                                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
+                                                data-bs-target="#edit-expense-modal" data-reference="YOUR_REFERENCE_ID">
+                                                <i class="vue-feather vue-feather--edit feather-edit" data-name="edit"
+                                                    data-tags="pencil,change" data-type="edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="feather feather-edit vue-feather__content">
+                                                        <path
+                                                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
+                                                        </path>
+                                                        <path
+                                                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z">
+                                                        </path>
                                                     </svg>
                                                 </i>
-                                            </a>                                            
+                                            </a>
                                             <a class="confirm-text p-2" href="/delete">
                                                 <i class="vue-feather vue-feather--trash-2 feather-trash-2"
                                                     data-name="trash-2" data-tags="garbage,delete,remove,bin"
@@ -1085,60 +1095,63 @@ C321.28,339.632,268.064,351.008,272.032,314.672z" />
                     <!-- Modal for adding expense -->
 
                     <!-- Modal for editing expense -->
-<div class="modal fade" id="edit-expense-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered custom-modal-two" role="document">
-        <div class="modal-content">
-            <div class="modal-header border-0 custom-modal-header">
-                <div class="page-title">
-                    <h4>Edit Expense</h4>
-                </div>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body custom-modal-body">
-                <!-- Reference ID -->
-                <div class="row mb-3">
-                    <div class="col">
-                        <label class="form-label">Reference ID :</label>
-                        <span id="reference-id">ID567</span>
+                    <div class="modal fade" id="edit-expense-modal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered custom-modal-two" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header border-0 custom-modal-header">
+                                    <div class="page-title">
+                                        <h4>Edit Expense</h4>
+                                    </div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body custom-modal-body">
+                                    <!-- Reference ID -->
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label class="form-label">Reference ID :</label>
+                                            <span id="reference-id">ID567</span>
+                                        </div>
+                                    </div>
+                                    <!-- Category Name -->
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label class="form-label">Category Name</label>
+                                            <input type="text" class="form-control" id="category-name">
+                                        </div>
+                                    </div>
+                                    <!-- Total -->
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label class="form-label">Total</label>
+                                            <input type="text" class="form-control" id="expense-total">
+                                        </div>
+                                    </div>
+                                    <!-- Details -->
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label class="form-label">Details</label>
+                                            <input type="text" class="form-control" id="expense-details">
+                                        </div>
+                                    </div>
+                                    <!-- Date -->
+                                    <div class="row mb-3">
+                                        <div class="col-auto">
+                                            <label class="form-label">Date</label>
+                                            <input type="date" class="form-control" id="expense-date">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer-btn">
+                                    <button type="button" class="btn btn-cancel me-2"
+                                        data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-submit" id="confirm-expense">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <!-- Category Name -->
-                <div class="row mb-3">
-                    <div class="col">
-                        <label class="form-label">Category Name</label>
-                        <input type="text" class="form-control" id="category-name">
-                    </div>
-                </div>
-                <!-- Total -->
-                <div class="row mb-3">
-                    <div class="col">
-                        <label class="form-label">Total</label>
-                        <input type="text" class="form-control" id="expense-total">
-                    </div>
-                </div>
-                <!-- Details -->
-                <div class="row mb-3">
-                    <div class="col">
-                        <label class="form-label">Details</label>
-                        <input type="text" class="form-control" id="expense-details">
-                    </div>
-                </div>
-                <!-- Date -->
-                <div class="row mb-3">
-                    <div class="col-auto">
-                        <label class="form-label">Date</label>
-                        <input type="date" class="form-control" id="expense-date">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer-btn">
-                <button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-submit" id="confirm-expense">Confirm</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal for editing expense -->
+                    <!-- Modal for editing expense -->
 
 
 

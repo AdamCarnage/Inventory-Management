@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-layout-mode="light_mode" data-layout-style="default" data-nav-color="light">
+
 
 <head>
     <meta charset="UTF-8">
@@ -7,18 +8,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Productlist</title>
+    <title>store</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="assets/js/jquery.slimscroll.min.js"></script>
     <script src="../js/index.js"></script>
 
+    <style>
+        .menu-drop-user {
+            display: none;
+            position: absolute;
+            background-color: #000000;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        .menu-drop-user.show {
+            display: block;
+        }
+
+        .profilename {
+            padding: 10px;
+        }
+
+        .profilename h6 {
+            margin: 0;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .profilename h5 {
+            margin: 5px 0 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .dropdown-item {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 8px 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .logout {
+            border-top: 1px solid #ddd;
+            margin-top: 10px;
+            padding-top: 10px;
+        }
+
+        .dropdown-item svg {
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .form-control {
+            width: 95%;
+            height: auto;
+        }
+
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"] {
+            height: 50px;
+        }
+    </style>
 </head>
 
 <body>
-
 
     <!------header -------->
     <div class="header">
@@ -184,10 +250,11 @@
             </li>
         </ul>
     </div>
-    <!------/header -------->
+    <!-- Header -->
+
 
     <!-------sidebar content------------>
-    <div class="sidebar" id="sidebar">
+    <div class="sidebar" id="sidebar" style="background-color: #0D1459;">
         <div class="slimScrollDiv">
             <div class="sidebar-inner slimscroll"
                 style="overflow: hidden; width: 100%; height: 100%px; margin-left: 35px;">
@@ -327,9 +394,11 @@
                                         </svg><span>Expense</span><span class="menu-arrow"></span></a>
                                 </li>
                                 <li class="submenu">
-                                    <a href="transactions.html"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M17.0020048,13 C17.5542895,13 18.0020048,13.4477153 18.0020048,14 C18.0020048,14.5128358 17.6159646,14.9355072 17.1186259,14.9932723 L17.0020048,15 L5.41700475,15 L8.70911154,18.2928932 C9.0695955,18.6533772 9.09732503,19.2206082 8.79230014,19.6128994 L8.70911154,19.7071068 C8.34862757,20.0675907 7.78139652,20.0953203 7.38910531,19.7902954 L7.29489797,19.7071068 L2.29489797,14.7071068 C1.69232289,14.1045317 2.07433707,13.0928192 2.88837381,13.0059833 L3.00200475,13 L17.0020048,13 Z M16.6128994,4.20970461 L16.7071068,4.29289322 L21.7071068,9.29289322 C22.3096819,9.8954683 21.9276677,10.9071808 21.1136309,10.9940167 L21,11 L7,11 C6.44771525,11 6,10.5522847 6,10 C6,9.48716416 6.38604019,9.06449284 6.88337887,9.00672773 L7,9 L18.585,9 L15.2928932,5.70710678 C14.9324093,5.34662282 14.9046797,4.77939176 15.2097046,4.38710056 L15.2928932,4.29289322 C15.6533772,3.93240926 16.2206082,3.90467972 16.6128994,4.20970461 Z"/>
-                                      </svg><span>Transactions</span><span class="menu-arrow"></span></a>
+                                    <a href="transactions.html"><svg fill="#000000" width="24px" height="24px"
+                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M17.0020048,13 C17.5542895,13 18.0020048,13.4477153 18.0020048,14 C18.0020048,14.5128358 17.6159646,14.9355072 17.1186259,14.9932723 L17.0020048,15 L5.41700475,15 L8.70911154,18.2928932 C9.0695955,18.6533772 9.09732503,19.2206082 8.79230014,19.6128994 L8.70911154,19.7071068 C8.34862757,20.0675907 7.78139652,20.0953203 7.38910531,19.7902954 L7.29489797,19.7071068 L2.29489797,14.7071068 C1.69232289,14.1045317 2.07433707,13.0928192 2.88837381,13.0059833 L3.00200475,13 L17.0020048,13 Z M16.6128994,4.20970461 L16.7071068,4.29289322 L21.7071068,9.29289322 C22.3096819,9.8954683 21.9276677,10.9071808 21.1136309,10.9940167 L21,11 L7,11 C6.44771525,11 6,10.5522847 6,10 C6,9.48716416 6.38604019,9.06449284 6.88337887,9.00672773 L7,9 L18.585,9 L15.2928932,5.70710678 C14.9324093,5.34662282 14.9046797,4.77939176 15.2097046,4.38710056 L15.2928932,4.29289322 C15.6533772,3.93240926 16.2206082,3.90467972 16.6128994,4.20970461 Z" />
+                                        </svg><span>Transactions</span><span class="menu-arrow"></span></a>
                                 </li>
                             </ul>
                             <hr class="submenu-line">
@@ -369,16 +438,24 @@
                                             <polyline points="9 22 9 12 15 12 15 22"></polyline>
                                         </svg><span>Stores</span></a></li>
                             </ul>
+                            <hr class="submenu-line">
                         </li>
                         <li class="submenu-open">
                             <h6 class="submenu-hdr">Activity</h6>
                             <ul>
-                                <li><a href="settings.html"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"><path d="M19.9,12.66a1,1,0,0,1,0-1.32L21.18,9.9a1,1,0,0,0,.12-1.17l-2-3.46a1,1,0,0,0-1.07-.48l-1.88.38a1,1,0,0,1-1.15-.66l-.61-1.83A1,1,0,0,0,13.64,2h-4a1,1,0,0,0-1,.68L8.08,4.51a1,1,0,0,1-1.15.66L5,4.79A1,1,0,0,0,4,5.27L2,8.73A1,1,0,0,0,2.1,9.9l1.27,1.44a1,1,0,0,1,0,1.32L2.1,14.1A1,1,0,0,0,2,15.27l2,3.46a1,1,0,0,0,1.07.48l1.88-.38a1,1,0,0,1,1.15.66l.61,1.83a1,1,0,0,0,1,.68h4a1,1,0,0,0,.95-.68l.61-1.83a1,1,0,0,1,1.15-.66l1.88.38a1,1,0,0,0,1.07-.48l2-3.46a1,1,0,0,0-.12-1.17ZM18.41,14l.8.9-1.28,2.22-1.18-.24a3,3,0,0,0-3.45,2L12.92,20H10.36L10,18.86a3,3,0,0,0-3.45-2l-1.18.24L4.07,14.89l.8-.9a3,3,0,0,0,0-4l-.8-.9L5.35,6.89l1.18.24a3,3,0,0,0,3.45-2L10.36,4h2.56l.38,1.14a3,3,0,0,0,3.45,2l1.18-.24,1.28,2.22-.8.9A3,3,0,0,0,18.41,14ZM11.64,8a4,4,0,1,0,4,4A4,4,0,0,0,11.64,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,11.64,14Z"/></svg>
-                                    <span>Settings</span>
-                                </a></li>
-                                <li><a href="login.html"><svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
-                                    <path stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12h-9.5m7.5 3l3-3-3-3m-5-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2h5a2 2 0 002-2v-1"/>
-                                  </svg><span>Logout</span></a></li>
+                                <li><a href="settings.html"><svg fill="#000000" width="24px" height="24px"
+                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1">
+                                            <path
+                                                d="M19.9,12.66a1,1,0,0,1,0-1.32L21.18,9.9a1,1,0,0,0,.12-1.17l-2-3.46a1,1,0,0,0-1.07-.48l-1.88.38a1,1,0,0,1-1.15-.66l-.61-1.83A1,1,0,0,0,13.64,2h-4a1,1,0,0,0-1,.68L8.08,4.51a1,1,0,0,1-1.15.66L5,4.79A1,1,0,0,0,4,5.27L2,8.73A1,1,0,0,0,2.1,9.9l1.27,1.44a1,1,0,0,1,0,1.32L2.1,14.1A1,1,0,0,0,2,15.27l2,3.46a1,1,0,0,0,1.07.48l1.88-.38a1,1,0,0,1,1.15.66l.61,1.83a1,1,0,0,0,1,.68h4a1,1,0,0,0,.95-.68l.61-1.83a1,1,0,0,1,1.15-.66l1.88.38a1,1,0,0,0,1.07-.48l2-3.46a1,1,0,0,0-.12-1.17ZM18.41,14l.8.9-1.28,2.22-1.18-.24a3,3,0,0,0-3.45,2L12.92,20H10.36L10,18.86a3,3,0,0,0-3.45-2l-1.18.24L4.07,14.89l.8-.9a3,3,0,0,0,0-4l-.8-.9L5.35,6.89l1.18.24a3,3,0,0,0,3.45-2L10.36,4h2.56l.38,1.14a3,3,0,0,0,3.45,2l1.18-.24,1.28,2.22-.8.9A3,3,0,0,0,18.41,14ZM11.64,8a4,4,0,1,0,4,4A4,4,0,0,0,11.64,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,11.64,14Z" />
+                                        </svg>
+                                        <span>Settings</span>
+                                    </a></li>
+                                <li><a href="login.html"><svg width="24px" height="24px" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none">
+                                            <path stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M20 12h-9.5m7.5 3l3-3-3-3m-5-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2h5a2 2 0 002-2v-1" />
+                                        </svg><span>Logout</span></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -394,14 +471,15 @@
     </div>
     <!----------/sidebar content--------->
 
-    <!---------Main Body----------->
+    <!----------Main content--------->
+
     <div class="page-wrapper">
         <div class="content">
             <div class="page-header">
                 <div class="add-item d-flex">
                     <div class="page-title">
-                        <h4>Transaction List</h4>
-                        <h6>View your Transactions</h6>
+                        <h4>Store List</h4>
+                        <h6>View your Stores</h6>
                     </div>
                 </div>
                 <ul class="table-top-head">
@@ -469,6 +547,32 @@ C321.28,339.632,268.064,351.008,272.032,314.672z" />
                         </a>
                     </li>
                 </ul>
+
+                <div class="page-btn-container">
+                    <div class="page-btn">
+                        <a class="add-btn" href="#" data-bs-toggle="modal" data-bs-target="#add-store-modal">
+                            <i class="vue-feather vue-feather--pluss-circle me-2" data-name="plus-circle"
+                                data-tags="add,new" data-type="plus-circle">
+                                <svg width="25px" height="25px" viewBox="0 0 24 24" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <title>/svg/ic-add</title>
+                                    <desc>Created with Sketch.</desc>
+                                    <defs></defs>
+                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="ic-add" fill-rule="nonzero" fill="white">
+                                            <path
+                                                d="M12,21 C16.9705627,21 21,16.9705627 21,12 C21,7.02943725 16.9705627,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 Z M12,23 C5.92486775,23 1,18.0751322 1,12 C1,5.92486775 5.92486775,1 12,1 C18.0751322,1 23,5.92486775 23,12 C23,18.0751322 18.0751322,23 12,23 Z M13,11 L13,8.99703014 C13,8.45303631 12.5522847,8 12,8 C11.4438648,8 11,8.4463856 11,8.99703014 L11,11 L8.99703014,11 C8.45303631,11 8,11.4477153 8,12 C8,12.5561352 8.4463856,13 8.99703014,13 L11,13 L11,15.0029699 C11,15.5469637 11.4477153,16 12,16 C12.5561352,16 13,15.5536144 13,15.0029699 L13,13 L15.0029699,13 C15.5469637,13 16,12.5522847 16,12 C16,11.4438648 15.5536144,11 15.0029699,11 L13,11 Z"
+                                                id="Combined-Shape">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </i>
+                            Add New Store
+                        </a>
+                    </div>
+                </div>
+
             </div>
 
             <div class="card" style="margin: 5px;">
@@ -510,11 +614,11 @@ C321.28,339.632,268.064,351.008,272.032,314.672z" />
                                 <line x1="17" y1="16" x2="23" y2="16"></line>
                             </svg></i>
                         <div><select class="form-control select2-hidden-accessible" id="sortby" name="sortby">
-                            <option value="Sort by Method" data-select2-id="2">Sort by Method</option>
-                            <option value="cash" data-select2-id="3">Cash</option>
-                            <option value="bank" data-select2-id="4">Bank</option>
-                            <option value="mobile" data-select2-id="5">Mobile</option>
-                        </select>                        
+                                <option value="Sort by Method" data-select2-id="2">Sort by Method</option>
+                                <option value="cash" data-select2-id="3">Cash</option>
+                                <option value="bank" data-select2-id="4">Bank</option>
+                                <option value="mobile" data-select2-id="5">Mobile</option>
+                            </select>
                             <span class="select2 select2-container select2-container--default" dir="ltr"
                                 data-select2-id="1" style="width: 149px;"><span class="selection"><span
                                         class="select2-selection select2-selection--single" role="combobox"
@@ -545,13 +649,11 @@ C321.28,339.632,268.064,351.008,272.032,314.672z" />
                                             <span class="checkmarks"></span>
                                         </label>
                                     </th>
-                                    <th>Invoice ID</th>
-                                    <th>Customer Name</th>
-                                    <th>Date</th>
-                                    <th>Method</th>
+                                    <th>Store Name</th>
+                                    <th>Admin Name</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
                                     <th>Status</th>
-                                    <th>Total (Tsh)</th>
-                                    <th>Due (Tsh)</th>
                                     <th class="no-sort">Action</th>
                                 </tr>
                             </thead>
@@ -563,22 +665,44 @@ C321.28,339.632,268.064,351.008,272.032,314.672z" />
                                             <span class="checkmarks"></span>
                                         </label>
                                     </td>
-                                    <td>INV-001</td>
-                                    <td>John Doe</td>
-                                    <td>2024-02-15</td>
-                                    <td>Credit Card</td>
-                                    <td class="status paid">Paid</td>
-                                    <td>150,000</td>
-                                    <td>0.00</td>
+                                    <td>Kizimkazi</td>
+                                    <td>John Mbangula</td>
+                                    <td>+255 783 390 074</td>
+                                    <td>johnseifmbangu@gmail.com</td>
+                                    <td class="status paid">Online</td>
                                     <td class="action-table-data">
                                         <div class="edit-delete-action">
-                                            <a href="#" class="me-2 edit-icon-bank p-2">
-                                                <i data-feather="eye" class="feather-eye">
-                                                    <svg fill="#000000" width="30px" height="30px" stroke-width="2" viewBox="0 0 24 24"
-                                                        xmlns="http://www.w3.org/2000/svg">
+                                            <a class="me-2 p-2" href="#" data-bs-toggle="modal"
+                                                data-bs-target="#edit-store-modal">
+                                                <i class="vue-feather vue-feather--edit feather-edit" data-name="edit"
+                                                    data-tags="pencil,change" data-type="edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="feather feather-edit vue-feather__content">
                                                         <path
-                                                            d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z">
+                                                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
                                                         </path>
+                                                        <path
+                                                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z">
+                                                        </path>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                            <a class="confirm-text p-2" href="/delete">
+                                                <i class="vue-feather vue-feather--trash-2 feather-trash-2"
+                                                    data-name="trash-2" data-tags="garbage,delete,remove,bin"
+                                                    data-type="trash-2"><svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        class="feather feather-trash-2 vue-feather__content">
+                                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                                        <path
+                                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                                        </path>
+                                                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                                                        <line x1="14" y1="11" x2="14" y2="17"></line>
                                                     </svg>
                                                 </i>
                                             </a>
@@ -593,22 +717,41 @@ C321.28,339.632,268.064,351.008,272.032,314.672z" />
                                             <span class="checkmarks"></span>
                                         </label>
                                     </td>
-                                    <td>INV-002</td>
-                                    <td>Juma Athumani</td>
-                                    <td>2023-12-06</td>
-                                    <td>Cash</td>
-                                    <td class="status pending">Pending</td>
-                                    <td>70,000</td>
-                                    <td>30,000</td>
+                                    <td>Big Mangi</td>
+                                    <td>Kassim Erasto</td>
+                                    <td>+255 712 548 697</td>
+                                    <td>kassimmajaliwa@gmail.com</td>
+                                    <td class="status pending">Offline</td>
                                     <td class="action-table-data">
                                         <div class="edit-delete-action">
-                                            <a href="#" class="me-2 edit-icon-cash p-2">
-                                                <i data-feather="eye" class="feather-eye">
-                                                    <svg fill="#000000" width="30px" height="30px" stroke-width="2" viewBox="0 0 24 24"
-                                                        xmlns="http://www.w3.org/2000/svg">
+                                            <a class="me-2 p-2" href="editproduct.html">
+                                                <i class="vue-feather vue-feather--edit feather-edit" data-name="edit"
+                                                    data-tags="pencil,change" data-type="edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="feather feather-edit vue-feather__content">
                                                         <path
-                                                            d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z">
+                                                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
                                                         </path>
+                                                        <path
+                                                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z">
+                                                        </path>
+                                                    </svg></i></a>
+                                            <a class="confirm-text p-2" href="/delete">
+                                                <i class="vue-feather vue-feather--trash-2 feather-trash-2"
+                                                    data-name="trash-2" data-tags="garbage,delete,remove,bin"
+                                                    data-type="trash-2"><svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        class="feather feather-trash-2 vue-feather__content">
+                                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                                        <path
+                                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                                        </path>
+                                                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                                                        <line x1="14" y1="11" x2="14" y2="17"></line>
                                                     </svg>
                                                 </i>
                                             </a>
@@ -623,268 +766,184 @@ C321.28,339.632,268.064,351.008,272.032,314.672z" />
                                             <span class="checkmarks"></span>
                                         </label>
                                     </td>
-                                    <td>INV-003</td>
-                                    <td>Diana Tarikh</td>
-                                    <td>2024-03-01</td>
-                                    <td>Mobile money</td>
-                                    <td class="status paid">Paid</td>
-                                    <td>125,000</td>
-                                    <td>0.00</td>
+                                    <td>Sudo Tronics</td>
+                                    <td>Angel Julius</td>
+                                    <td>+255 684 457 452</td>
+                                    <td>Aggyjuly@gmail.com</td>
+                                    <td class="status paid">Online</td>
                                     <td class="action-table-data">
                                         <div class="edit-delete-action">
-                                            <a href="#" class="me-2 edit-icon-mobile p-2">
-                                                <i data-feather="eye" class="feather-eye">
-                                                    <svg fill="#000000" width="30px" height="30px" stroke-width="2" viewBox="0 0 24 24"
-                                                        xmlns="http://www.w3.org/2000/svg">
+                                            <a class="me-2 p-2" href="editproduct.html">
+                                                <i class="vue-feather vue-feather--edit feather-edit" data-name="edit"
+                                                    data-tags="pencil,change" data-type="edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="feather feather-edit vue-feather__content">
                                                         <path
-                                                            d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z">
+                                                            d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
                                                         </path>
+                                                        <path
+                                                            d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z">
+                                                        </path>
+                                                    </svg></i></a>
+                                            <a class="confirm-text p-2" href="/delete">
+                                                <i class="vue-feather vue-feather--trash-2 feather-trash-2"
+                                                    data-name="trash-2" data-tags="garbage,delete,remove,bin"
+                                                    data-type="trash-2"><svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        class="feather feather-trash-2 vue-feather__content">
+                                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                                        <path
+                                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                                        </path>
+                                                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                                                        <line x1="14" y1="11" x2="14" y2="17"></line>
                                                     </svg>
                                                 </i>
                                             </a>
                                         </div>
                                     </td>
                                 </tr>
-                               
+
                             </tbody>
                         </table>
                     </div>
 
-                    <!-- Modal for adding product -->
-                    <div class="modal fade" id="view-transaction-details-bank" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
+                    <!-- Modal for edit store info -->
+                    <div class="modal fade" id="edit-store-modal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered custom-modal-two" role="document">
                             <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="viewTransactionModalLabel">View Transaction Details</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <div class="modal-header border-0 custom-modal-header">
+                                    <div class="page-title">
+                                        <h4>Edit Store Information</h4>
+                                    </div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body">
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Invoice ID</label>
-                                        <span class="col-6" style="font-size: 16px;">INV-001</span>
+                                <div class="modal-body custom-modal-body">
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label class="form-label">Store Name</label>
+                                            <input type="text" class="form-control" id="store-name" placeholder="Kizimkazi">
+                                        </div>
                                     </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Customer Name</label>
-                                        <span class="col-6" style="font-size: 16px;">John Doe</span>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label class="form-label">Admin Name</label>
+                                            <input type="text" class="form-control" id="admin-name" placeholder="John Mbangula">
+                                        </div>
                                     </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Date</label>
-                                        <span class="col-6" style="font-size: 16px;">2024-02-28</span>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label class="form-label">Phone Number</label>
+                                            <input type="tel" class="form-control" id="phone-number" placeholder="+255 783 390 074">
+                                        </div>
                                     </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Method</label>
-                                        <span class="col-6" style="font-size: 16px;">Credit card</span>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email" placeholder="johnseifmbangu@gmail.com">
+                                        </div>
                                     </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Account Name</label>
-                                        <span class="col-6" style="font-size: 16px;">John Doe</span>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Account Number</label>
-                                        <span class="col-6" style="font-size: 16px;">5869 1475 2310 0145</span>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Status</label>
-                                        <span class="col-6 status paid" style="font-size: 16px;">Paid</span>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Total(Tsh)</label>
-                                        <span class="col-6" style="font-size: 16px;">150,000</span>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Due(Tsh)</label>
-                                        <span class="col-6" style="font-size: 16px;">0.00</span>
+                                    <div class="row mb-3 d-flex align-items-center justify-content-between">
+                                        <div class="col">
+                                            <label class="form-label">Status</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="status">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <div class="modal-footer-btn">
+                                    <button type="button" class="btn btn-cancel me-2"
+                                        data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-submit" id="confirm-store">Confirm</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- /Modal for edit store info -->
 
-                    <!-- Modal for cash -->
-                    <div class="modal fade" id="view-transaction-details-cash" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="viewTransactionModalLabel">View Transaction Details</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Invoice ID</label>
-                                        <span class="col-6" style="font-size: 16px;">INV-002</span>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Customer Name</label>
-                                        <span class="col-6" style="font-size: 16px;">Juma Athumani</span>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Date</label>
-                                        <span class="col-6" style="font-size: 16px;">2023-12-06</span>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Method</label>
-                                        <span class="col-6" style="font-size: 16px;">Cash</span>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Status</label>
-                                        <span class="col-6 status pending" style="font-size: 16px;">Pending</span>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Total(Tsh)</label>
-                                        <span class="col-6" style="font-size: 16px;">70,000</span>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Paid(Tsh)</label>
-                                        <span class="col-6" style="font-size: 16px;">40,000</span>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Due(Tsh)</label>
-                                        <span class="col-6" style="font-size: 16px;">30,000</span>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Modal for mobile money -->
-                    <div class="modal fade" id="view-transaction-details-mobile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
+
+
+
+                    <!-- Modal for adding store info -->
+                    <div class="modal fade" id="add-store-modal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered custom-modal-two" role="document">
                             <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="viewTransactionModalLabel">View Transaction Details</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <div class="modal-header border-0 custom-modal-header">
+                                    <div class="page-title">
+                                        <h4>Add Store Information</h4>
+                                    </div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body">
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Invoice ID</label>
-                                        <span class="col-6" style="font-size: 16px;">INV-003</span>
+                                <div class="modal-body custom-modal-body">
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label class="form-label">Store Name</label>
+                                            <input type="text" class="form-control" id="store-name">
+                                        </div>
                                     </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Customer Name</label>
-                                        <span class="col-6" style="font-size: 16px;">Diana Tarikh</span>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label class="form-label">Admin Name</label>
+                                            <input type="text" class="form-control" id="admin-name">
+                                        </div>
                                     </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Date</label>
-                                        <span class="col-6" style="font-size: 16px;">2024-03-01</span>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label class="form-label">Phone Number</label>
+                                            <input type="tel" class="form-control" id="phone-number">
+                                        </div>
                                     </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Method</label>
-                                        <span class="col-6" style="font-size: 16px;">Mobile money</span>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email">
+                                        </div>
                                     </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Service Provider</label>
-                                        <span class="col-6" style="font-size: 16px;">Airtel money</span>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label class="form-label">Password</label>
+                                            <input type="password" class="form-control" id="admin-name">
+                                        </div>
                                     </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Account name and Code</label>
-                                        <span class="col-6" style="font-size: 16px;">258976,  Justus Kimbwana</span>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Account Name</label>
-                                        <span class="col-6" style="font-size: 16px;">John Doe</span>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Account Number</label>
-                                        <span class="col-6" style="font-size: 16px;">5869 1475 2310 0145</span>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Status</label>
-                                        <span class="col-6 status paid" style="font-size: 16px;">Paid</span>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Total(Tsh)</label>
-                                        <span class="col-6" style="font-size: 16px;">150,000</span>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="form-label col-6" style="font-weight: bold; font-size: 16px;">Due(Tsh)</label>
-                                        <span class="col-6" style="font-size: 16px;">0.00</span>
+                                    <div class="row mb-3 d-flex align-items-center justify-content-between">
+                                        <div class="col">
+                                            <label class="form-label">Status</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="status">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <div class="modal-footer-btn">
+                                    <button type="button" class="btn btn-cancel me-2"
+                                        data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-submit" id="confirm-store">Confirm</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- /Modal for adding store info -->
+
                 </div>
             </div>
         </div>
     </div>
-    <!---------/Main Body----------->
 
-    <!-- Script to trigger modal -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const addUnitsCategoryModal = new bootstrap.Modal(document.getElementById('view-transaction-details-bank'));
-
-            // Function to open the add units category modal
-            function openAddUnitsCategoryModal() {
-                addUnitsCategoryModal.show();
-            }
-
-            // Find the view product link
-            const viewProductLink = document.querySelector('.edit-icon-bank');
-
-            // Add a click event listener to the view product link
-            viewProductLink.addEventListener('click', function (event) {
-                // Prevent the default behavior of the link
-                event.preventDefault();
-                // Open the add units category modal
-                openAddUnitsCategoryModal();
-            });
-        });
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const addUnitsCategoryModal = new bootstrap.Modal(document.getElementById('view-transaction-details-cash'));
-
-            // Function to open the add units category modal
-            function openAddUnitsCategoryModal() {
-                addUnitsCategoryModal.show();
-            }
-
-            // Find the view product link
-            const viewProductLink = document.querySelector('.edit-icon-cash');
-
-            // Add a click event listener to the view product link
-            viewProductLink.addEventListener('click', function (event) {
-                // Prevent the default behavior of the link
-                event.preventDefault();
-                // Open the add units category modal
-                openAddUnitsCategoryModal();
-            });
-        });
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const addUnitsCategoryModal = new bootstrap.Modal(document.getElementById('view-transaction-details-mobile'));
-
-            // Function to open the add units category modal
-            function openAddUnitsCategoryModal() {
-                addUnitsCategoryModal.show();
-            }
-
-            // Find the view product link
-            const viewProductLink = document.querySelector('.edit-icon-mobile');
-
-            // Add a click event listener to the view product link
-            viewProductLink.addEventListener('click', function (event) {
-                // Prevent the default behavior of the link
-                event.preventDefault();
-                // Open the add units category modal
-                openAddUnitsCategoryModal();
-            });
-        });
-
-    </script>
-
-
+    <!----------/Main content--------->
 </body>
 
 </html>

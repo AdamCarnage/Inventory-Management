@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/login.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="assets/js/jquery.slimscroll.min.js"></script>
+    <script src="../js/index.js"></script>
 </head>
 
 <body>
@@ -29,9 +30,16 @@
                     </div>
                     <div id="otpForm" style="display:none;">
                         <div class="form-holder">
-                            <h3 class="text-center">Enter OTP</h2>
-                            <p class="otp-message text-center mt-2">We sent OTP to your number ********74</p>
-                            <input type="text" class="form-control mt-3 mb-3" id="otpInput" placeholder="Enter OTP">
+                            <h3 class="text-center">Enter OTP</h3>
+                            <p class="otp-message text-center mb-3">We sent OTP to your number ********74</p>
+                            <div class="otp-container mb-3">
+                                <input type="text" maxlength="1" class="otp-input" id="otp1">
+                                <input type="text" maxlength="1" class="otp-input" id="otp2">
+                                <input type="text" maxlength="1" class="otp-input" id="otp3">
+                                <input type="text" maxlength="1" class="otp-input" id="otp4">
+                                <input type="text" maxlength="1" class="otp-input" id="otp5">
+                                <input type="text" maxlength="1" class="otp-input" id="otp6">
+                            </div>
                             <button id="verifyButton">Verify</button>
                         </div>
                     </div>
@@ -52,10 +60,8 @@
             </div>
         </div>
     </div>
-</body>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
+    <script>
+         document.addEventListener("DOMContentLoaded", function () {
         const forgotPasswordForm = document.getElementById("forgotPasswordForm");
         const otpForm = document.getElementById("otpForm");
         const setPasswordForm = document.getElementById("setPasswordForm");
@@ -121,7 +127,7 @@
 
         // Function to verify OTP (replace with your actual implementation)
         function verifyOTP(otp) {
-            return otp === "123456"; // Change "123456" to your actual OTP
+            return otp === "123456";
         }
 
         // Function to set password (replace with your actual implementation)
@@ -129,6 +135,25 @@
             console.log("Setting new password: " + password);
         }
     });
-</script>
 
+
+    // Function to move focus to the next input field after one digit is entered
+document.querySelectorAll('.otp-input').forEach(function(input, index) {
+    input.addEventListener('input', function() {
+        if (this.value.length === 1) {
+            if (index < 5) {
+                document.querySelectorAll('.otp-input')[index + 1].focus();
+            }
+        }
+    });
+    
+    // Function to move focus to the previous input field if backspace is pressed
+    input.addEventListener('keydown', function(event) {
+        if (event.key === 'Backspace' && index > 0 && this.value.length === 0) {
+            document.querySelectorAll('.otp-input')[index - 1].focus();
+        }
+    });
+});
+    </script>
+</body>
 </html>

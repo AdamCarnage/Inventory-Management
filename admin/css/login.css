@@ -33,6 +33,20 @@ a {
     text-decoration: none;
 }
 
+.otp-container {
+    display: flex;
+}
+
+.otp-input {
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 .otp-message {
     white-space: nowrap;
     overflow: hidden;
