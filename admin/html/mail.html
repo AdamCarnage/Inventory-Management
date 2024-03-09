@@ -11,38 +11,88 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="assets/js/jquery.slimscroll.min.js"></script>
     <script src="../js/index.js"></script>
-<style>
-.payment-option-label {
-    position: relative;
-    cursor: pointer;
-}
 
-.payment-option-label:last-child {
-    margin-right: 0;
-}
+    <style>
+  body {
+        color: #000;
+        background-color: #fff;
+    }
 
-.payment-option-label img {
-    max-height: 50px;
-    border: 3px solid transparent;
-}
+    .btn,
+    .btn-primary,
+    .btn-white {
+        color: #fff;
+        background-color: #000;
+        border-color: #000;
+    }
 
-.payment-option-input {
-    position: absolute;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-}
+    .btn-primary:hover,
+    .btn-white:hover {
+        background-color: #808080; 
+        border-color: #808080;
+    }
 
-.payment-option-input:checked + .payment-option-img {
-    border-color: #3388e2;
-}
+    .btn-link {
+        color: #000;
+    }
 
-</style>
+    .btn-link:hover {
+        color: #808080; 
+    }
+
+    .inbox-menu li a {
+        color: #000;
+    }
+
+    .inbox-menu li a:hover {
+        color: #808080;
+    }
+
+    .email-header .btn-group .dropdown-menu .dropdown-item {
+        color: #000;
+    }
+
+    .email-header .btn-group .dropdown-menu .dropdown-item:hover {
+        background-color: #808080; 
+    }
+
+    .mail-search input[type="text"] {
+        color: #000;
+    }
+
+    .mail-search input[type="text"]::placeholder {
+        color: #808080;
+    }
+
+    .inbox-menu li {
+        list-style-type: none;
+        padding: 5px 0;
+    }
+
+ 
+    .inbox-menu li:hover {
+        background-color: #f0f0f0;
+        border-radius: 5px;
+    }
+
+   
+    .inbox-menu li a {
+        color: #000;
+        text-decoration: none;
+        display: inline-block;
+        padding-left: 2px;
+        margin-left: 8px;
+    }
+
+  
+    .inbox-menu li a:hover {
+        background-color: #f0f0f0;
+        border-radius: 5px;
+    }
+    </style>
 </head>
 
 <body>
@@ -422,496 +472,201 @@
     </div>
     <!----------/sidebar content--------->
 
-    <!------------Main Body----------->
-    <div class="page-wrapper">
-        <div class="content">
-            <div class="page-header">
-                <div class="add-item d-flex">
-                    <div class="page-title">
-                        <h4>Register New Sale</h4>
-                        <h6>Create new sale Today!</h6>
-                    </div>
-                </div>
 
-                <div class="page-btn-container">
-                    <div class="page-btn import">
-                        <a href="saleslist.html" class="btn btn-added color">
-                            <i class="vue-feather vue-feather--download me-2" data-name="download" data-tags=""
-                                data-type="download">
-                                <svg width="25px" height="25px" viewBox="0 0 512 512" id="Layer_1"
-                                    style="enable-background:new 0 0 512 512;" version="1.1" xml:space="preserve"
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <path fill="#FFFFFF"
-                                        d="M50.2,169.6C97.9,56.3,228.5,3.1,341.8,50.9s166.4,178.3,118.7,291.6S282.2,508.9,168.9,461.1  C86.4,426.4,32.7,345.5,32.7,256C32.7,226.3,38.6,196.9,50.2,169.6z M254.7,448c106,0,192-86,192-192s-86-192-192-192  s-192,86-192,192S148.7,448,254.7,448z M226.7,140.7L111.4,256l115.3,115.3l21.2-21.2L168.7,271h208.2v-30H168.7l79.1-79.1  L226.7,140.7z" />
-                                </svg>
 
-                            </i>Back To Sales Table
-                        </a>
+
+<!--------------------/Main Body------------------>
+<div class="page-wrapper">
+    <div class="content">
+        <div class="page-header">
+            <div class="row">
+                <div class="col">
+                    <div class="add-item d-flex">
+                        <div class="page-title">
+                            <h3 class="page-title">Inbox</h3>
+                            <h6>View your Recent Emails</h6>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <form data-select-id="254" style="margin: 5px;">
-                <div class="card" data-select2-id="253">
-                    <div class="card-body add-product pb-0" data-select2-id="252">
-                        <div class="accordion-card-one accordion" id="accordionExample"
-                            data-select2-id="accordionExample">
-                            <div class="accordion-item" data-select2-id="251">
-                                <div class="accordion-header" id="headingOne">
-                                    <div class="accordion-button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-controls="collapseOne"
-                                        style="background-color: transparent;">
-                                        <div class="addproduct-icon">
-                                            <h5>
-                                                <i class="vue-feather vue-feather--info add-info" data-name="info"
-                                                    data-tags="" data-type="info">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-info vue-feather__content">
-                                                        <circle cx="12" cy="12" r="10"></circle>
-                                                        <line x1="12" y1="16" x2="12" y2="12"></line>
-                                                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                                                    </svg>
-                                                </i>
-                                                <span style="color: rgb(9, 44, 76);">Sale Information</span>
-                                            </h5>
-                                            <a href="javascript:void(0);">
-                                                <i class="vue-feather vue-feather--chevron-down chevron-down-add"
-                                                    data-name="chevron-down" data-tags="expand"
-                                                    data-type="chevron-down">
-                                                </i>
-                                            </a>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-12">
+                <div class="compose-btn"><a href="javascript:void(0);" class="btn btn-primary btn-block w-100"> Compose
+                    </a></div>
+                <ul class="inbox-menu">
+                    <li class="active"><a href="#">
+                        <svg fill="#000000" width="20px" height="20px" viewBox="-2 -5 24 24" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin" class="jam jam-inbox"><path d='M2 5.702V12h16V5.702L15.039 2H4.96L2 5.702zM0 5l4-5h12l4 5v7a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5zm13.874 2a4.002 4.002 0 0 1-7.748 0H2V5h16v2h-4.126zm-2.142 0H8.268a2 2 0 0 0 3.464 0z'/></svg>
+                        Inbox <span class="mail-count">(5)</span>
+                    </a></li>
+                    <li><a href="javascript:void(0);"><i class="far fa-star"></i> Important</a></li>
+                    <li><a href="javascript:void(0);"><i class="far fa-paper-plane"></i> Sent Mail</a></li>
+                    <li><a href="javascript:void(0);"><i class="far fa-trash-alt"></i> Trash</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-9 col-md-12">
+                <div class="card bg-white">
+                    <div class="card-body">
+                        <div class="email-header">
+                            <div class="row">
+                                <div class="col-lg-9 top-action-left col-sm-12">
+                                    <div class="float-left">
+                                        <div class="btn-group dropdown-action me-1"><button type="button"
+                                                class="btn btn-white dropdown-toggle" data-bs-toggle="dropdown">Select
+                                                </button>
+                                            <div class="dropdown-menu"><a class="dropdown-item"
+                                                    href="javascript:void(0);">All</a><a class="dropdown-item"
+                                                    href="javascript:void(0);">None</a>
+                                                <div class="dropdown-divider"></div><a class="dropdown-item"
+                                                    href="javascript:void(0);">Read</a><a class="dropdown-item"
+                                                    href="javascript:void(0);">Unread</a>
+                                            </div>
                                         </div>
+                                        <div class="btn-group dropdown-action me-1"><button type="button"
+                                                class="btn btn-white dropdown-toggle" data-bs-toggle="dropdown">Actions
+                                                </button>
+                                            <div class="dropdown-menu"><a class="dropdown-item"
+                                                    href="javascript:void(0);">Reply</a><a class="dropdown-item"
+                                                    href="javascript:void(0);">Forward</a><a class="dropdown-item"
+                                                    href="javascript:void(0);">Archive</a>
+                                                <div class="dropdown-divider"></div><a class="dropdown-item"
+                                                    href="javascript:void(0);">Mark As Read</a><a class="dropdown-item"
+                                                    href="javascript:void(0);">Mark As Unread</a>
+                                                <div class="dropdown-divider"></div><a class="dropdown-item"
+                                                    href="javascript:void(0);">Delete</a>
+                                            </div>
+                                        </div>
+                                        <div class="btn-group dropdown-action mail-search"><input type="text"
+                                                placeholder="Search Messages" class="form-control search-message"></div>
                                     </div>
                                 </div>
-
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample"
-                                    data-select2-id="collapseOne">
-                                    <div class="accordion-body" data-select2-id="250">
-
-
-                                        <div class="row mb-3">
-                                            <div class="col-lg-2">
-                                                <div class="mb-3 add-product">
-                                                    <label class="form-label" style="color: rgb(9, 44, 76);">Customer
-                                                        Name</label>
-                                                    <input type="text" class="form-control full-width-input"
-                                                        style="border-color: rgb(9, 44, 76); width: 100%;" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-2">
-                                                <div class="mb-3 add-product">
-                                                    <label class="form-label" style="color: rgb(9, 44, 76);">Payment
-                                                        Method</label>
-                                                    <select class="form-control select2-hidden-accessible"
-                                                        id="chooseadd" name=""
-                                                        style="border-color: rgb(9, 44, 76); width: 100%;">
-                                                        <option value="Choose">Choose</option>
-                                                        <option value="Cash">Cash</option>
-                                                        <option value="Bank">Bank</option>
-                                                        <option value="Mobile">Mobile</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!-- Add Product Button -->
-                                        <div class="row" style="margin-left: 0px;">
-                                            <div class="col-lg-6">
-                                                <div style="display: flex; align-items: flex-start;">
-                                                    <a href="product.html" class="btn btn-primary"
-                                                        id="addProductBtn">Add Product</a>
-                                                    <div
-                                                        style="border: 1px solid grey; border-radius: 5px; padding: 6px; display: flex; align-items: center; margin-left: 10px;">
-                                                        <a href="#" id="qrLink"
-                                                            style="text-decoration: none; color: inherit;"
-                                                            data-bs-toggle="modal" data-bs-target="#add-units-category">
-                                                            <span style="margin-right: 8px;">Scan with QR code</span>
-                                                            <svg width="20px" height="20px" viewBox="0 0 24 24"
-                                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <rect x="3" y="3" width="7" height="7" rx="1"
-                                                                    stroke="#000000" stroke-width="2" />
-                                                                <rect x="3" y="14" width="7" height="7" rx="1"
-                                                                    stroke="#000000" stroke-width="2" />
-                                                                <rect x="14" y="3" width="7" height="7" rx="1"
-                                                                    stroke="#000000" stroke-width="2" />
-                                                                <rect x="13" y="13" width="3" height="3" rx="0.5"
-                                                                    fill="#000000" />
-                                                                <rect x="16" y="16" width="3" height="3" rx="0.5"
-                                                                    fill="#000000" />
-                                                                <rect x="19" y="13" width="3" height="3" rx="0.5"
-                                                                    fill="#000000" />
-                                                                <rect x="19" y="19" width="3" height="3" rx="0.5"
-                                                                    fill="#000000" />
-                                                                <rect x="13" y="19" width="3" height="3" rx="0.5"
-                                                                    fill="#000000" />
-                                                            </svg>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <table class="table mt-3">
-                                            <thead>
-                                                <tr>
-                                                    <th>Product ID</th>
-                                                    <th>Product Name</th>
-                                                    <th>Product Category</th>
-                                                    <th>Product Brand</th>
-                                                    <th>Product Qty</th>
-                                                    <th>Price</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="productTableBody">
-                                                <!-- Product rows will be added dynamically here -->
-                                            </tbody>
-                                        </table>
-
-                                        <div class="row mt-3">
-                                            <div class="col-lg-6 ms-auto">
-                                                <div class="total-order w-100 max-widthauto m-auto mb-4">
-                                                    <ul style="list-style: none; padding: 0;">
-                                                        <li
-                                                            style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                                                            <h4
-                                                                style="margin: 0; color: #333;  font-size: 14px; font-weight: bold;">
-                                                                Order Tax</h4>
-                                                            <h5 id="orderTaxValue"
-                                                                style="margin: 0; color: #333; font-size: 14px; font-weight: bold;">
-                                                                Tsh 0.00</h5>
-                                                        </li>
-                                                        <li
-                                                            style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                                                            <h4
-                                                                style="margin: 0; color: #333; font-size: 14px; font-weight: bold;">
-                                                                Discount</h4>
-                                                            <h5 id="discountValue"
-                                                                style="margin: 0; color: #333; font-size: 14px; font-weight: bold;">
-                                                                Tsh 0.00</h5>
-                                                        </li>
-                                                        <li
-                                                            style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                                                            <h4
-                                                                style="margin: 0; color: #333; font-size: 14px; font-weight: bold;">
-                                                                Transport</h4>
-                                                            <h5 id="transportValue"
-                                                                style="margin: 0; color: #333; font-size: 14px; font-weight: bold;">
-                                                                Tsh 0.00</h5>
-                                                        </li>
-                                                        <li style="display: flex; justify-content: space-between;">
-                                                            <h4
-                                                                style="margin: 0; color: #333; font-size: 14px; font-weight: bold;">
-                                                                Grand Total</h4>
-                                                            <h5 id="grandTotalValue"
-                                                                style="margin: 0; color: #333; font-size: 14px; font-weight: bold;">
-                                                                Tsh 0.00</h5>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="col-lg-3 top-action-right col-sm-12">
+                                    <div class="text-end"><button type="button" title="Refresh" data-toggle="tooltip"
+                                            class="btn btn-white d-none d-md-inline-block me-1"><i
+                                                class="fas fa-sync-alt"></i></button>
+                                        <div class="btn-group"><a class="btn btn-white"><i
+                                                    class="fas fa-angle-left"></i></a><a class="btn btn-white"><i
+                                                    class="fas fa-angle-right"></i></a></div>
                                     </div>
+                                    <div class="text-end"><span class="text-muted d-none d-md-inline-block">Showing 10
+                                            of 112 </span></div>
                                 </div>
                             </div>
                         </div>
-                        <br>
-                    </div>
-                    <div class="page-btn-container d-flex justify-content-end mb-3" style="margin-top: 3px; margin-right: 10px;">
-                        <button type="button" class="btn btn-success custom-save-btn mx-1" id="saveButton" style="width: 100px;">Save</button>
-                        <button type="button" class="btn btn-danger mx-1" id="cancelButton" style="width: 100px;">Cancel</button>
-                    </div>
-                </div>
-            </form>
-
-            <!-- Modal -->
-            <div class="modal fade" id="add-units-category" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static"
-                data-bs-keyboard="false">
-                <div class="modal-dialog modal-dialog-centered custom-modal-two" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header border-0 custom-modal-header">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div id="cameraView" style="max-width: 100%; max-height: 100%; overflow: hidden;">
-                                <!-- This is where the camera view or QR code scanning output will be displayed -->
+                        <div class="email-content">
+                            <div class="table-responsive">
+                                <table class="table table-inbox table-hover">
+                                    <tbody>
+                                        <tr class="unread clickable-row">
+                                            <td><label class="checkboxs"><input type="checkbox"><span
+                                                        class="checkmarks"></span></label></td>
+                                            <td><span class="mail-important"><i class="fas fa-star starred"></i></span>
+                                            </td>
+                                            <td class="name">John Doe</td>
+                                            <td class="subject">Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                                            </td>
+                                            <td><i class="fas fa-paperclip"></i></td>
+                                            <td class="mail-date">13:14</td>
+                                        </tr>
+                                        <tr class="unread clickable-row">
+                                            <td><label class="checkboxs"><input type="checkbox"><span
+                                                        class="checkmarks"></span></label></td>
+                                            <td><span class="mail-important"><i class="far fa-star"></i></span></td>
+                                            <td class="name">Envato Account</td>
+                                            <td class="subject">Important account security update from Envato</td>
+                                            <td></td>
+                                            <td class="mail-date">8:42</td>
+                                        </tr>
+                                        <tr class="clickable-row">
+                                            <td><label class="checkboxs"><input type="checkbox"><span
+                                                        class="checkmarks"></span></label></td>
+                                            <td><span class="mail-important"><i class="far fa-star"></i></span></td>
+                                            <td class="name">Twitter</td>
+                                            <td class="subject">HRMS Bootstrap Admin Template</td>
+                                            <td></td>
+                                            <td class="mail-date">30 Nov</td>
+                                        </tr>
+                                        <tr class="unread clickable-row">
+                                            <td><label class="checkboxs"><input type="checkbox"><span
+                                                        class="checkmarks"></span></label></td>
+                                            <td><span class="mail-important"><i class="far fa-star"></i></span></td>
+                                            <td class="name">Richard Parker</td>
+                                            <td class="subject">Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                                            </td>
+                                            <td></td>
+                                            <td class="mail-date">18 Sep</td>
+                                        </tr>
+                                        <tr class="clickable-row">
+                                            <td><label class="checkboxs"><input type="checkbox"><span
+                                                        class="checkmarks"></span></label></td>
+                                            <td><span class="mail-important"><i class="far fa-star"></i></span></td>
+                                            <td class="name">John Smith</td>
+                                            <td class="subject">Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                                            </td>
+                                            <td></td>
+                                            <td class="mail-date">21 Aug</td>
+                                        </tr>
+                                        <tr class="clickable-row">
+                                            <td><label class="checkboxs"><input type="checkbox"><span
+                                                        class="checkmarks"></span></label></td>
+                                            <td><span class="mail-important"><i class="far fa-star"></i></span></td>
+                                            <td class="name">me, Robert Smith (3)</td>
+                                            <td class="subject">Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                                            </td>
+                                            <td></td>
+                                            <td class="mail-date">1 Aug</td>
+                                        </tr>
+                                        <tr class="unread clickable-row">
+                                            <td><label class="checkboxs"><input type="checkbox"><span
+                                                        class="checkmarks"></span></label></td>
+                                            <td><span class="mail-important"><i class="far fa-star"></i></span></td>
+                                            <td class="name">Codecanyon</td>
+                                            <td class="subject">Welcome To Codecanyon</td>
+                                            <td></td>
+                                            <td class="mail-date">Jul 13</td>
+                                        </tr>
+                                        <tr class="clickable-row">
+                                            <td><label class="checkboxs"><input type="checkbox"><span
+                                                        class="checkmarks"></span></label></td>
+                                            <td><span class="mail-important"><i class="far fa-star"></i></span></td>
+                                            <td class="name">Richard Miles</td>
+                                            <td class="subject">Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                                            </td>
+                                            <td><i class="fas fa-paperclip"></i></td>
+                                            <td class="mail-date">May 14</td>
+                                        </tr>
+                                        <tr class="unread clickable-row">
+                                            <td><label class="checkboxs"><input type="checkbox"><span
+                                                        class="checkmarks"></span></label></td>
+                                            <td><span class="mail-important"><i class="far fa-star"></i></span></td>
+                                            <td class="name">John Smith</td>
+                                            <td class="subject">Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                                            </td>
+                                            <td></td>
+                                            <td class="mail-date">11/11/16</td>
+                                        </tr>
+                                        <tr class="clickable-row">
+                                            <td><label class="checkboxs"><input type="checkbox"><span
+                                                        class="checkmarks"></span></label></td>
+                                            <td><span class="mail-important"><i class="far fa-star starred"></i></span>
+                                            </td>
+                                            <td class="name">Mike Litorus</td>
+                                            <td class="subject">Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                                            </td>
+                                            <td></td>
+                                            <td class="mail-date">10/31/16</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                        </div>
-                        <div class="modal-footer-btn">
-                            <button type="button" class="btn btn-cancel me-2" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-submit" onclick="enableCamera()">Enable Camera</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /Modal -->
-
-            <!-- Payment Method Modal -->
-            <div class="modal fade" id="paymentMethodModal" tabindex="-1" role="dialog" aria-labelledby="paymentMethodModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="paymentMethodModalLabel">Select Payment Method</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <label class="payment-option-label">
-                                    <input type="radio" name="paymentMethod" value="Option 1" class="payment-option-input">
-                                    <img src="../img/air.png" alt="Mobile Money Option 1" class="img-fluid payment-option-img">
-                                </label>
-                                <label class="payment-option-label">
-                                    <input type="radio" name="paymentMethod" value="Option 2" class="payment-option-input">
-                                    <img src="../img/mpesa.jpeg" alt="Mobile Money Option 2" class="img-fluid payment-option-img">
-                                </label>
-                                <label class="payment-option-label">
-                                    <input type="radio" name="paymentMethod" value="Option 3" class="payment-option-input">
-                                    <img src="../img/tigopesa.png" alt="Mobile Money Option 3" class="img-fluid payment-option-img">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary" id="continueButton">Continue</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!---------QRcode modal---------->
-            <div class="modal fade" id="qrCodeModal" tabindex="-1" role="dialog" aria-labelledby="qrCodeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="qrCodeModalLabel">QR Code</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="text-center">
-                                <svg width="200px" height="200px" viewBox="-10 -5 1034 1034" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-                                    <path fill="#000000" d="M100 226v54v320h373v-374h-373zM527 226v54v320h373v-374h-373zM153 280h54h213v266h-267v-266zM580 280h53h214v266h-267v-266zM207 333v53v107h160v-160h-160zM633 333v53v107h160v-160h-160zM100 653v53v320h373v-373h-373zM687 653v53v54h106v-54h-53v-53h-53z M687 760h-54h-106v106h53v54h-53v53h53v53h107v-160h-54v-53h54v-53zM153 706h54h213v267h-267v-267zM207 760v53v107h160v-160h-160zM847 760v53h-54v160h-53v53h107v-53h53v-213h-53z" />
-                                </svg>
-                            </div>
-                            <div class="mt-3">
-                                <p><strong>Code number:</strong> 124578</p>
-                                <p><strong>Agent name:</strong> Malagalo Hussein</p>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-    // Get the save button
-    var saveButton = document.getElementById('saveButton');
-
-    // Add click event listener to the save button
-    saveButton.addEventListener('click', function (event) {
-        // Prevent the default action of the button
-        event.preventDefault();
-        
-        // Show the payment method modal
-        $('#paymentMethodModal').modal('show');
-    });
-
-    // Handle Continue button click
-    var continueButton = document.getElementById('continueButton');
-    if (continueButton) {
-        continueButton.addEventListener('click', function() {
-            // Hide payment method modal
-            $('#paymentMethodModal').modal('hide');
-
-            // Show QR code modal
-            $('#qrCodeModal').modal('show');
-
-            // Get the selected payment method
-            var selectedPaymentMethod = $('input[name="paymentMethod"]:checked').val();
-
-            // Update QR code modal content based on the selected payment method
-            if (selectedPaymentMethod === 'Option 1') {
-                // Example: Update QR code image, code number, and agent name for Option 1
-                $('#qrCodeImage').attr('src', '../img/qr_code_option1.png');
-                $('#qrCodeNumber').text('Code number: 124578');
-                $('#agentName').text('Agent name: Malagalo Hussein');
-            } else if (selectedPaymentMethod === 'Option 2') {
-                // Example: Update QR code image, code number, and agent name for Option 2
-                $('#qrCodeImage').attr('src', '../img/qr_code_option2.png');
-                $('#qrCodeNumber').text('Code number: 987654');
-                $('#agentName').text('Agent name: John Doe');
-            } else if (selectedPaymentMethod === 'Option 3') {
-                // Example: Update QR code image, code number, and agent name for Option 3
-                $('#qrCodeImage').attr('src', '../img/qr_code_option3.png');
-                $('#qrCodeNumber').text('Code number: 456789');
-                $('#agentName').text('Agent name: Jane Smith');
-            }
-        });
-    }
-});
-
-    </script>
-    
-
-    <script>
-        var stream; // Variable to store the media stream
-        var cameraEnabled = false; // Variable to track if the camera is enabled
-
-        function toggleCamera() {
-            if (cameraEnabled) {
-                disableCamera();
-            } else {
-                enableCamera();
-            }
-        }
-
-        function enableCamera() {
-            if (!cameraEnabled) {
-                // Get access to the camera
-                navigator.mediaDevices.getUserMedia({ video: true })
-                    .then(function (s) {
-                        stream = s; // Store the media stream
-                        // Display the camera stream in the cameraView div
-                        var video = document.createElement('video');
-                        video.srcObject = stream;
-                        video.autoplay = true;
-                        document.getElementById('cameraView').appendChild(video);
-                        cameraEnabled = true;
-                    })
-                    .catch(function (err) {
-                        console.log('Error accessing camera: ', err);
-                    });
-            }
-        }
-
-        function disableCamera() {
-            if (cameraEnabled) {
-                // Stop the media stream if it exists
-                if (stream) {
-                    var tracks = stream.getTracks();
-                    tracks.forEach(function (track) {
-                        track.stop();
-                    });
-                    // Clear the cameraView div
-                    document.getElementById('cameraView').innerHTML = '';
-                    cameraEnabled = false;
-                }
-            }
-        }
-
-        // Use modal events to trigger the disableCamera function when the modal is closed
-        var myModal = document.getElementById('add-units-category');
-        myModal.addEventListener('hidden.bs.modal', function () {
-            disableCamera();
-        });
-    </script>
-
-
-
-
-    <script>
-        // Step 1: Add two random product items to the table
-        function addRandomProduct() {
-            // Generate random product data (replace this with your actual data)
-            var productId1 = "PROD001";
-            var productName1 = "Product 1";
-            var productCategory1 = "Category 1";
-            var productBrand1 = "Brand 1";
-            var productQty1 = 1;
-            var price1 = 50;
-
-            var productId2 = "PROD002";
-            var productName2 = "Product 2";
-            var productCategory2 = "Category 2";
-            var productBrand2 = "Brand 2";
-            var productQty2 = 1;
-            var price2 = 75;
-
-            // Add product rows to the table
-            var productTableBody = document.getElementById("productTableBody");
-
-            // Product 1
-            var productRow1 = "<tr>" +
-                "<td>" + productId1 + "</td>" +
-                "<td>" + productName1 + "</td>" +
-                "<td>" + productCategory1 + "</td>" +
-                "<td>" + productBrand1 + "</td>" +
-                "<td>" + productQty1 + "</td>" +
-                "<td>" + price1 + "</td>" +
-                "<td><a class='confirm-text p-2' href='/delete'>" +
-                "<i class='vue-feather vue-feather--trash-2 feather-trash-2' " +
-                "data-name='trash-2' data-tags='garbage,delete,remove,bin' data-type='trash-2'>" +
-                "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'" +
-                "stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'" +
-                "class='feather feather-trash-2 vue-feather__content'>" +
-                "<polyline points='3 6 5 6 21 6'></polyline>" +
-                "<path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path>" +
-                "<line x1='10' y1='11' x2='10' y2='17'></line>" +
-                "<line x1='14' y1='11' x2='14' y2='17'></line>" +
-                "</svg>" +
-                "</i>" +
-                "</a></td>" +
-                "</tr>";
-            productTableBody.innerHTML += productRow1;
-
-            // Product 2
-            var productRow2 = "<tr>" +
-                "<td>" + productId2 + "</td>" +
-                "<td>" + productName2 + "</td>" +
-                "<td>" + productCategory2 + "</td>" +
-                "<td>" + productBrand2 + "</td>" +
-                "<td>" + productQty2 + "</td>" +
-                "<td>" + price2 + "</td>" +
-                "<td><a class='confirm-text p-2' href='/delete'>" +
-                "<i class='vue-feather vue-feather--trash-2 feather-trash-2' " +
-                "data-name='trash-2' data-tags='garbage,delete,remove,bin' data-type='trash-2'>" +
-                "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'" +
-                "stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'" +
-                "class='feather feather-trash-2 vue-feather__content'>" +
-                "<polyline points='3 6 5 6 21 6'></polyline>" +
-                "<path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path>" +
-                "<line x1='10' y1='11' x2='10' y2='17'></line>" +
-                "<line x1='14' y1='11' x2='14' y2='17'></line>" +
-                "</svg>" +
-                "</i>" +
-                "</a></td>" +
-                "</tr>";
-            productTableBody.innerHTML += productRow2;
-
-            // Step 2: Calculate the total price of the products
-            var totalPrice = price1 + price2;
-
-            // Step 3: Perform calculations based on order tax, transport, and total
-            var orderTax = 0.1 * totalPrice; // Assuming order tax is 10%
-            var transport = 25; // Assuming transport cost is fixed at 25 Tsh
-            var grandTotal = totalPrice + orderTax + transport;
-
-            // Update the displayed values
-            document.getElementById("orderTaxValue").innerText = "Tsh " + orderTax.toFixed(2);
-            document.getElementById("transportValue").innerText = "Tsh " + transport.toFixed(2);
-            document.getElementById("grandTotalValue").innerText = "Tsh " + grandTotal.toFixed(2);
-
-            // Set discount value ID
-            document.getElementById("discountValue").innerText = "Tsh 0.00";
-        }
-
-        // Call the function to add random product items
-        addRandomProduct();
-
-    </script>
-
+<!--------------------/Main Body------------------>
 </body>
-
 </html>
