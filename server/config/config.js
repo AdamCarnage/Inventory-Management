@@ -4,6 +4,10 @@ module.exports = {
   jwtSecret: '!!CryptoCat@!!',
   jwtExpirationInSeconds: 60 * 60, // 1 hour   
 
+  productPriceUnits: {
+    Tanzaniashillings: 'tsh'
+  },
+
   'development': {
     'username': process.env.DB_USER,
     'password': process.env.DB_PASS,

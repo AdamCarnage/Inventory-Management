@@ -17,7 +17,8 @@ const AuthorizationRoutes = require("./authorization/routes/routes");
 
 // Sequelize model imports
 const UserModel = require("./common/Models/User");
-// const ProductModel = require("./common/models/Product");
+const ProductModel = require("./common/Models/Product");
+const CategoryModel = require("./common/Models/Category");
 
 app.use(morgan("tiny"));
 app.use(cors());
@@ -28,9 +29,15 @@ app.use(Express.json());
 
 const sequelize = new Sequelize(config.database, config.username, config.password, config)
 
+
+// Define associations
+ProductModel.belongsTo(CategoryModel, { foreignKey: 'categoryId' });
+CategoryModel.hasMany(ProductModel, { foreignKey: 'categoryId' });
+
 // Initialising the Model on sequelize
 UserModel.initialise(sequelize);
-// ProductModel.initialise(sequelize);
+ProductModel.initialise(sequelize);
+CategoryModel.initialise(sequelize);
 
 // Syncing the models that are defined on sequelize with the tables that alredy exists
 // in the database. It creates models as tables that do not exist in the DB.
