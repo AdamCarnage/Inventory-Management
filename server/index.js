@@ -1,60 +1,38 @@
-const Express = require('express');
-const app = Express();
-const morgan = require('morgan');
-const cors = require('cors');
-const {Sequelize} = require('sequelize');
-var env = process.env.NODE_ENV || 'development';
-const {port} = require('./config/config');
-const config = require('./config/config')[env];
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
-const PORT = process.env.PORT || port;
+const dbConfig = require('./config/database');
 
+const app = express();
+
+/* configure body-parser */
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // Express Routes Import
-const AuthorizationRoutes = require("./authorization/routes/routes");
-// const UserRoutes = require("./users/routes");
-// const ProductRoutes = require("./products/routes");
+const authroute = require("./authentication/routes");
+const productroute = require("./products/routes");
+const storeroute = require("./stores/routes");
 
-// Sequelize model imports
-const UserModel = require("./common/Models/User");
-const ProductModel = require("./common/Models/Product");
-const CategoryModel = require("./common/Models/Category");
-
-app.use(morgan("tiny"));
-app.use(cors());
-
-// Middleware that parses the body payloads as JSON to be consumed next set
-// of middlewares and controllers.
-app.use(Express.json());
-
-const sequelize = new Sequelize(config.database, config.username, config.password, config)
+app.use('/api', authroute)
+app.use('/api/products', productroute)
+app.use('/api/stores', storeroute)
 
 
-// Define associations
-ProductModel.belongsTo(CategoryModel, { foreignKey: 'categoryId' });
-CategoryModel.hasMany(ProductModel, { foreignKey: 'categoryId' });
+/* connecting to the database */
+mongoose.connect(dbConfig.url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})                      
+.then(() => {
+    console.log("Successfully connected to the database");
+}).catch(err => {
+    console.log('Could not connect to the database. Exiting now...', err);
+    process.exit();
+});
 
-// Initialising the Model on sequelize
-UserModel.initialise(sequelize);
-ProductModel.initialise(sequelize);
-CategoryModel.initialise(sequelize);
-
-// Syncing the models that are defined on sequelize with the tables that alredy exists
-// in the database. It creates models as tables that do not exist in the DB.
-sequelize
-  .sync()
-  .then(() => {
-    console.log("Sequelize Initialised!!");
-
-    // Attaching the Authentication and User Routes to the app.
-    app.use("/", AuthorizationRoutes);
-    // app.use("/user", UserRoutes);
-    // app.use("/product", ProductRoutes);
-
-    app.listen(PORT, () => {
-      console.log("Server Listening on PORT:", port);
-    });
-  })
-  .catch((err) => {
-    console.error("Sequelize Initialisation threw an error:", err);
-  });
+/* listen for requests */
+app.listen(3000, () => {
+    console.log("Server is listening on port 3000");
+});
