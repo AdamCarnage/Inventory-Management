@@ -1,24 +1,40 @@
-const Store = require('../../stores/models/Store');
+const jwt = require('jsonwebtoken');
+const token_config = require('../../config/token');
 
+const Store = require('../../stores/models/Store');
 
 const StoreController = {
     async create_store(req, res) {
+        const token = req.headers.authorization.split(" ")[1];
+         // Decode token to obtain user ID
+         const decodedToken = jwt.verify(token, token_config.token.jwt_secret);
+         const userId = decodedToken.userId;
+
         const newStore = new Store({
             name: req.body.name,
             address: req.body.address,
             street: req.body.street,
             city: req.body.city,
             country: req.body.country,
-            user: req.body.user
+            user: userId
         });
         try {
-            const store = await newStore.save();
-            res.status(201).json({
-                type: "success",
-                message: "Store created successfully",
-                store
-            });
-        } catch (error) {
+            const existingStore = await Store.findOne({ name: newStore.name, street:newStore.street})
+            if (existingStore) {
+                res.status(400).json({
+                    type: "error",
+                    message: "Store with this name in this street  already exists"
+                });
+            } else {
+                const store = await newStore.save();
+                res.status(201).json({
+                    type: "success",
+                    message: "Store created successfully",
+                    store
+                });
+            }
+        } 
+        catch (error) {
             res.status(400).json({
                 type: "error",
                 message: "Something went wrong please try again",
@@ -29,7 +45,11 @@ const StoreController = {
 
     async get_stores(req, res) {
         try {
-            const stores = await Store.find({userid: req.user._id}); 
+            const token = req.headers.authorization.split(" ")[1];
+            const decodedToken = jwt.verify(token, token_config.token.jwt_secret);
+            userId = decodedToken.userId;
+
+            const stores = await Store.find({ user: { $in: [userId] } });
             res.status(200).json({
                 type: "success",
                 stores
