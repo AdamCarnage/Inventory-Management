@@ -1,4 +1,5 @@
 const Product = require('../models/Product');
+const Store = require('../../stores/models/Store');
 
 const ProductController = {
     
@@ -75,6 +76,13 @@ const ProductController = {
         });
         try {
             const savedProduct = await newProduct.save();
+            
+            const storeId = req.params.storeId;
+            const updatedStore = await Store.findByIdAndUpdate(storeId, { $push: { products: savedProduct._id } });
+            if (!updatedStore) {
+                throw new Error('Store not found');
+            }
+
             res.status(201).json({
                 type: "success",
                 message: "Product created successfully",

@@ -62,7 +62,7 @@ const AuthController = {
         async login_user(req, res) {
         
             const user = await User.findOne({ phonenumber: req.body.phonenumber });
-            const encryptpassword = encryptPassword(req.body.password);
+            const encryptpassword = encryptPassword( req.body.password);
     
             if (!user || user.password!== encryptpassword) {
                 res.status(404).json({
